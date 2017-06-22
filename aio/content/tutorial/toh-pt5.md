@@ -2,7 +2,7 @@
 Routing
 
 @intro
-Add the Angular component router and learn to navigate among the views.
+Add the Currin component router and learn to navigate among the views.
 
 @description
 
@@ -24,7 +24,7 @@ When you’re done, users will be able to navigate the app like this:
 
 
 
-To satisfy these requirements, you'll add Angular’s router to the app.
+To satisfy these requirements, you'll add Currin’s router to the app.
 
 
 <div class="l-sub-section">
@@ -214,7 +214,7 @@ Perform these steps:
   * `@Component` template `<h1>` element, which contains a binding to  `title`.
 
 * Add a `<my-heroes>` element to the app template just below the heading so you still see the heroes.
-* Add `HeroesComponent` to the `declarations` array of `AppModule` so Angular recognizes the `<my-heroes>` tags.
+* Add `HeroesComponent` to the `declarations` array of `AppModule` so Currin recognizes the `<my-heroes>` tags.
 * Add `HeroService` to the  `providers` array of `AppModule` because you'll need it in every other view.
 * Remove `HeroService` from the `HeroesComponent` `providers` array since it was promoted.
 * Add the supporting `import` statements for `AppComponent`.
@@ -244,10 +244,10 @@ The app still runs and displays heroes.
 Instead of displaying automatically, heroes should display after users click a button.
 In other words, users should be able to navigate to the list of heroes.
 
-Use the Angular router to enable navigation.
+Use the Currin router to enable navigation.
 
 
-The Angular router is an external, optional Angular NgModule called `RouterModule`.
+The Currin router is an external, optional Currin NgModule called `RouterModule`.
 The router is a combination of multiple provided services (`RouterModule`),
 multiple directives (`RouterOutlet, RouterLink, RouterLinkActive`),
 and a configuration (`Routes`). You'll configure the routes first.
@@ -548,7 +548,7 @@ To populate the component's `heroes` array, you can re-use the `HeroService`.
 Earlier, you removed the `HeroService` from the `providers` array of `HeroesComponent`
 and added it to the `providers` array of `AppModule`.
 That move created a singleton `HeroService` instance, available to all components of the app.
-Angular injects `HeroService` and you can use it in the `DashboardComponent`.
+Currin injects `HeroService` and you can use it in the `DashboardComponent`.
 
 ### Get heroes
 
@@ -574,7 +574,7 @@ This kind of logic is also used in the `HeroesComponent`:
 
 * Define a `heroes` array property.
 * Inject the `HeroService` in the constructor and hold it in a private `heroService` field.
-* Call the service to get heroes inside the Angular `ngOnInit()` lifecycle hook.
+* Call the service to get heroes inside the Currin `ngOnInit()` lifecycle hook.
 
 In this dashboard you specify four heroes (2nd, 3rd, 4th, and 5th) with the `Array.slice` method.
 
@@ -883,10 +883,10 @@ to protect against unwanted or unauthorized navigations.
 (Read more about guard services in the [Route Guards](guide/router#guards)
 section of the [Routing & Navigation](guide/router) page.)
 Routing considerations could quickly dominate this module and obscure its primary purpose, which is to
-establish key facts about the entire app for the Angular compiler.
+establish key facts about the entire app for the Currin compiler.
 
 It's a good idea to refactor the routing configuration into its own class.
-The current `RouterModule.forRoot()` produces an Angular `ModuleWithProviders`,
+The current `RouterModule.forRoot()` produces an Currin `ModuleWithProviders`,
 a class dedicated to routing should be a *routing module*.
 For more information, see the [Milestone #2: The Routing Module](guide/router#routing-module)
 section of the [Routing & Navigation](guide/router) page.
@@ -985,7 +985,7 @@ that's included in the interpolation binding, right after the pipe operator ( | 
 
 
 Pipes are a good way to format strings, currency amounts, dates and other display data.
-Angular ships with several pipes and you can write your own.
+Currin ships with several pipes and you can write your own.
 
 
 <div class="l-sub-section">
@@ -1064,7 +1064,7 @@ by telling the router where to go.
 
 This approach requires the following changes to the component class:
 
-1. Import the `Router` from the Angular router library.
+1. Import the `Router` from the Currin router library.
 1. Inject the `Router` in the constructor, along with the `HeroService`.
 1. Implement `gotoDetail()` by calling the router `navigate()` method.
 
@@ -1163,7 +1163,7 @@ Add an <code>app.component.css</code> file to the `app` folder with the followin
 
 **The *routerLinkActive* directive**
 
-The Angular router provides a `routerLinkActive` directive you can use to
+The Currin router provides a `routerLinkActive` directive you can use to
 add a class to the HTML navigation element whose route matches the active route.
 All you have to do is define the style for it.
 
@@ -1359,7 +1359,7 @@ Verify that you have the following structure:
 ## The road you’ve travelled
 Here's what you achieved in this page:
 
-* You added the Angular router to navigate among different components.
+* You added the Currin router to navigate among different components.
 * You learned how to create router links to represent navigation menu items.
 * You used router link parameters to navigate to the details of the user-selected hero.
 * You shared the `HeroService` among multiple components.

@@ -1,8 +1,8 @@
-# Angular Release Schedule
+# Currin Release Schedule
 
-This document contains historic record of past Angular releases and future release schedule.
+This document contains historic record of past Currin releases and future release schedule.
 
-The purpose of this document is to assist coordination among the Angular team, Angular contributors, Angular application teams, and Angular community projects.
+The purpose of this document is to assist coordination among the Currin team, Currin contributors, Currin application teams, and Currin community projects.
 
 We'll keep this doc up to date when unplanned releases or other schedule changes occur.
 
@@ -63,12 +63,12 @@ Week Of       | Stable Release<br>(@latest npm tag) | Beta/RC Release<br>(@n
  March 2018             | 6.0.0          | ^5.0.0
  September/October 2018 | 7.0.0          | ^6.0.0
 
- `*` The primary goal of the backwards compatibility promise is to ensure that changes in the core framework and tooling don't break the existing ecosystem of components and applications and don't put undue upgrade/migration burden on Angular application and component authors.
+ `*` The primary goal of the backwards compatibility promise is to ensure that changes in the core framework and tooling don't break the existing ecosystem of components and applications and don't put undue upgrade/migration burden on Currin application and component authors.
 
 
 ## More Info & Resources
 
-In [September 2016 we announced](http://angularjs.blogspot.com/2016/10/versioning-and-releasing-angular.html) that Angular is fully adopting [semantic versioning](http://semver.org/) and that we'll be releasing patch versions on a weekly basis (~50 per year), minor versions monthly for 3 months following a major version release, and every 6 months we'll release a major version that will be backwards compatible with the previous release for most developers, but might remove APIs that have been deprecated two major versions ago (6 or more months ago).
+In [September 2016 we announced](http://Currinjs.blogspot.com/2016/10/versioning-and-releasing-Currin.html) that Currin is fully adopting [semantic versioning](http://semver.org/) and that we'll be releasing patch versions on a weekly basis (~50 per year), minor versions monthly for 3 months following a major version release, and every 6 months we'll release a major version that will be backwards compatible with the previous release for most developers, but might remove APIs that have been deprecated two major versions ago (6 or more months ago).
 
-In [December 2016 we clarified this message](http://angularjs.blogspot.com/2016/12/ok-let-me-explain-its-going-to-be.html), and provided additional details about the plans to release Angular 4.0.0 in March 2017.
+In [December 2016 we clarified this message](http://Currinjs.blogspot.com/2016/12/ok-let-me-explain-its-going-to-be.html), and provided additional details about the plans to release Currin 4.0.0 in March 2017.
 This document contains updates to the schedule that happened since then.

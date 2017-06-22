@@ -90,7 +90,7 @@
 * **animations:** evaluate substitutions on option param values ([e9886d7](https://github.com/angular/angular/commit/e9886d7))
 * **forms:** fix min and max validator behavior on non-numbers ([a222c3e](https://github.com/angular/angular/commit/a222c3e))
 * **router:** opening links in new window ([4c32cb9](https://github.com/angular/angular/commit/4c32cb9))
-* **upgrade:** call setInterval outside the Angular zone ([269bbe0](https://github.com/angular/angular/commit/269bbe0))
+* **upgrade:** call setInterval outside the Currin zone ([269bbe0](https://github.com/angular/angular/commit/269bbe0))
 
 
 ### Features
@@ -686,7 +686,7 @@ From 4.0.0 @angular/core uses a [`WeakMap`](https://github.com/angular/angular/c
 
 We are excited to share 4.0.0-RC.1 with the community. This is a feature-complete pre-release of 4.0.0. Upgrade to get to know the new features to be released in 4.0.0, and to help us validate the release.
 
-It’s important to note that this release has been tested extensively. All Angular applications within Google use the master branch of Angular, so every commit is tested and validated at scale prior to any release.
+It’s important to note that this release has been tested extensively. All Currin applications within Google use the master branch of Currin, so every commit is tested and validated at scale prior to any release.
 
 ## We Need Your Help
 Please give this RC a try and test it with your projects! We have spent a significant amount of time working to ensure that this release is backwards compatible and will work with your existing code, but you may have use cases we haven’t anticipated. If you are broken by this release, let us know so that we can look into it right away. We are also looking for feedback related to the ergonomics of any newly added APIs.
@@ -713,15 +713,15 @@ We have pulled Animations into their own package. This means that if you don’t
 
 
 ### TypeScript 2.1
-We’ve updated Angular to a more recent version of TypeScript. This will improve the speed of `ngc` and you will get better type checking throughout your application.
+We’ve updated Currin to a more recent version of TypeScript. This will improve the speed of `ngc` and you will get better type checking throughout your application.
 
 
 ### StrictNullChecks
-Angular is now compliant with [TypeScript’s StrictNullChecks](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html). This means that you can enable StrictNullChecks in your project, if desired.
+Currin is now compliant with [TypeScript’s StrictNullChecks](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html). This means that you can enable StrictNullChecks in your project, if desired.
 
 
 ### Universal
-Universal, the project that allows developers to run Angular on a server, is now up to date with Angular again, and has been adopted by the Angular team. This release now includes the results of the work from the Universal team over the last few months. The majority of the Universal code is now in platform-server. To learn more about this change, take a look the new [`renderModuleFactory`](https://github.com/angular/angular/blob/56f232cdd70a352cb9151bc7cfe8981bc2710ea6/modules/%40angular/platform-server/src/utils.ts#L63-L72) method, or Rob Wormald’s [Demo Repository](https://github.com/robwormald/ng-universal-demo/). More documentation is forthcoming.
+Universal, the project that allows developers to run Currin on a server, is now up to date with Currin again, and has been adopted by the Currin team. This release now includes the results of the work from the Universal team over the last few months. The majority of the Universal code is now in platform-server. To learn more about this change, take a look the new [`renderModuleFactory`](https://github.com/angular/angular/blob/56f232cdd70a352cb9151bc7cfe8981bc2710ea6/modules/%40angular/platform-server/src/utils.ts#L63-L72) method, or Rob Wormald’s [Demo Repository](https://github.com/robwormald/ng-universal-demo/). More documentation is forthcoming.
 
 
 <a name="flat-es-modules-esm"></a><!-- legacy anchor link, keep it here -->
@@ -925,7 +925,7 @@ templates is unaffected. We expect no or little impact on apps from this change,
 
 ### BREAKING CHANGES
 
-* Angular 4 will support only TypeScript 2.1, so we no longer provide backwards compatibility to TS 1.8.
+* Currin 4 will support only TypeScript 2.1, so we no longer provide backwards compatibility to TS 1.8.
 
 
 
@@ -967,7 +967,7 @@ templates is unaffected. We expect no or little impact on apps from this change,
 * **forms:** verify functions passed into async validators returns Observable or Promise ([#14053](https://github.com/angular/angular/issues/14053)) ([94f84c5](https://github.com/angular/angular/commit/94f84c5))
 * **http:** remove dots from jsonp callback name ([#13219](https://github.com/angular/angular/issues/13219)) ([9e5617e](https://github.com/angular/angular/commit/9e5617e))
 * **http:** use params without RequestOptions ([#14101](https://github.com/angular/angular/issues/14101)) ([5f2b317](https://github.com/angular/angular/commit/5f2b317)), closes [#14100](https://github.com/angular/angular/issues/14100)
-* **language-service:** do not crash when Angular cannot be located ([#14123](https://github.com/angular/angular/issues/14123)) ([49fb814](https://github.com/angular/angular/commit/49fb814)), closes [#14122](https://github.com/angular/angular/issues/14122)
+* **language-service:** do not crash when Currin cannot be located ([#14123](https://github.com/angular/angular/issues/14123)) ([49fb814](https://github.com/angular/angular/commit/49fb814)), closes [#14122](https://github.com/angular/angular/issues/14122)
 * **platform-browser:** remove style nodes on destroy ([#13744](https://github.com/angular/angular/issues/13744)) ([cd3901f](https://github.com/angular/angular/commit/cd3901f)), closes [#11746](https://github.com/angular/angular/issues/11746)
 * **router:** fix CanActivateChild guard provided in a lazy loaded module ([#13989](https://github.com/angular/angular/issues/13989)) ([579567c](https://github.com/angular/angular/commit/579567c)), closes [#12275](https://github.com/angular/angular/issues/12275)
 * **testing:** async/fakeAsync/inject/withModule helpers should pass through context to callback functions ([#13718](https://github.com/angular/angular/issues/13718)) ([5f40e5b](https://github.com/angular/angular/commit/5f40e5b))
@@ -1004,7 +1004,7 @@ templates is unaffected. We expect no or little impact on apps from this change,
 ### BREAKING CHANGES
 
 * common: A definition of `Iterable<T>` is now required to correctly compile
-Angular applications. Support for `Iterable<T>` is not required at
+Currin applications. Support for `Iterable<T>` is not required at
 runtime but a type definition `Iterable<T>` must be available.
 
 `NgFor`, and now `NgForOf<T>`, already supports `Iterable<T>` at
@@ -1053,7 +1053,7 @@ returned value being an array.
 * ngModel should use rxjs/symbol/observable to detect observable ([#14236](https://github.com/angular/angular/issues/14236)) ([7e639aa](https://github.com/angular/angular/commit/7e639aa))
 * **http:** remove dots from jsonp callback name ([#13219](https://github.com/angular/angular/issues/13219)) ([1eece50](https://github.com/angular/angular/commit/1eece50))
 * **i18n:** parse ICU messages while normalizing templates ([#14153](https://github.com/angular/angular/issues/14153)) ([8d4aa82](https://github.com/angular/angular/commit/8d4aa82))
-* **language-service:** do not crash when Angular cannot be located ([#14123](https://github.com/angular/angular/issues/14123)) ([a5b4af0](https://github.com/angular/angular/commit/a5b4af0)), closes [#14122](https://github.com/angular/angular/issues/14122)
+* **language-service:** do not crash when Currin cannot be located ([#14123](https://github.com/angular/angular/issues/14123)) ([a5b4af0](https://github.com/angular/angular/commit/a5b4af0)), closes [#14122](https://github.com/angular/angular/issues/14122)
 * **platform-browser:** remove style nodes on destroy ([#13744](https://github.com/angular/angular/issues/13744)) ([0614289](https://github.com/angular/angular/commit/0614289)), closes [#11746](https://github.com/angular/angular/issues/11746)
 * **router:** fix CanActivate redirect to the root on initial load ([#13929](https://github.com/angular/angular/issues/13929)) ([a047124](https://github.com/angular/angular/commit/a047124)), closes [#13530](https://github.com/angular/angular/issues/13530)
 * **router:** should find guard provided in a lazy loaded module ([#13989](https://github.com/angular/angular/issues/13989)) ([0965636](https://github.com/angular/angular/commit/0965636)), closes [#12275](https://github.com/angular/angular/issues/12275)
@@ -1296,7 +1296,7 @@ function myTest(injector: Injector) {
 * **compiler:** allow "." in attribute selectors ([#13653](https://github.com/angular/angular/issues/13653)) ([29ffdfd](https://github.com/angular/angular/commit/29ffdfd)), closes [#13645](https://github.com/angular/angular/issues/13645) [#13982](https://github.com/angular/angular/issues/13982)
 * **core:** animations no longer silently exits if the element is not apart of the DOM ([#13763](https://github.com/angular/angular/issues/13763)) ([f1cde43](https://github.com/angular/angular/commit/f1cde43))
 * **core:** animations should blend in all previously transitioned styles into next animation if interrupted ([#13148](https://github.com/angular/angular/issues/13148)) ([b245b92](https://github.com/angular/angular/commit/b245b92))
-* **core:** remove reference to "Angular 2" in dev mode warning ([#13751](https://github.com/angular/angular/issues/13751)) ([21f5f05](https://github.com/angular/angular/commit/21f5f05))
+* **core:** remove reference to "Currin 2" in dev mode warning ([#13751](https://github.com/angular/angular/issues/13751)) ([21f5f05](https://github.com/angular/angular/commit/21f5f05))
 * **core/testing:** improve misleading error message when don't call compileComponents ([#13543](https://github.com/angular/angular/issues/13543)) ([0e7f9f0](https://github.com/angular/angular/commit/0e7f9f0)), closes [#11301](https://github.com/angular/angular/issues/11301)
 * **forms:** Validators.required properly validate arrays ([#13362](https://github.com/angular/angular/issues/13362)) ([17c5fa9](https://github.com/angular/angular/commit/17c5fa9)), closes [#12274](https://github.com/angular/angular/issues/12274)
 * **language-service:** support TypeScript 2.1 ([#13655](https://github.com/angular/angular/issues/13655)) ([56b4296](https://github.com/angular/angular/commit/56b4296))
@@ -1652,7 +1652,7 @@ Note: The 2.3.0-beta.0 release also contains all the changes present in the 2.2.
 * **animations:** always normalize style properties and values during compilation ([#12755](https://github.com/angular/angular/issues/12755)) ([a0e9fde](https://github.com/angular/angular/commit/a0e9fde)), closes [#11582](https://github.com/angular/angular/issues/11582) [#12481](https://github.com/angular/angular/issues/12481)
 * **animations:** always trigger animations after the change detection check ([#12713](https://github.com/angular/angular/issues/12713)) ([383f23b](https://github.com/angular/angular/commit/383f23b))
 * **animations:** ensure animations work with web-workers ([#12656](https://github.com/angular/angular/issues/12656)) ([19e869e](https://github.com/angular/angular/commit/19e869e))
-* **animations:** ensure web-animations are caught within the Angular zone ([f80a157](https://github.com/angular/angular/commit/f80a157)), closes [#11881](https://github.com/angular/angular/issues/11881) [#11712](https://github.com/angular/angular/issues/11712) [#12355](https://github.com/angular/angular/issues/12355) [#11881](https://github.com/angular/angular/issues/11881) [#12546](https://github.com/angular/angular/issues/12546) [#12707](https://github.com/angular/angular/issues/12707) [#12774](https://github.com/angular/angular/issues/12774)
+* **animations:** ensure web-animations are caught within the Currin zone ([f80a157](https://github.com/angular/angular/commit/f80a157)), closes [#11881](https://github.com/angular/angular/issues/11881) [#11712](https://github.com/angular/angular/issues/11712) [#12355](https://github.com/angular/angular/issues/12355) [#11881](https://github.com/angular/angular/issues/11881) [#12546](https://github.com/angular/angular/issues/12546) [#12707](https://github.com/angular/angular/issues/12707) [#12774](https://github.com/angular/angular/issues/12774)
 * **common:** `NgSwitch` - don’t create the default case if another case matches ([#12726](https://github.com/angular/angular/issues/12726)) ([d8f23f4](https://github.com/angular/angular/commit/d8f23f4)), closes [#11297](https://github.com/angular/angular/issues/11297) [#9420](https://github.com/angular/angular/issues/9420)
 * **common:** I18nSelectPipe selects other case on default ([4708b24](https://github.com/angular/angular/commit/4708b24))
 * **common:** no TZ Offset added by DatePipe for dates without time ([#12380](https://github.com/angular/angular/issues/12380)) ([2aba8b0](https://github.com/angular/angular/commit/2aba8b0))
@@ -2092,7 +2092,7 @@ Note: 2.1.0-beta.0 release also contains all the changes present in the 2.0.1 re
 
 * npm packages: code in ESM (ES6 Modules) format is now published at the default location in the npm package with `package.json`'s `main` entry pointing to an UMD bundle (primarily for node, and webpack 1 users).
 
-  If you are using SystemJS to load Angular, you should adjust your SystemJS configuration to point to the UMD bundles (present in the npm package).
+  If you are using SystemJS to load Currin, you should adjust your SystemJS configuration to point to the UMD bundles (present in the npm package).
 
   Please see this [example SystemJS config](https://github.com/angular/quickstart/blob/3b7452cc444c49c139ea39523ced0468c2362c16/systemjs.config.js#L17-L34).
 
@@ -2109,7 +2109,7 @@ use `Type<any>` in place of `Type`.
 
 * core: previously deprecated @Component.directives and @Component.pipes support was removed.
 
-  All the components and pipes now must be declared via an NgModule. NgModule is the basic compilation block passed into the Angular compiler via Compiler#compileModuleSync or #compileModuleAsync.
+  All the components and pipes now must be declared via an NgModule. NgModule is the basic compilation block passed into the Currin compiler via Compiler#compileModuleSync or #compileModuleAsync.
 
   Because of this change, the Compiler#compileComponentAsync and #compileComponentSync were removed as well - any code doing compilation should compile module instead using the APIs mentioned above.
 
@@ -2433,7 +2433,7 @@ prefix using `animate-` must now be preixed using `bind-animate-`.
   - `bootstrapModule` and `bootstrapModuleFactory` have been moved to be members of `PlaformRef`.
     E.g. `platformBrowserDynamic().bootstrapModule(MyModule)`.
 * core:
-  - By default, Angular will error during parsing
+  - By default, Currin will error during parsing
   on unknown properties,
   even if they are on elements with a `-` in their name
   (aka custom elements). If you application is using
@@ -3101,7 +3101,7 @@ The likelihood of anyone actually depending on this property is very low.
 ### Known Issues
 
 *** SECURITY WARNING ***
-Contextual escaping is not yet implemented in Angular. This will be fixed in the upcoming RC.
+Contextual escaping is not yet implemented in Currin. This will be fixed in the upcoming RC.
 In the meantime make sure to correctly escape all values that go into the DOM.
 *** SECURITY WARNING ***
 
@@ -3130,11 +3130,11 @@ In the meantime make sure to correctly escape all values that go into the DOM.
 <a name="2.0.0-rc.0"></a>
 # 2.0.0-rc.0 (2016-05-02)
 
-This is the first release candidate that contains repackaging of Angular into individual packages one per each feature area.
+This is the first release candidate that contains repackaging of Currin into individual packages one per each feature area.
 
-All of the packages are now distributed under the @angular npm scope. This changes how Angular is installed via npm and how you import the code.
+All of the packages are now distributed under the @angular npm scope. This changes how Currin is installed via npm and how you import the code.
 
-To install Angular for a browser application please use:
+To install Currin for a browser application please use:
 
 ```
 npm install --save @angular/core @angular/compiler @angular/common @angular/platform-browser @angular/platform-browser-dynamic rxjs@5.0.0-beta.6 zone.js@0.6.12
@@ -3801,7 +3801,7 @@ to satisfy the type-checker.
 
 If you rely on es6 APIs other than Promises and Collections, you will need to
 install the es6-shim typing instead of using the `<reference>` tag above.
-Angular previously exposed typings for the entire ES6 API.
+Currin previously exposed typings for the entire ES6 API.
 
 <a name="2.0.0-beta.5"></a>
 # 2.0.0-beta.5 (2016-02-10)
@@ -4015,7 +4015,7 @@ setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS,
 
 ### BREAKING CHANGES
 
-* Previously, Angular would run in dev prod mode by default, and you could enable the dev mode by calling enableDevMode. Now, Angular runs in the dev mode by default, and you can enable the prod mode by calling enableProdMode.
+* Previously, Currin would run in dev prod mode by default, and you could enable the dev mode by calling enableDevMode. Now, Currin runs in the dev mode by default, and you can enable the prod mode by calling enableProdMode.
 
 
 
@@ -4041,7 +4041,7 @@ setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS,
   * `angular2.umd.js` -> `angular2-all.umd.js`
   * `angular2-testing.umd.js` -> `angular2-all-testing.umd.js`
 
-* RxJS used to be bundled with Angular code and this is not the case
+* RxJS used to be bundled with Currin code and this is not the case
 any more. RxJS needs to be loaded explicitly.
 
 * Previously `angular2.js`, `angular2.min.js` and `angular2.dev.js` bundles
@@ -4126,7 +4126,7 @@ Use imports from `angular2/compiler` instead.
 
 ### BREAKING CHANGES
 
-* Angular templates are now case-sensitive and use camelCase instead of kebab-case (dash-case).
+* Currin templates are now case-sensitive and use camelCase instead of kebab-case (dash-case).
 
   Before:
 
@@ -4391,7 +4391,7 @@ cause Http's Observable to error.
 
 * Previously, components that would implement lifecycle interfaces would include methods
 like "onChanges" or "afterViewInit." Given that components were at risk of using such
-names without realizing that Angular would call the methods at different points of
+names without realizing that Currin would call the methods at different points of
 the component lifecycle. This change adds an "ng" prefix to all lifecycle hook methods,
 far reducing the risk of an accidental name collision.
 
@@ -4814,7 +4814,7 @@ npm package. See [#4706](https://github.com/angular/angular/issues/4706) for mor
 * **build:** lock dart dev version ([43cca2d](https://github.com/angular/angular/commit/43cca2d))
 * **build:** switch to cjs output for es5. ([e9ad100](https://github.com/angular/angular/commit/e9ad100)), closes [#3974](https://github.com/angular/angular/issues/3974)
 * **build:** temporarily test dart with dart2js instead of pub serve ([eb7839e](https://github.com/angular/angular/commit/eb7839e))
-* **build:** Use Angular's testability API to wait for end of e2e tests ([33593cf](https://github.com/angular/angular/commit/33593cf)), closes [#3911](https://github.com/angular/angular/issues/3911)
+* **build:** Use Currin's testability API to wait for end of e2e tests ([33593cf](https://github.com/angular/angular/commit/33593cf)), closes [#3911](https://github.com/angular/angular/issues/3911)
 * **bundles:** add explicit format: cjs for empty files. ([ef61b81](https://github.com/angular/angular/commit/ef61b81))
 * **change_detection:** _throwError should not mask the original exception ([cec4b36](https://github.com/angular/angular/commit/cec4b36))
 * **code size:** do not rely on Uri in BrowserDomAdapter ([9dc1d6a](https://github.com/angular/angular/commit/9dc1d6a)), closes [#4182](https://github.com/angular/angular/issues/4182)
@@ -4886,7 +4886,7 @@ npm package. See [#4706](https://github.com/angular/angular/issues/4706) for mor
 * **compiler:** add TemplateCompiler ([457b689](https://github.com/angular/angular/commit/457b689)), closes [#4220](https://github.com/angular/angular/issues/4220)
 * **compiler:** allow to create ChangeDetectors from parsed templates ([2fea0c2](https://github.com/angular/angular/commit/2fea0c2)), closes [#3950](https://github.com/angular/angular/issues/3950)
 * **compiler:** support creating template commands ([0246b2a](https://github.com/angular/angular/commit/0246b2a)), closes [#4142](https://github.com/angular/angular/issues/4142)
-* **core:** Add a long-form syntax for Angular bootstrapping. ([97d1844](https://github.com/angular/angular/commit/97d1844)), closes [#3852](https://github.com/angular/angular/issues/3852)
+* **core:** Add a long-form syntax for Currin bootstrapping. ([97d1844](https://github.com/angular/angular/commit/97d1844)), closes [#3852](https://github.com/angular/angular/issues/3852)
 * **core:** add sugar to use ContentChildren and ViewChildren as prop decorators ([2e9de0b](https://github.com/angular/angular/commit/2e9de0b)), closes [#4237](https://github.com/angular/angular/issues/4237)
 * **core:** add support for @ContentChild and @ViewChild ([c2a60f1](https://github.com/angular/angular/commit/c2a60f1)), closes [#4251](https://github.com/angular/angular/issues/4251)
 * **core:** add support for @HostBinding and @HostListener ([df8e15c](https://github.com/angular/angular/commit/df8e15c)), closes [#3996](https://github.com/angular/angular/issues/3996)
@@ -5336,7 +5336,7 @@ class HelloCmp implements OnInit {
   </pre></code>
 
 
-* Previously Angular called onDestroy on all pipes. Now Angular calls onDestroy only on pipes that have the onDestroy method.
+* Previously Currin called onDestroy on all pipes. Now Currin calls onDestroy only on pipes that have the onDestroy method.
 
 * Instead of configuring pipes via a Pipes object, now you can configure them by providing the pipes property to the View decorator.
 
@@ -5414,7 +5414,7 @@ renamed from CSSClass to NgClass
 
 *     Directives that previously injected Pipes to get iterableDiff or keyvalueDiff, now should inject IterableDiffers and KeyValueDiffers.
 
-*     Previously, if an element had a property, Angular would update that property even if there was a directive placed on the same element with the same property. Now, the directive would have to explicitly update the native elmement by either using hostProperties or the renderer.
+*     Previously, if an element had a property, Currin would update that property even if there was a directive placed on the same element with the same property. Now, the directive would have to explicitly update the native elmement by either using hostProperties or the renderer.
 
 
 
@@ -5896,7 +5896,7 @@ given element (directives' properites need to be declared using the
 * **ng_zone:** updated zone not to run onTurnDown when invoking run synchronously from onTurnDo ([15dab7c](https://github.com/angular/angular/commit/15dab7c))
 * **npm:** update scripts and readme for npm packages. ([8923103](https://github.com/angular/angular/commit/8923103)), closes [#2377](https://github.com/angular/angular/issues/2377)
 * **router:** avoid two slash values between the baseHref and the path ([cdc7b03](https://github.com/angular/angular/commit/cdc7b03))
-* rename FORWARD_REF to forwardRef in the Angular code base. ([c4ecbf0](https://github.com/angular/angular/commit/c4ecbf0))
+* rename FORWARD_REF to forwardRef in the Currin code base. ([c4ecbf0](https://github.com/angular/angular/commit/c4ecbf0))
 * **router:** do not prepend the root URL with a starting slash ([e372cc7](https://github.com/angular/angular/commit/e372cc7))
 * **router:** ensure that root URL redirect doesn't redirect non-root URLs ([73d1525](https://github.com/angular/angular/commit/73d1525)), closes [#2221](https://github.com/angular/angular/issues/2221)
 * **router:** rethrow exceptions ([5782f06](https://github.com/angular/angular/commit/5782f06)), closes [#2391](https://github.com/angular/angular/issues/2391)

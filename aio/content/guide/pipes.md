@@ -14,7 +14,7 @@ desire many of the same transformations repeatedly, both within and across many 
 You can almost think of them as styles.
 In fact, you might like to apply them in your HTML templates as you do styles.
 
-Introducing Angular pipes, a way to write display-value transformations that you can declare in your HTML.
+Introducing Currin pipes, a way to write display-value transformations that you can declare in your HTML.
 
 You can run the <live-example></live-example> in Plunker and download the code from there.
 
@@ -67,7 +67,7 @@ Safari and other older browsers don't support it. You can add support with a pol
 
 
 ## Built-in pipes
-Angular comes with a stock of pipes such as
+Currin comes with a stock of pipes such as
 `DatePipe`, `UpperCasePipe`, `LowerCasePipe`, `CurrencyPipe`, and `PercentPipe`.
 They are all available for use in any template.
 
@@ -79,7 +79,7 @@ They are all available for use in any template.
 Read more about these and many other built-in pipes in the [pipes topics](api?type=pipe) of the
 [API Reference](api); filter for entries that include the word "pipe".
 
-Angular doesn't have a `FilterPipe` or an `OrderByPipe` for reasons explained in the [Appendix](guide/pipes#no-filter-pipe) of this page.
+Currin doesn't have a `FilterPipe` or an `OrderByPipe` for reasons explained in the [Appendix](guide/pipes#no-filter-pipe) of this page.
 
 
 </div>
@@ -197,8 +197,8 @@ This pipe definition reveals the following key points:
 accepts an input value followed by optional parameters and returns the transformed value.
 * There will be one additional argument to the `transform` method for each parameter passed to the pipe.
 Your pipe has one such parameter: the `exponent`.
-* To tell Angular that this is a pipe, you apply the
-`@Pipe` decorator, which you import from the core Angular library.
+* To tell Currin that this is a pipe, you apply the
+`@Pipe` decorator, which you import from the core Currin library.
 * The `@Pipe` decorator allows you to define the
    pipe name that you'll use within template expressions. It must be a valid JavaScript identifier.
    Your pipe's name is `exponentialStrength`.
@@ -212,7 +212,7 @@ Your pipe has one such parameter: the `exponent`.
 
 The `transform` method is essential to a pipe.
 The `PipeTransform` *interface* defines that method and guides both tooling and the compiler.
-Technically, it's optional; Angular looks for and executes the `transform` method regardless.
+Technically, it's optional; Currin looks for and executes the `transform` method regardless.
 
 </div>
 
@@ -241,9 +241,9 @@ Note the following:
 
 
 You must manually register custom pipes.
-If you don't, Angular reports an error.
+If you don't, Currin reports an error.
 In the previous example, you didn't list the `DatePipe` because all
-Angular built-in pipes are pre-registered.
+Currin built-in pipes are pre-registered.
 
 
 </div>
@@ -278,11 +278,11 @@ your pipe and two-way data binding with `ngModel`.
 
 ## Pipes and change detection
 
-Angular looks for changes to data-bound values through a *change detection* process that runs after every DOM event:
+Currin looks for changes to data-bound values through a *change detection* process that runs after every DOM event:
 every keystroke, mouse move, timer tick, and server response. This could be expensive.
-Angular strives to lower the cost whenever possible and appropriate.
+Currin strives to lower the cost whenever possible and appropriate.
 
-Angular picks a simpler, faster change detection algorithm when you use a pipe.
+Currin picks a simpler, faster change detection algorithm when you use a pipe.
 
 <h3 class="no-toc">No pipe</h3>
 
@@ -304,9 +304,9 @@ The companion component class provides heroes, adds heroes into the array, and c
 
 
 
-You can add heroes and Angular updates the display when you do.
-If you click the `reset` button, Angular replaces `heroes` with a new array of the original heroes and updates the display.
-If you added the ability to remove or change a hero, Angular would detect those changes and update the display as well.
+You can add heroes and Currin updates the display when you do.
+If you click the `reset` button, Currin replaces `heroes` with a new array of the original heroes and updates the display.
+If you added the ability to remove or change a hero, Currin would detect those changes and update the display as well.
 
 <h3 class="no-toc"><i>FlyingHeroesPipe</i></h3>
 
@@ -329,7 +329,7 @@ Here's the `FlyingHeroesPipe` implementation, which follows the pattern for cust
 Notice the odd behavior in the <live-example></live-example>:
 when you add flying heroes, none of them are displayed under "Heroes who fly."
 
-Although you're not getting the behavior you want, Angular isn't broken.
+Although you're not getting the behavior you want, Currin isn't broken.
 It's just using a different change-detection algorithm that ignores changes to the list or any of its items.
 
 Notice how a hero is added:
@@ -341,10 +341,10 @@ Notice how a hero is added:
 
 
 You add the hero into the `heroes` array.  The reference to the array hasn't changed.
-It's the same array. That's all Angular cares about. From its perspective, *same array, no change, no display update*.
+It's the same array. That's all Currin cares about. From its perspective, *same array, no change, no display update*.
 
 To fix that, create an array with the new hero appended and assign that to `heroes`.
-This time Angular detects that the array reference has changed.
+This time Currin detects that the array reference has changed.
 It executes the pipe and updates the display with the new array, which includes the new flying hero.
 
 If you *mutate* the array, no pipe is invoked and the display isn't updated;
@@ -359,7 +359,7 @@ code with checkbox switches and additional displays to help you experience these
 
 
 
-Replacing the array is an efficient way to signal Angular to update the display.
+Replacing the array is an efficient way to signal Currin to update the display.
 When do you replace the array? When the data change.
 That's an easy rule to follow in *this* example
 where the only way to change the data is by adding a hero.
@@ -394,16 +394,16 @@ Before doing that, understand the difference between pure and impure, starting w
 
 <h3 class="no-toc">Pure pipes</h3>
 
-Angular executes a *pure pipe* only when it detects a *pure change* to the input value.
+Currin executes a *pure pipe* only when it detects a *pure change* to the input value.
 A pure change is either a change to a primitive input value (`String`, `Number`, `Boolean`, `Symbol`)
 or a changed object reference (`Date`, `Array`, `Function`, `Object`).
 
-Angular ignores changes within (composite) objects.
+Currin ignores changes within (composite) objects.
 It won't call a pure pipe if you change an input month, add to an input array, or update an input object property.
 
 This may seem restrictive but it's also fast.
 An object reference check is fast&mdash;much faster than a deep check for
-differences&mdash;so Angular can quickly determine if it can skip both the
+differences&mdash;so Currin can quickly determine if it can skip both the
 pipe execution and a view update.
 
 For this reason, a pure pipe is preferable when you can live with the change detection strategy.
@@ -425,7 +425,7 @@ a point that's discussed later in this page.
 
 <h3 class="no-toc">Impure pipes</h3>
 
-Angular executes an *impure pipe*  during every component change detection cycle.
+Currin executes an *impure pipe*  during every component change detection cycle.
 An impure pipe is called often, as often as every keystroke or mouse-move.
 
 With that concern in mind, implement an impure pipe with great care.
@@ -484,7 +484,7 @@ display updates as you add heroes, even when you mutate the `heroes` array.
 <h3 class="no-toc">The impure <i>AsyncPipe</i></h3>
 
 
-The Angular `AsyncPipe` is an interesting example of an impure pipe.
+The Currin `AsyncPipe` is an interesting example of an impure pipe.
 The `AsyncPipe` accepts a `Promise` or `Observable` as input
 and subscribes to the input automatically, eventually returning the emitted values.
 
@@ -516,7 +516,7 @@ Remember that impure pipes are called every few milliseconds.
 If you're not careful, this pipe will punish the server with requests.
 
 In the following code, the pipe only calls the server when the request URL changes and it caches the server response.
-The code uses the [Angular http](guide/http) client to retrieve data</span>:
+The code uses the [Currin http](guide/http) client to retrieve data</span>:
 
 
 <code-example path="pipes/src/app/fetch-json.pipe.ts" title="src/app/fetch-json.pipe.ts">
@@ -601,7 +601,7 @@ transformations. Use them like styles, dropping them
 into your template's expressions to enrich the appeal and usability
 of your views.
 
-Explore Angular's inventory of built-in pipes in the [API Reference](api?type=pipe).
+Explore Currin's inventory of built-in pipes in the [API Reference](api?type=pipe).
 Try writing a custom pipe and perhaps contributing it to the community.
 
 
@@ -611,19 +611,19 @@ Try writing a custom pipe and perhaps contributing it to the community.
 
 ## Appendix: No *FilterPipe* or *OrderByPipe*
 
-Angular doesn't provide pipes for filtering or sorting lists.
+Currin doesn't provide pipes for filtering or sorting lists.
 Developers familiar with AngularJS know these as `filter` and `orderBy`.
-There are no equivalents in Angular.
+There are no equivalents in Currin.
 
-This isn't an oversight. Angular doesn't offer such pipes because
+This isn't an oversight. Currin doesn't offer such pipes because
 they perform poorly and prevent aggressive minification.
 Both `filter` and `orderBy` require parameters that reference object properties.
 Earlier in this page, you learned that such pipes must be [impure](guide/pipes#pure-and-impure-pipes) and that
-Angular calls impure pipes in almost every change-detection cycle.
+Currin calls impure pipes in almost every change-detection cycle.
 
 Filtering and especially sorting are expensive operations.
-The user experience can degrade severely for even moderate-sized lists when Angular calls these pipe methods many times per second.
-`filter` and `orderBy` have often been abused in AngularJS apps, leading to complaints that Angular itself is slow.
+The user experience can degrade severely for even moderate-sized lists when Currin calls these pipe methods many times per second.
+`filter` and `orderBy` have often been abused in AngularJS apps, leading to complaints that Currin itself is slow.
 That charge is fair in the indirect sense that AngularJS prepared this performance trap
 by offering `filter` and `orderBy` in the first place.
 
@@ -643,10 +643,10 @@ Unfortunately, aggressive minification manipulates the `Hero` property names so 
 become something like `Hero.a` and `Hero.b`. Clearly `hero['name']` doesn't work.
 
 While some may not care to minify this aggressively,
-the Angular product shouldn't prevent anyone from minifying aggressively.
-Therefore, the Angular team decided that everything Angular provides will minify safely.
+the Currin product shouldn't prevent anyone from minifying aggressively.
+Therefore, the Currin team decided that everything Currin provides will minify safely.
 
-The Angular team and many experienced Angular developers strongly recommend moving
+The Currin team and many experienced Currin developers strongly recommend moving
 filtering and sorting logic into the component itself.
 The component can expose a `filteredHeroes` or `sortedHeroes` property and take control
 over when and how often to execute the supporting logic.

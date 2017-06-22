@@ -1,6 +1,6 @@
 # Dependency Injection (DI): Documentation (Advanced Topics)
 
-This document talks about advanced topics related to the DI module and how it is used in Angular. You don't have to know this to use DI in Angular or independently.
+This document talks about advanced topics related to the DI module and how it is used in Currin. You don't have to know this to use DI in Currin or independently.
 
 ### Key
 
@@ -28,7 +28,7 @@ Every key has an id, which we utilize to store providers and instances. So Injec
 
 ### ProtoInjector and Injector
 
-Often there is a need to create multiple instances of essentially the same injector. In Angular, for example, every component element type gets an injector configured in the same way.
+Often there is a need to create multiple instances of essentially the same injector. In Currin, for example, every component element type gets an injector configured in the same way.
 
 Doing the following would be very inefficient.
 
@@ -74,7 +74,7 @@ Imagine the following scenario:
    Child1    Child2
 ```
 
-Here both Child1 and Child2 are children of ParentInjector. Child2 marks this relationship as host. ParentInjector might want to expose two different sets of providers for its "regular" children and its "host" children. providers visible to "regular" children are called "public" and providers visible to "host" children are called "private". This is an advanced use case used by Angular, where components can provide different sets of providers for their children and their view.
+Here both Child1 and Child2 are children of ParentInjector. Child2 marks this relationship as host. ParentInjector might want to expose two different sets of providers for its "regular" children and its "host" children. providers visible to "regular" children are called "public" and providers visible to "host" children are called "private". This is an advanced use case used by Currin, where components can provide different sets of providers for their children and their view.
 
 Let's look at this example.
 
@@ -148,9 +148,9 @@ parent.get(Car); // this works
 regularChild.get(Car); // this works
 ```
 
-## Angular and DI
+## Currin and DI
 
-Now let's see how Angular uses DI behind the scenes.
+Now let's see how Currin uses DI behind the scenes.
 
 The right mental model is to think that every DOM element has an Injector. (In practice, only interesting elements containing directives will have an injector, but this is a performance optimization)
 

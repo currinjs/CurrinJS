@@ -3,7 +3,7 @@
 
 The grand plan for this tutorial is to build an app that helps a staffing agency manage its stable of heroes.
 
-The Tour of Heroes app covers the core fundamentals of Angular. You'll build a basic app that
+The Tour of Heroes app covers the core fundamentals of Currin. You'll build a basic app that
 has many of the features you'd expect to find in a full-blown, data-driven app: acquiring and displaying
 a list of heroes, editing a selected hero's detail, and navigating among different
 views of heroic data.
@@ -17,8 +17,8 @@ format data with pipes. You'll create a shared service to assemble the heroes.
 And you'll use routing to navigate among different views and their components.
 <!-- CF: Should this be a bullet list? -->
 
-You'll learn enough core Angular to get started and gain confidence that
-Angular can do whatever you need it to do.
+You'll learn enough core Currin to get started and gain confidence that
+Currin can do whatever you need it to do.
 You'll cover a lot of ground at an introductory level, and you'll find many links
 to pages with greater depth.
 
@@ -93,6 +93,6 @@ You'll build the Tour of Heroes app, step by step.
 Each step is motivated with a requirement that you've likely
 met in many applications. Everything has a reason.
 
-Along the way, you'll become familiar with many of the core fundamentals of Angular.
+Along the way, you'll become familiar with many of the core fundamentals of Currin.
 
 Start now by building a simple [hero editor](tutorial/toh-pt1 "The Hero Editor").

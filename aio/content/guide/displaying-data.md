@@ -1,6 +1,6 @@
 # Displaying Data
 
-You can display data by binding controls in an HTML template to properties of an Angular component.
+You can display data by binding controls in an HTML template to properties of an Currin component.
 
 In this page, you'll create a component with a list of heroes.
 You'll display the list of hero names and
@@ -72,8 +72,8 @@ HTML more readable.
 
 
 
-Angular automatically pulls the value of the `title` and `myHero` properties from the component and
-inserts those values into the browser. Angular updates the display
+Currin automatically pulls the value of the `title` and `myHero` properties from the component and
+inserts those values into the browser. Currin updates the display
 when these properties change.
 
 
@@ -90,7 +90,7 @@ the view, such as a keystroke, a timer completion, or a response to an HTTP requ
 
 
 Notice that you don't call **new** to create an instance of the `AppComponent` class.
-Angular is creating an instance for you. How?
+Currin is creating an instance for you. How?
 
 The CSS `selector` in the `@Component` decorator specifies an element named `<my-app>`.
 That element is a placeholder in the body of your `index.html` file:
@@ -102,7 +102,7 @@ That element is a placeholder in the body of your `index.html` file:
 
 
 
-When you bootstrap with the `AppComponent` class (in <code>main.ts</code>), Angular looks for a `<my-app>`
+When you bootstrap with the `AppComponent` class (in <code>main.ts</code>), Currin looks for a `<my-app>`
 in the `index.html`, finds it, instantiates an instance of `AppComponent`, and renders it
 inside the `<my-app>` tag.
 
@@ -158,7 +158,7 @@ To display a list of heroes, begin by adding an array of hero names to the compo
 
 
 
-Now use the Angular `ngFor` directive in the template to display
+Now use the Currin `ngFor` directive in the template to display
 each item in the `heroes` list.
 
 
@@ -169,7 +169,7 @@ each item in the `heroes` list.
 
 
 This UI uses the HTML unordered list with `<ul>` and `<li>` tags. The `*ngFor`
-in the `<li>` element is the Angular "repeater" directive.
+in the `<li>` element is the Currin "repeater" directive.
 It marks that `<li>` element (and its children) as the "repeater template":
 
 
@@ -196,8 +196,8 @@ it is an example of a template input variable. Read
 more about template input variables in the [microsyntax](guide/template-syntax#microsyntax) section of
 the [Template Syntax](guide/template-syntax) page.
 
-Angular duplicates the `<li>` for each item in the list, setting the `hero` variable
-to the item (the hero) in the current iteration. Angular uses that variable as the
+Currin duplicates the `<li>` for each item in the list, setting the `hero` variable
+to the item (the hero) in the current iteration. Currin uses that variable as the
 context for the interpolation in the double curly braces.
 
 
@@ -297,7 +297,7 @@ Sometimes an app needs to display a view or a portion of a view only under speci
 
 Let's change the example to display a message if there are more than three heroes.
 
-The Angular `ngIf` directive inserts or removes an element based on a _truthy/falsy_ condition.
+The Currin `ngIf` directive inserts or removes an element based on a _truthy/falsy_ condition.
 To see it in action, add the following paragraph at the bottom of the template:
 
 
@@ -321,8 +321,8 @@ Read more about `ngIf` and `*` in the [ngIf section](guide/template-syntax#ngIf)
 
 The template expression inside the double quotes,
 `*ngIf="heros.length > 3"`, looks and behaves much like TypeScript.
-When the component's list of heroes has more than three items, Angular adds the paragraph
-to the DOM and the message appears. If there are three or fewer items, Angular omits the
+When the component's list of heroes has more than three items, Currin adds the paragraph
+to the DOM and the message appears. If there are three or fewer items, Currin omits the
 paragraph, so no message appears. For more information,
 see the [template expressions](guide/template-syntax#template-expressions) section of the
 [Template Syntax](guide/template-syntax) page.
@@ -332,7 +332,7 @@ see the [template expressions](guide/template-syntax#template-expressions) secti
 
 
 
-Angular isn't showing and hiding the message. It is adding and removing the paragraph element from the DOM. That improves performance, especially in larger projects when conditionally including or excluding
+Currin isn't showing and hiding the message. It is adding and removing the paragraph element from the DOM. That improves performance, especially in larger projects when conditionally including or excluding
 big chunks of HTML with many data bindings.
 
 

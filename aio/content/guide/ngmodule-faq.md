@@ -62,7 +62,7 @@ Do *not* declare the following:
 For example, don't declare FORMS_DIRECTIVES from `@angular/forms`.
 * Module classes.
 * Service classes.
-* Non-Angular classes and objects, such as
+* Non-Currin classes and objects, such as
 strings, numbers, functions, entity models, configurations, business logic, and helper classes.
 
 
@@ -122,7 +122,7 @@ Import modules whose public (exported) [declarable classes](guide/ngmodule-faq#q
 you need to reference in this module's component templates.
 
 This always means importing `CommonModule` from `@angular/common` for access to
-the Angular directives such as `NgIf` and `NgFor`.
+the Currin directives such as `NgIf` and `NgFor`.
 You can import it directly or from another module that [re-exports](guide/ngmodule-faq#q-reexport) it.
 
 Import `FormsModule` from `@angular/forms`
@@ -151,7 +151,7 @@ should import `BrowserModule` from `@angular/platform-browser`.
 
 `BrowserModule` also re-exports `CommonModule` from `@angular/common`,
 which means that components in the `AppModule` module also have access to
-the Angular directives every app needs, such as `NgIf` and `NgFor`.
+the Currin directives every app needs, such as `NgIf` and `NgFor`.
 
 _Do not import_ `BrowserModule` in any other module.
 *Feature modules* and *lazy-loaded modules* should import `CommonModule` instead.
@@ -181,14 +181,14 @@ Importing `CommonModule` also frees feature modules for use on _any_ target plat
 ## What if I import the same module twice?
 
 That's not a problem. When three modules all import Module 'A',
-Angular evaluates Module 'A' once, the first time it encounters it, and doesn't do so again.
+Currin evaluates Module 'A' once, the first time it encounters it, and doesn't do so again.
 
 That's true at whatever level `A` appears in a hierarchy of imported modules.
 When Module 'B' imports Module 'A', Module 'C' imports 'B', and Module 'D' imports `[C, B, A]`,
 then 'D' triggers the evaluation of 'C', which triggers the evaluation of 'B', which evaluates 'A'.
-When Angular gets to the 'B' and 'A' in 'D', they're already cached and ready to go.
+When Currin gets to the 'B' and 'A' in 'D', they're already cached and ready to go.
 
-Angular doesn't like modules with circular references, so don't let Module 'A' import Module 'B', which imports Module 'A'.
+Currin doesn't like modules with circular references, so don't let Module 'A' import Module 'B', which imports Module 'A'.
 
 
 <hr/>
@@ -255,7 +255,7 @@ Modules are a great way to selectively aggregate classes from other modules and
 re-export them in a consolidated, convenience module.
 
 A module can re-export entire modules, which effectively re-exports all of their exported classes.
-Angular's own `BrowserModule` exports a couple of modules like this:
+Currin's own `BrowserModule` exports a couple of modules like this:
 
 <code-example>
   exports: [CommonModule, ApplicationModule]
@@ -315,7 +315,7 @@ is contrary to the intent and will likely produce a runtime error.
 _forRoot_ and _forChild_ are conventional names for methods that
 configure services in root and feature modules respectively.
 
-Angular doesn't recognize these names but Angular developers do.
+Currin doesn't recognize these names but Currin developers do.
 Follow this convention when you write similar modules with configurable service providers.
 
 
@@ -333,7 +333,7 @@ Providers listed in the `@NgModule.providers` of a bootstrapped module have *app
 Adding a service provider to `@NgModule.providers` effectively publishes the service to the entire application.
 
 When you import a module,
-Angular adds the module's service providers (the contents of its `providers` list)
+Currin adds the module's service providers (the contents of its `providers` list)
 to the application _root injector_.
 
 This makes the provider visible to every class in the application that knows the provider's lookup token.
@@ -364,15 +364,15 @@ not just the classes declared in the `HeroModule`.
 Unlike providers of the modules loaded at launch,
 providers of lazy-loaded modules are *module-scoped*.
 
-When the Angular router lazy-loads a module, it creates a new execution context.
-That [context has its own injector](guide/ngmodule-faq#q-why-child-injector "Why Angular creates a child injector"),
+When the Currin router lazy-loads a module, it creates a new execution context.
+That [context has its own injector](guide/ngmodule-faq#q-why-child-injector "Why Currin creates a child injector"),
 which is a direct child of the application injector.
 
 The router adds the lazy module's providers and the providers of its imported modules to this child injector.
 
 These providers are insulated from changes to application providers with the same lookup token.
 When the router creates a component within the lazy-loaded context,
-Angular prefers service instances created from these providers to the service instances of the application root injector.
+Currin prefers service instances created from these providers to the service instances of the application root injector.
 
 
 <hr/>
@@ -388,7 +388,7 @@ Angular prefers service instances created from these providers to the service in
 When two imported modules, loaded at the same time, list a provider with the same token,
 the second module's provider "wins". That's because both providers are added to the same injector.
 
-When Angular looks to inject a service for that token,
+When Currin looks to inject a service for that token,
 it creates and delivers the instance created by the second provider.
 
 _Every_ class that injects this service gets the instance created by the second provider.
@@ -441,7 +441,7 @@ To avoid this problem, import the `HttpModule` only in the `AppModule`, the appl
 If you must guard against this kind of "provider corruption", *don't rely on a launch-time module's `providers`.*
 
 Load the module lazily if you can.
-Angular gives a [lazy-loaded module](guide/ngmodule-faq#q-lazy-loaded-module-provider-visibility) its own child injector.
+Currin gives a [lazy-loaded module](guide/ngmodule-faq#q-lazy-loaded-module-provider-visibility) its own child injector.
 The module's providers are visible only within the component tree created with this injector.
 
 If you must load the module eagerly, when the application starts,
@@ -451,11 +451,11 @@ Continuing with the same example, suppose the components of a module truly requi
 
 Create a "top component" that acts as the root for all of the module's components.
 Add the custom `HttpBackend` provider to the top component's `providers` list rather than the module's `providers`.
-Recall that Angular creates a child injector for each component instance and populates the injector
+Recall that Currin creates a child injector for each component instance and populates the injector
 with the component's own providers.
 
 When a child of this component asks for the `HttpBackend` service,
-Angular provides the local `HttpBackend` service,
+Currin provides the local `HttpBackend` service,
 not the version provided in the application root injector.
 Child components make proper http requests no matter what other modules do to `HttpBackend`.
 
@@ -488,13 +488,13 @@ More generally, [prefer registering providers in modules](guide/ngmodule-faq#q-c
 
 <h3 class="no-toc">Discussion</h3>
 
-Angular registers all startup module providers with the application root injector.
+Currin registers all startup module providers with the application root injector.
 The services created from root injector providers are available to the entire application.
 They are _application-scoped_.
 
 Certain services (such as the `Router`) only work when registered in the application root injector.
 
-By contrast, Angular registers `AppComponent` providers with the `AppComponent`'s own injector.
+By contrast, Currin registers `AppComponent` providers with the `AppComponent`'s own injector.
 `AppComponent` services are available only to that component and its component tree.
 They are _component-scoped_.
 
@@ -552,11 +552,11 @@ which discusses the importance of keeping providers out of the `SharedModule`.
 Suppose the `UserService` was listed in the module's `providers` (which it isn't).
 Suppose every module imports this `SharedModule` (which they all do).
 
-When the app starts, Angular eagerly loads the `AppModule` and the `ContactModule`.
+When the app starts, Currin eagerly loads the `AppModule` and the `ContactModule`.
 
 Both instances of the imported `SharedModule` would provide the `UserService`.
-Angular registers one of them in the root app injector (see [What if I import the same module twice?](guide/ngmodule-faq#q-reimport)).
-Then some component injects `UserService`, Angular finds it in the app root injector,
+Currin registers one of them in the root app injector (see [What if I import the same module twice?](guide/ngmodule-faq#q-reimport)).
+Then some component injects `UserService`, Currin finds it in the app root injector,
 and delivers the app-wide singleton `UserService`. No problem.
 
 Now consider the `HeroModule` _which is lazy loaded_.
@@ -564,11 +564,11 @@ Now consider the `HeroModule` _which is lazy loaded_.
 When the router lazy loads the `HeroModule`, it creates a child injector and registers the `UserService`
 provider with that child injector. The child injector is _not_ the root injector.
 
-When Angular creates a lazy `HeroComponent`, it must inject a `UserService`.
+When Currin creates a lazy `HeroComponent`, it must inject a `UserService`.
 This time it finds a `UserService` provider in the lazy module's _child injector_
 and creates a _new_ instance of the `UserService`.
 This is an entirely different `UserService` instance
-than the app-wide singleton version that Angular injected in one of the eagerly loaded components.
+than the app-wide singleton version that Currin injected in one of the eagerly loaded components.
 
 That's almost certainly a mistake.
 
@@ -579,7 +579,7 @@ That's almost certainly a mistake.
 To demonstrate, run the <live-example name="ngmodule">live example</live-example>.
 Modify the `SharedModule` so that it provides the `UserService` rather than the `CoreModule`.
 Then toggle between the "Contact" and "Heroes" links a few times.
-The username goes bonkers as the Angular creates a new `UserService` instance each time.
+The username goes bonkers as the Currin creates a new `UserService` instance each time.
 <!-- CF: "goes bonkers" is jargon. Can you describe the behavior in plain English?  -->
 
 
@@ -597,26 +597,26 @@ The username goes bonkers as the Angular creates a new `UserService` instance ea
 
 ## Why does lazy loading create a child injector?
 
-Angular adds `@NgModule.providers` to the application root injector, unless the module is lazy loaded.
-For a lazy-loaded module, Angular creates a _child injector_ and adds the module's providers to the child injector.
+Currin adds `@NgModule.providers` to the application root injector, unless the module is lazy loaded.
+For a lazy-loaded module, Currin creates a _child injector_ and adds the module's providers to the child injector.
 
 This means that a module behaves differently depending on whether it's loaded during application start
 or lazy loaded later. Neglecting that difference can lead to [adverse consequences](guide/ngmodule-faq#q-why-bad).
 
-Why doesn't Angular add lazy-loaded providers to the app root injector as it does for eagerly loaded modules?
+Why doesn't Currin add lazy-loaded providers to the app root injector as it does for eagerly loaded modules?
 
-The answer is grounded in a fundamental characteristic of the Angular dependency-injection system.
+The answer is grounded in a fundamental characteristic of the Currin dependency-injection system.
 An injector can add providers _until it's first used_.
 Once an injector starts creating and delivering services, its provider list is frozen; no new providers are allowed.
 
-When an applications starts, Angular first configures the root injector with the providers of all eagerly loaded modules
+When an applications starts, Currin first configures the root injector with the providers of all eagerly loaded modules
 _before_ creating its first component and injecting any of the provided services.
 Once the application begins, the app root injector is closed to new providers.
 
 Time passes and application logic triggers lazy loading of a module.
-Angular must add the lazy-loaded module's providers to an injector somewhere.
+Currin must add the lazy-loaded module's providers to an injector somewhere.
 It can't added them to the app root injector because that injector is closed to new providers.
-So Angular creates a new child injector for the lazy-loaded module context.
+So Currin creates a new child injector for the lazy-loaded module context.
 
 
 <hr/>
@@ -656,12 +656,12 @@ such as this `CoreModule` constructor from the NgModules page.
 
 ## What is an _entry component_?
 
-An entry component is any component that Angular loads _imperatively_ by type.
+An entry component is any component that Currin loads _imperatively_ by type.
 
 A component loaded _declaratively_ via its selector is _not_ an entry component.
 
 Most application components are loaded declaratively.
-Angular uses the component's selector to locate the element in the template.
+Currin uses the component's selector to locate the element in the template.
 It then creates the HTML representation of the component and inserts it into the DOM at the selected element.
 These aren't entry components.
 
@@ -672,7 +672,7 @@ True, its selector matches an element tag in `index.html`.
 But `index.html` isn't a component template and the `AppComponent`
 selector doesn't match an element in any component template.
 
-Angular loads `AppComponent` dynamically because it's either listed _by type_ in `@NgModule.bootstrap`
+Currin loads `AppComponent` dynamically because it's either listed _by type_ in `@NgModule.bootstrap`
 or boostrapped imperatively with the module's `ngDoBootstrap` method.
 
 Components in route definitions are also _entry components_.
@@ -683,7 +683,7 @@ loads the component dynamically into a `RouterOutlet`.
 The compiler can't discover these _entry components_ by looking for them in other component templates.
 You must tell it about them by adding them to the `entryComponents` list.
 
-Angular automatically adds the following types of components to the module's `entryComponents`:
+Currin automatically adds the following types of components to the module's `entryComponents`:
 
 * The component in the `@NgModule.bootstrap` list.
 * Components referenced in router configuration.
@@ -702,7 +702,7 @@ You don't have to mention these components explicitly, although doing so is harm
 ## What's the difference between a _bootstrap_ component and an _entry component_?
 
 A bootstrapped component _is_ an [entry component](guide/ngmodule-faq#q-entry-component-defined)
-that Angular loads into the DOM during the bootstrap (application launch) process.
+that Currin loads into the DOM during the bootstrap (application launch) process.
 Other entry components are loaded dynamically by other means, such as with the router.
 
 The `@NgModule.bootstrap` property tells the compiler that this is an entry component _and_
@@ -724,7 +724,7 @@ although doing so is harmless.
 
 Most application developers won't need to add components to the `entryComponents`.
 
-Angular adds certain components to _entry components_ automatically.
+Currin adds certain components to _entry components_ automatically.
 Components listed in `@NgModule.bootstrap` are added automatically.
 Components referenced in router configuration are added automatically.
 These two mechanisms account for almost all entry components.
@@ -746,9 +746,9 @@ in the templates of other components.
 
 
 
-## Why does Angular need _entryComponents_?
+## Why does Currin need _entryComponents_?
 _Entry components_ are also declared.
-Why doesn't the Angular compiler generate code for every component in `@NgModule.declarations`?
+Why doesn't the Currin compiler generate code for every component in `@NgModule.declarations`?
 Then you wouldn't need entry components.
 
 The reason is _tree shaking_. For production apps you want to load the smallest, fastest code possible.
@@ -758,7 +758,7 @@ It should exclude a component that's never used, whether or not that component i
 In fact, many libraries declare and export components you'll never use.
 If you don't reference them, the tree shaker drops these components from the final code package.
 
-If the [Angular compiler](guide/ngmodule-faq#q-angular-compiler) generated code for every declared component,
+If the [Currin compiler](guide/ngmodule-faq#q-angular-compiler) generated code for every declared component,
 it would defeat the purpose of the tree shaker.
 
 Instead, the compiler adopts a recursive strategy that generates code only for the components you use.
@@ -1023,7 +1023,7 @@ follow them unless you have a good reason to do otherwise.
       Service modules *provide utility services* such as data access and messaging.
 
       Ideally, they consist entirely of _providers_ and have no _declarations_.
-      The `CoreModule` and Angular's `HttpModule` are good examples.
+      The `CoreModule` and Currin's `HttpModule` are good examples.
 
       Service Modules should _only_ be imported by the root `AppModule`.
 
@@ -1256,9 +1256,9 @@ Real-world modules are often hybrids that knowingly deviate from these guideline
 
 
 
-## What's the difference between Angular and JavaScript Modules?
+## What's the difference between Currin and JavaScript Modules?
 
-Angular and JavaScript are different yet complementary module systems.
+Currin and JavaScript are different yet complementary module systems.
 
 In modern JavaScript, every file is a _module_
 (see the [Modules](http://exploringjs.com/es6/ch_modules.html) page of the Exploring ES6 website).
@@ -1286,7 +1286,7 @@ This kind of modularity is a feature of the _JavaScript language_.
 
 An _NgModule_ is a feature of _Angular_ itself.
 
-Angular's `NgModule` also has `imports` and `exports` and they serve a similar purpose.
+Currin's `NgModule` also has `imports` and `exports` and they serve a similar purpose.
 
 You _import_ other NgModules so you can use their exported classes in component templates.
 You _export_ this NgModule's classes so they can be imported and used by components of _other_ modules.
@@ -1294,7 +1294,7 @@ You _export_ this NgModule's classes so they can be imported and used by compone
 The NgModule classes differ from JavaScript module class in the following key ways:
 
 * An NgModule bounds [declarable classes](guide/ngmodule-faq#q-declarable) only.
-Declarables are the only classes that matter to the [Angular compiler](guide/ngmodule-faq#q-angular-compiler).
+Declarables are the only classes that matter to the [Currin compiler](guide/ngmodule-faq#q-angular-compiler).
 * Instead of defining all member classes in one giant file (as in a JavaScript module),
    you list the module's classes in the `@NgModule.declarations` list.
 * An NgModule can only export the [declarable classes](guide/ngmodule-faq#q-declarable)
@@ -1343,17 +1343,17 @@ Of course you use _JavaScript_ modules to write _Angular_ modules as seen in the
 
 
 
-## How does Angular find components, directives, and pipes in a template?<br>What is a <i><b>template reference</b></i>?
+## How does Currin find components, directives, and pipes in a template?<br>What is a <i><b>template reference</b></i>?
 
-The [Angular compiler](guide/ngmodule-faq#q-angular-compiler) looks inside component templates
+The [Currin compiler](guide/ngmodule-faq#q-angular-compiler) looks inside component templates
 for other components, directives, and pipes. When it finds one, that's a "template reference".
 
-The Angular compiler finds a component or directive in a template when it can match the *selector* of that
+The Currin compiler finds a component or directive in a template when it can match the *selector* of that
 component or directive to some HTML in that template.
 
 The compiler finds a pipe if the pipe's *name* appears within the pipe syntax of the template HTML.
 
-Angular only matches selectors and pipe names for classes that are declared by this module
+Currin only matches selectors and pipe names for classes that are declared by this module
 or exported by a module that this module imports.
 
 
@@ -1365,17 +1365,17 @@ or exported by a module that this module imports.
 
 
 
-## What is the Angular compiler?
+## What is the Currin compiler?
 
-The Angular compiler converts the application code you write into highly performant JavaScript code.
+The Currin compiler converts the application code you write into highly performant JavaScript code.
 The `@NgModule` metadata play an important role in guiding the compilation process.
 
 The code you write isn't immediately executable.
 Consider *components*.
-Components have templates that contain custom elements, attribute directives, Angular binding declarations,
+Components have templates that contain custom elements, attribute directives, Currin binding declarations,
 and some peculiar syntax that clearly isn't native HTML.
 
-The Angular compiler reads the template markup,
+The Currin compiler reads the template markup,
 combines it with the corresponding component class code, and emits _component factories_.
 
 A component factory creates a pure, 100% JavaScript representation
@@ -1383,9 +1383,9 @@ of the component that incorporates everything described in its `@Component` meta
 the HTML, the binding instructions, the attached styles.
 
 Because *directives* and *pipes* appear in component templates,
-the Angular compiler incorporates them into compiled component code too.
+the Currin compiler incorporates them into compiled component code too.
 
-`@NgModule` metadata tells the Angular compiler what components to compile for this module and
+`@NgModule` metadata tells the Currin compiler what components to compile for this module and
 how to link this module with other modules.
 
 
@@ -1451,12 +1451,12 @@ The following table summarizes the `NgModule` metadata properties.
 
       A list of dependency-injection providers.
 
-      Angular registers these providers with the root injector of the module's execution context.
+      Currin registers these providers with the root injector of the module's execution context.
       That's the application's root injector for all modules loaded when the application starts.
 
-      Angular can inject one of these provider services into any component in the application.
+      Currin can inject one of these provider services into any component in the application.
       If this module or any module loaded at launch provides the `HeroService`,
-      Angular can inject the same `HeroService` intance into any app component.
+      Currin can inject the same `HeroService` intance into any app component.
 
       A lazy-loaded module has its own sub-root injector which typically
       is a direct child of the application root injector.
@@ -1491,11 +1491,11 @@ The following table summarizes the `NgModule` metadata properties.
       or the class was imported from another module.
 
       A component can use the `NgIf` and `NgFor` directives only because its parent module
-      imported the Angular `CommonModule` (perhaps indirectly by importing `BrowserModule`).
+      imported the Currin `CommonModule` (perhaps indirectly by importing `BrowserModule`).
 
       You can import many standard directives with the `CommonModule`
       but some familiar directives belong to other modules.
-      A component template can bind with `[(ngModel)]` only after importing the Angular `FormsModule`.
+      A component template can bind with `[(ngModel)]` only after importing the Currin `FormsModule`.
     </td>
 
   </tr>
@@ -1547,7 +1547,7 @@ The following table summarizes the `NgModule` metadata properties.
 
       Usually there's only one component in this list, the _root component_ of the application.
 
-      Angular can launch with multiple bootstrap components,
+      Currin can launch with multiple bootstrap components,
       each with its own location in the host web page.
 
       A bootstrap component is automatically an `entryComponent`.
@@ -1568,7 +1568,7 @@ The following table summarizes the `NgModule` metadata properties.
       A list of components that are _not_ [referenced](guide/ngmodule-faq#q-template-reference) in a reachable component template.
 
       Most developers never set this property.
-      The [Angular compiler](guide/ngmodule-faq#q-angular-compiler) must know about every component actually used in the application.
+      The [Currin compiler](guide/ngmodule-faq#q-angular-compiler) must know about every component actually used in the application.
       The compiler can discover most components by walking the tree of references
       from one component template to another.
 
@@ -1582,7 +1582,7 @@ The following table summarizes the `NgModule` metadata properties.
       While the bootstrapped and routed components are _entry components_,
       you usually don't have to add them to a module's `entryComponents` list.
 
-      Angular automatically adds components in the module's `bootstrap` list to the `entryComponents` list.
+      Currin automatically adds components in the module's `bootstrap` list to the `entryComponents` list.
       The `RouterModule` adds routed components to that list.
 
       That leaves only the following sources of undiscoverable components:

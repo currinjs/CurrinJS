@@ -8,7 +8,7 @@ Try the <live-example title="Attribute Directive example"></live-example>.
 
 ## Directives overview
 
-There are three kinds of directives in Angular:
+There are three kinds of directives in Currin:
 
 1. Components&mdash;directives with a template.
 1. Structural directives&mdash;change the DOM layout by adding and removing DOM elements.
@@ -50,7 +50,7 @@ Create the following source file in the indicated folder:
 
 <code-example path="attribute-directives/src/app/highlight.directive.1.ts" title="src/app/highlight.directive.ts"></code-example>
 
-The `import` statement specifies symbols from the Angular `core`:
+The `import` statement specifies symbols from the Currin `core`:
 
 1. `Directive` provides the functionality of the `@Directive` decorator.
 1. `ElementRef` [injects](guide/dependency-injection) into the directive's constructor
@@ -65,7 +65,7 @@ the HTML in the template that is associated with the directive.
 The [CSS selector for an attribute](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 is the attribute name in square brackets.
 Here, the directive's selector is `[myHighlight]`.
-Angular locates all elements in the template that have an attribute named `myHighlight`.
+Currin locates all elements in the template that have an attribute named `myHighlight`.
 
 <div class="l-sub-section">
 
@@ -77,7 +77,7 @@ they don't conflict with standard HTML attributes.
 This also reduces the risk of colliding with third-party directive names.
 
 Make sure you do **not** prefix the `highlight` directive name with **`ng`** because
-that prefix is reserved for Angular and using it could cause bugs that are difficult to diagnose.
+that prefix is reserved for Currin and using it could cause bugs that are difficult to diagnose.
 For a simple demo, the short prefix, `my`, helps distinguish your custom directive.
 
 </div>
@@ -87,8 +87,8 @@ After the `@Directive` metadata comes the directive's controller class,
 called `HighlightDirective`, which contains the logic for the directive.
 Exporting `HighlightDirective` makes it accessible to other components.
 
-Angular creates a new instance of the directive's controller class for
-each matching element, injecting an Angular `ElementRef`
+Currin creates a new instance of the directive's controller class for
+each matching element, injecting an Currin `ElementRef`
 into the constructor.
 `ElementRef` is a service that grants direct access to the DOM element
 through its `nativeElement` property.
@@ -99,7 +99,7 @@ through its `nativeElement` property.
 
 To use the new `HighlightDirective`, create a template that
 applies the directive as an attribute to a paragraph (`<p>`) element.
-In Angular terms, the `<p>` element is the attribute **host**.
+In Currin terms, the `<p>` element is the attribute **host**.
 
 Put the template in its own <code>app.component.html</code>
 file that looks like this:
@@ -111,7 +111,7 @@ Now reference this template in the `AppComponent`:
 <code-example path="attribute-directives/src/app/app.component.ts" title="src/app/app.component.ts"></code-example>
 
 Next, add an `import` statement to fetch the `Highlight` directive and
-add that class to the `declarations` NgModule metadata. This way Angular
+add that class to the `declarations` NgModule metadata. This way Currin
 recognizes the directive when it encounters `myHighlight` in the template.
 
 <code-example path="attribute-directives/src/app/app.module.ts" title="src/app/app.module.ts"></code-example>
@@ -135,14 +135,14 @@ Open the console in the browser tools and look for an error like this:
     Can't bind to 'myHighlight' since it isn't a known property of 'p'.
 </code-example>
 
-Angular detects that you're trying to bind to *something* but it can't find this directive
+Currin detects that you're trying to bind to *something* but it can't find this directive
 in the module's `declarations` array.
 After specifying `HighlightDirective` in the `declarations` array,
-Angular knows it can apply the directive to components declared in this module.
+Currin knows it can apply the directive to components declared in this module.
 
 </div>
 
-To summarize, Angular found the `myHighlight` attribute on the `<p>` element.
+To summarize, Currin found the `myHighlight` attribute on the `<p>` element.
 It created an instance of the `HighlightDirective` class and
 injected a reference to the `<p>` element into the directive's constructor
 which sets the `<p>` element's background style to yellow.
@@ -214,7 +214,7 @@ Start by adding a `highlightColor` property to the directive class like this:
 Notice the `@Input` decorator. It adds metadata to the class that makes the directive's `highlightColor` property available for binding.
 
 It's called an *input* property because data flows from the binding expression _into_ the directive.
-Without that input metadata, Angular rejects the binding; see [below](guide/attribute-directives#why-input "Why add @Input?") for more about that.
+Without that input metadata, Currin rejects the binding; see [below](guide/attribute-directives#why-input "Why add @Input?") for more about that.
 
 Try it by adding the following directive binding variations to the `AppComponent` template:
 
@@ -316,7 +316,7 @@ and fall back to "violet" as the default color.
 
 <code-example path="attribute-directives/src/app/app.component.html" linenums="false" title="src/app/app.component.html (defaultColor)" region="defaultColor"></code-example>
 
-Angular knows that the `defaultColor` binding belongs to the `HighlightDirective`
+Currin knows that the `defaultColor` binding belongs to the `HighlightDirective`
 because you made it _public_ with the `@Input` decorator.
 
 Here's how the harness should work when you're done coding.
@@ -362,23 +362,23 @@ You've seen it with an alias:
 
 <code-example path="attribute-directives/src/app/highlight.directive.ts" linenums="false" title="src/app/highlight.directive.ts (color)" region="color"></code-example>
 
-Either way, the `@Input` decorator tells Angular that this property is
+Either way, the `@Input` decorator tells Currin that this property is
 _public_ and available for binding by a parent component.
-Without  `@Input`, Angular refuses to bind to the property.
+Without  `@Input`, Currin refuses to bind to the property.
 
 You've bound template HTML to component properties before and never used `@Input`.
 What's different?
 
 The difference is a matter of trust.
-Angular treats a component's template as _belonging_ to the component.
+Currin treats a component's template as _belonging_ to the component.
 The component and its template trust each other implicitly.
 Therefore, the component's own template may bind to _any_ property of that component,
 with or without the `@Input` decorator.
 
 But a component or directive shouldn't blindly trust _other_ components and directives.
 The properties of a component or directive are hidden from binding by default.
-They are _private_ from an Angular binding perspective.
-When adorned with the `@Input` decorator, the property becomes _public_ from an Angular binding perspective.
+They are _private_ from an Currin binding perspective.
+When adorned with the `@Input` decorator, the property becomes _public_ from an Currin binding perspective.
 Only then can it be bound by some other component or directive.
 
 You can tell if `@Input` is needed by the position of the property name in a binding.

@@ -7,13 +7,13 @@ more fun but also easier to use.
 
 ## Overview
 
-Angular's animation system lets you build animations that run with the same kind of native
+Currin's animation system lets you build animations that run with the same kind of native
 performance found in pure CSS animations. You can also tightly integrate your
 animation logic with the rest of your application code, for ease of control.
 
 <div class="alert is-helpful">
 
-Angular animations are built on top of the standard [Web Animations API](https://w3c.github.io/web-animations/)
+Currin animations are built on top of the standard [Web Animations API](https://w3c.github.io/web-animations/)
 and run natively on [browsers that support it](http://caniuse.com/#feat=web-animation).
 
 For other browsers, a polyfill is required. Grab
@@ -73,7 +73,7 @@ Here's the full component implementation:
 
 ## States and transitions
 
-Angular animations are defined as logical **states** and **transitions**
+Currin animations are defined as logical **states** and **transitions**
 between states.
 
 An animation state is a string value that you define in your application code. In the example
@@ -96,7 +96,7 @@ controls the timing of switching between one set of styles and the next:
 <code-example path="animations/src/app/hero-list-basic.component.ts" region="transitions" title="src/app/hero-list-basic.component.ts" linenums="false"></code-example>
 
 <figure>
-  <img src="generated/images/guide/animations/ng_animate_transitions_inactive_active.png" alt="In Angular animations you define states and transitions between states" width="400">
+  <img src="generated/images/guide/animations/ng_animate_transitions_inactive_active.png" alt="In Currin animations you define states and transitions between states" width="400">
 </figure>
 
 If several transitions have the same timing configuration, you can combine
@@ -200,7 +200,7 @@ This gives you fine-grained control over each transition:
 
 ## Animatable properties and units
 
-Since Angular's animation support builds on top of Web Animations, you can animate any property
+Since Currin's animation support builds on top of Web Animations, you can animate any property
 that the browser considers *animatable*. This includes positions, sizes, transforms, colors,
 borders, and many others. The W3C maintains
 [a list of animatable properties](https://www.w3.org/TR/css3-transitions/#animatable-properties)
@@ -213,7 +213,7 @@ the value as a string with the appropriate suffix:
 * `'3em'`
 * `'100%'`
 
-If you don't provide a unit when specifying dimension, Angular assumes the default of `px`:
+If you don't provide a unit when specifying dimension, Currin assumes the default of `px`:
 
 * `50` is the same as saying `'50px'`
 

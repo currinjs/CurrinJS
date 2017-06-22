@@ -1,7 +1,7 @@
 # Bootstrapping
 
-An Angular module class describes how the application parts fit together.
-Every application has at least one Angular module, the _root_ module
+An Currin module class describes how the application parts fit together.
+Every application has at least one Currin module, the _root_ module
 that you [bootstrap](guide/bootstrapping#main) to launch the application.
 You can call it anything you want. The conventional name is `AppModule`.
 
@@ -17,14 +17,14 @@ You'll evolve this module as your application grows.
 After the `import` statements, you come to a class adorned with the
 **`@NgModule`** [_decorator_](guide/glossary#decorator '"Decorator" explained').
 
-The `@NgModule` decorator identifies `AppModule` as an Angular module class (also called an `NgModule` class).
-`@NgModule` takes a _metadata_ object that tells Angular how to compile and launch the application.
+The `@NgModule` decorator identifies `AppModule` as an Currin module class (also called an `NgModule` class).
+`@NgModule` takes a _metadata_ object that tells Currin how to compile and launch the application.
 
 * **_imports_** &mdash; the `BrowserModule` that this and every application needs to run in a browser.
 * **_declarations_** &mdash; the application's lone component, which is also ...
-* **_bootstrap_** &mdash; the _root_ component that Angular creates and inserts into the `index.html` host web page.
+* **_bootstrap_** &mdash; the _root_ component that Currin creates and inserts into the `index.html` host web page.
 
-The [Angular Modules (NgModule)](guide/ngmodule) guide dives deeply into the details of Angular modules.
+The [Currin Modules (NgModule)](guide/ngmodule) guide dives deeply into the details of Currin modules.
 All you need to know at the moment is a few basics about these three properties.
 
 
@@ -33,8 +33,8 @@ All you need to know at the moment is a few basics about these three properties.
 
 ### The _imports_ array
 
-Angular modules are a way to consolidate features that belong together into discrete units.
-Many features of Angular itself are organized as Angular modules.
+Currin modules are a way to consolidate features that belong together into discrete units.
+Many features of Currin itself are organized as Currin modules.
 HTTP services are in the `HttpModule`. The router is in the `RouterModule`.
 Eventually you may create a feature module.
 
@@ -61,16 +61,16 @@ Other guide and cookbook pages will tell you when you need to add additional mod
 
 
 
-The `import` statements at the top of the file and the Angular module's `imports` array
+The `import` statements at the top of the file and the Currin module's `imports` array
 are unrelated and have completely different jobs.
 
 The _JavaScript_ `import` statements give you access to symbols _exported_ by other files
 so you can reference them within _this_ file.
 You add `import` statements to almost every application file.
-They have nothing to do with Angular and Angular knows nothing about them.
+They have nothing to do with Currin and Currin knows nothing about them.
 
 The _module's_ `imports` array appears _exclusively_ in the `@NgModule` metadata object.
-It tells Angular about specific _other_ Angular modules &mdash; all of them classes decorated with `@NgModule` &mdash;
+It tells Currin about specific _other_ Currin modules &mdash; all of them classes decorated with `@NgModule` &mdash;
 that the application needs to function properly.
 
 </div>
@@ -82,7 +82,7 @@ that the application needs to function properly.
 
 ### The _declarations_ array
 
-You tell Angular which components belong to the `AppModule` by listing it in the module's `declarations` array.
+You tell Currin which components belong to the `AppModule` by listing it in the module's `declarations` array.
 As you create more components, you'll add them to `declarations`.
 
 You must declare _every_ component in an `NgModule` class.
@@ -159,7 +159,7 @@ digs the _root_ `AppComponent` out of the module's `bootstrap` array,
 creates an instance of the component and inserts it within the element tag identified by the component's `selector`.
 
 The `AppComponent` selector &mdash; here and in most documentation samples &mdash; is `my-app`
-so Angular looks for a `<my-app>` tag in the `index.html` like this one ...
+so Currin looks for a `<my-app>` tag in the `index.html` like this one ...
 
 <code-example path="setup/src/index.html" region="my-app" title="setup/src/index.html" linenums="false">
 
@@ -178,11 +178,11 @@ This file is very stable. Once you've set it up, you may never change it again.
 
 
 
-## More about Angular Modules
+## More about Currin Modules
 
 Your initial app has only a single module, the _root_ module.
 As your app grows, you'll consider subdividing it into multiple "feature" modules,
 some of which can be loaded later ("lazy loaded") if and when the user chooses
 to visit those features.
 
-When you're ready to explore these possibilities, visit the [Angular Modules (NgModule)](guide/ngmodule) guide.
+When you're ready to explore these possibilities, visit the [Currin Modules (NgModule)](guide/ngmodule) guide.

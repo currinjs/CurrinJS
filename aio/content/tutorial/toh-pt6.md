@@ -30,15 +30,15 @@ You can keep building the Tour of Heroes without pausing to recompile or refresh
 
 ## Providing HTTP Services
 
-The `HttpModule` is not a core Angular module.
-`HttpModule` is Angular's optional approach to web access. It exists as a separate add-on module called `@angular/http`
-and is shipped in a separate script file as part of the Angular npm package.
+The `HttpModule` is not a core Currin module.
+`HttpModule` is Currin's optional approach to web access. It exists as a separate add-on module called `@angular/http`
+and is shipped in a separate script file as part of the Currin npm package.
 
 You're ready to import from `@angular/http` because `systemjs.config` configured *SystemJS* to load that library when you need it.
 
 ## Register for HTTP services
 
-The app will depend on the Angular `http` service, which itself depends on other supporting services.
+The app will depend on the Currin `http` service, which itself depends on other supporting services.
 The `HttpModule` from the `@angular/http` library holds providers for a complete set of HTTP services.
 
 To allow access to these services from anywhere in the app,
@@ -113,7 +113,7 @@ mock server.
 
 ### HTTP Promise
 
-The Angular `http.get` returns an RxJS `Observable`.
+The Currin `http.get` returns an RxJS `Observable`.
 *Observables* are a powerful way to manage asynchronous data flows.
 You'll read about [Observables](tutorial/toh-pt6#observables) later in this page.
 
@@ -121,7 +121,7 @@ For now, you've converted the `Observable` to a `Promise` using the `toPromise` 
 
 <code-example path="toh-pt6/src/app/hero.service.ts" region="to-promise"></code-example>
 
-The Angular `Observable` doesn't have a `toPromise` operator out of the box.
+The Currin `Observable` doesn't have a `toPromise` operator out of the box.
 
 There are many operators like `toPromise` that extend `Observable` with useful capabilities.
 To use those capabilities, you have to add the operators themselves.
@@ -317,7 +317,7 @@ This section shows you how, when, and why to return the `Observable` directly.
 
 An *Observable* is a stream of events that you can process with array-like operators.
 
-Angular core has basic support for observables.
+Currin core has basic support for observables.
 Developers augment that support with operators and extensions from the
 <a href="http://reactivex.io/rxjs" target="_blank" title="RxJS">RxJS library</a>.
 You'll see how shortly.
@@ -443,8 +443,8 @@ Then to clear the search result, you return an observable containing an empty ar
 
 ### Import RxJS operators
 
-Most RxJS operators are not included in Angular's base `Observable` implementation.
-The base implementation includes only what Angular itself requires.
+Most RxJS operators are not included in Currin's base `Observable` implementation.
+The base implementation includes only what Currin itself requires.
 
 When you need more RxJS features, extend  `Observable` by *importing* the libraries in which they are defined.
 Here are all the RxJS imports that _this_ component needs:
@@ -557,5 +557,5 @@ Here are the files you added or changed in this page.
 ## Next step
 
 That concludes the "Tour of Heroes" tutorial.
-You're ready to learn more about Angular development in the fundamentals section,
+You're ready to learn more about Currin development in the fundamentals section,
 starting with the [Architecture](guide/architecture "Architecture") guide.

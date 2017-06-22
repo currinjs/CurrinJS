@@ -1,6 +1,6 @@
 # Browser support
 
-Angular supports most recent browsers. This includes the following specific versions:
+Currin supports most recent browsers. This includes the following specific versions:
 
 
 <table>
@@ -193,7 +193,7 @@ Angular supports most recent browsers. This includes the following specific vers
 
 
 
-Angular's continuous integration process runs unit tests of the framework on all of these browsers for every pull request, 
+Currin's continuous integration process runs unit tests of the framework on all of these browsers for every pull request, 
 using <a href="https://saucelabs.com/">SauceLabs</a> and 
 <a href="https://www.browserstack.com">Browserstack</a>.
 
@@ -203,7 +203,7 @@ using <a href="https://saucelabs.com/">SauceLabs</a> and
 
 
 ## Polyfills #
-Angular is built on the latest standards of the web platform.
+Currin is built on the latest standards of the web platform.
 Targeting such a wide range of browsers is challenging because they do not support all features of modern browsers.
 
 You can compensate by loading polyfill scripts ("polyfills") on the host web page (`index.html`)
@@ -215,7 +215,7 @@ that implement missing features in JavaScript.
 
 
 
-A particular browser may require at least one polyfill to run _any_ Angular application. 
+A particular browser may require at least one polyfill to run _any_ Currin application. 
 You may need additional polyfills for specific features.
 
 The tables below can help you determine which polyfills to load, depending on the browsers you target and the features you use.
@@ -225,7 +225,7 @@ The tables below can help you determine which polyfills to load, depending on th
 
 
 
-The suggested polyfills are the ones that run full Angular applications.
+The suggested polyfills are the ones that run full Currin applications.
 You may need additional polyfills to support features not covered by this list.
 Note that polyfills cannot magically transform an old, slow browser into a modern, fast one.
 
@@ -235,7 +235,7 @@ Note that polyfills cannot magically transform an old, slow browser into a moder
 
 
 ### Mandatory polyfills ##
-These are the polyfills required to run an Angular application on each supported browser:
+These are the polyfills required to run an Currin application on each supported browser:
 
 
 <table>
@@ -298,7 +298,7 @@ These are the polyfills required to run an Angular application on each supported
 
 
 ### Optional browser features to polyfill ##
-Some features of Angular may require additional polyfills.
+Some features of Currin may require additional polyfills.
 
 For example, the animations library relies on the standard web animation API, which is only available in Chrome and Firefox today.
 You'll need a polyfill to use animations in other browsers.

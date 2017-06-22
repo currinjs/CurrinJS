@@ -7,13 +7,13 @@ during a build process.
 
 ## Overview
 
-An Angular application consists largely of components and their HTML templates.
+An Currin application consists largely of components and their HTML templates.
 Before the browser can render the application,
 the components and templates must be converted to executable JavaScript by the _Angular compiler_.
 
 <div class="l-sub-section">
 
-  <a href="https://www.youtube.com/watch?v=kW9cJsvcsGo">Watch compiler author Tobias Bosch explain the Angular Compiler</a> at AngularConnect 2016.
+  <a href="https://www.youtube.com/watch?v=kW9cJsvcsGo">Watch compiler author Tobias Bosch explain the Currin Compiler</a> at AngularConnect 2016.
 
 </div>
 
@@ -23,7 +23,7 @@ It's great but it has shortcomings.
 
 JIT compilation incurs a runtime performance penalty.
 Views take longer to render because of the in-browser compilation step.
-The application is bigger because it includes the Angular compiler
+The application is bigger because it includes the Currin compiler
 and a lot of library code that the application won't actually need.
 Bigger apps take longer to transmit and are slower to load.
 
@@ -37,7 +37,7 @@ by compiling at build time.
 
 ## _Ahead-of-time_ (AOT) vs _just-in-time_ (JIT)
 
-There is actually only one Angular compiler. The difference between AOT and JIT is a matter of timing and tooling.
+There is actually only one Currin compiler. The difference between AOT and JIT is a matter of timing and tooling.
 With AOT, the compiler runs once at build time using one set of libraries;
 with JIT it runs every time for every user at runtime using a different set of libraries.
 
@@ -55,10 +55,10 @@ The browser loads executable code so it can render the application immediately, 
 The compiler _inlines_ external HTML templates and CSS style sheets within the application JavaScript,
 eliminating separate ajax requests for those source files.
 
-*Smaller Angular framework download size*
+*Smaller Currin framework download size*
 
-There's no need to download the Angular compiler if the app is already compiled.
-The compiler is roughly half of Angular itself, so omitting it dramatically reduces the application payload.
+There's no need to download the Currin compiler if the app is already compiled.
+The compiler is roughly half of Currin itself, so omitting it dramatically reduces the application payload.
 
 
 *Detect template errors earlier*
@@ -153,7 +153,7 @@ Note that the original component class is still referenced internally by the gen
 
 <div class="l-sub-section">
 
-  The curious can open `aot/app.component.ngfactory.ts` to see the original Angular template syntax
+  The curious can open `aot/app.component.ngfactory.ts` to see the original Currin template syntax
   compiled to TypeScript, its intermediate form.
 
   JIT compilation generates these same _NgFactories_ in memory where they are largely invisible.
@@ -203,10 +203,10 @@ dead leaves in a tree.
 
 Tree shaking can greatly reduce the downloaded size of the application
 by removing unused portions of both source and library code.
-In fact, most of the reduction in small apps comes from removing unreferenced Angular features.
+In fact, most of the reduction in small apps comes from removing unreferenced Currin features.
 
 For example, this demo application doesn't use anything from the `@angular/forms` library.
-There is no reason to download forms-related Angular code and tree shaking ensures that you don't.
+There is no reason to download forms-related Currin code and tree shaking ensures that you don't.
 
 Tree shaking and AOT compilation are separate steps.
 Tree shaking can only target JavaScript code.
@@ -263,7 +263,7 @@ Rollup expects application source code to use `ES2015` modules.
 Not all external dependencies are published as `ES2015` modules.
 In fact, most are not. Many of them are published as _CommonJS_ modules.
 
-The _RxJs_ Observable library is an essential Angular dependency published as an ES5 JavaScript _CommonJS_ module.
+The _RxJs_ Observable library is an essential Currin dependency published as an ES5 JavaScript _CommonJS_ module.
 
 Luckily, there is a Rollup plugin that modifies _RxJs_
 to use the ES `import` and `export` statements that Rollup requires.
@@ -446,7 +446,7 @@ It does not need `SystemJS`, so that script is absent from its `index.html`
 
 ***main.ts***
 
-JIT and AOT applications boot in much the same way but require different Angular libraries to do so.
+JIT and AOT applications boot in much the same way but require different Currin libraries to do so.
 The key differences, covered in the [Bootstrap](guide/aot-compiler#bootstrap) section above,
 are evident in these `main` files which can and should reside in the same folder:
 
@@ -568,7 +568,7 @@ Run the following command to generate the map.
 </code-example>
 
 The `source-map-explorer` analyzes the source map generated with the bundle and draws a map of all dependencies,
-showing exactly which application and Angular modules and classes are included in the bundle.
+showing exactly which application and Currin modules and classes are included in the bundle.
 
 Here's the map for _Tour of Heroes_.
 

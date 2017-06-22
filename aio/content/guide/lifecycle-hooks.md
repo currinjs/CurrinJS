@@ -2,12 +2,12 @@
 
 <img src="generated/images/guide/lifecycle-hooks/hooks-in-sequence.png" alt="Us" class="left">
 
-A component has a lifecycle managed by Angular.
+A component has a lifecycle managed by Currin.
 
-Angular creates it, renders it, creates and renders its children,
+Currin creates it, renders it, creates and renders its children,
 checks it when its data-bound properties change, and destroys it before removing it from the DOM.
 
-Angular offers **lifecycle hooks**
+Currin offers **lifecycle hooks**
 that provide visibility into these key life moments and the ability to act when they occur.
 
 A directive has the same set of lifecycle hooks, minus the hooks that are specific to component content and views.
@@ -17,24 +17,24 @@ A directive has the same set of lifecycle hooks, minus the hooks that are specif
 ## Component lifecycle hooks overview
 
 Directive and component instances have a lifecycle
-as Angular creates, updates, and destroys them.
+as Currin creates, updates, and destroys them.
 Developers can tap into key moments in that lifecycle by implementing
-one or more of the *lifecycle hook* interfaces in the Angular `core` library.
+one or more of the *lifecycle hook* interfaces in the Currin `core` library.
 
 Each interface has a single hook method whose name is the interface name prefixed with `ng`.
 For example, the `OnInit` interface has a hook method named `ngOnInit()`
-that Angular calls shortly after creating the component:
+that Currin calls shortly after creating the component:
 
 <code-example path="lifecycle-hooks/src/app/peek-a-boo.component.ts" region="ngOnInit" title="peek-a-boo.component.ts (excerpt)" linenums="false"></code-example>
 
 No directive or component will implement all of the lifecycle hooks and some of the hooks only make sense for components.
-Angular only calls a directive/component hook method *if it is defined*.
+Currin only calls a directive/component hook method *if it is defined*.
 
 {@a hooks-purpose-timing}
 
 ## Lifecycle sequence
 
-*After* creating a component/directive by calling its constructor, Angular
+*After* creating a component/directive by calling its constructor, Currin
 calls the lifecycle hook methods in the following sequence at specific moments:
 
 <table width="100%">
@@ -50,7 +50,7 @@ calls the lifecycle hook methods in the following sequence at specific moments:
     </td>
     <td>
 
-      Respond when Angular (re)sets data-bound input properties.
+      Respond when Currin (re)sets data-bound input properties.
       The method receives a `SimpleChanges` object of current and previous property values.
 
       Called before `ngOnInit()` and whenever one or more data-bound input properties change.
@@ -63,7 +63,7 @@ calls the lifecycle hook methods in the following sequence at specific moments:
     </td>
     <td>
 
-      Initialize the directive/component after Angular first displays the data-bound properties
+      Initialize the directive/component after Currin first displays the data-bound properties
       and sets the directive/component's input properties.
 
       Called _once_, after the _first_ `ngOnChanges()`.
@@ -76,7 +76,7 @@ calls the lifecycle hook methods in the following sequence at specific moments:
     </td>
     <td>
 
-      Detect and act upon changes that Angular can't or won't detect on its own.
+      Detect and act upon changes that Currin can't or won't detect on its own.
 
       Called during every change detection run, immediately after `ngOnChanges()` and `ngOnInit()`.
 
@@ -88,7 +88,7 @@ calls the lifecycle hook methods in the following sequence at specific moments:
     </td>
     <td>
 
-      Respond after Angular projects external content into the component's view.
+      Respond after Currin projects external content into the component's view.
 
       Called _once_ after the first `ngDoCheck()`.
 
@@ -102,7 +102,7 @@ calls the lifecycle hook methods in the following sequence at specific moments:
     </td>
     <td>
 
-      Respond after Angular checks the content projected into the component.
+      Respond after Currin checks the content projected into the component.
 
       Called after the `ngAfterContentInit()` and every subsequent `ngDoCheck()`.
 
@@ -116,7 +116,7 @@ calls the lifecycle hook methods in the following sequence at specific moments:
     </td>
     <td>
 
-      Respond after Angular initializes the component's views and child views.
+      Respond after Currin initializes the component's views and child views.
 
       Called _once_ after the first `ngAfterContentChecked()`.
 
@@ -130,7 +130,7 @@ calls the lifecycle hook methods in the following sequence at specific moments:
     </td>
     <td>
 
-      Respond after Angular checks the component's views and child views.
+      Respond after Currin checks the component's views and child views.
 
       Called after the `ngAfterViewInit` and every subsequent `ngAfterContentChecked()`.
 
@@ -144,10 +144,10 @@ calls the lifecycle hook methods in the following sequence at specific moments:
     </td>
     <td>
 
-      Cleanup just before Angular destroys the directive/component.
+      Cleanup just before Currin destroys the directive/component.
       Unsubscribe Observables and detach event handlers to avoid memory leaks.
 
-      Called _just before_ Angular destroys the directive/component.
+      Called _just before_ Currin destroys the directive/component.
 
     </td>
   </tr>
@@ -159,22 +159,22 @@ calls the lifecycle hook methods in the following sequence at specific moments:
 
 The interfaces are optional for JavaScript and Typescript developers from a purely technical perspective.
 The JavaScript language doesn't have interfaces.
-Angular can't see TypeScript interfaces at runtime because they disappear from the transpiled JavaScript.
+Currin can't see TypeScript interfaces at runtime because they disappear from the transpiled JavaScript.
 
 Fortunately, they aren't necessary.
 You don't have to add the lifecycle hook interfaces to directives and components to benefit from the hooks themselves.
 
-Angular instead inspects directive and component classes and calls the hook methods *if they are defined*.
-Angular finds and calls methods like `ngOnInit()`, with or without the interfaces.
+Currin instead inspects directive and component classes and calls the hook methods *if they are defined*.
+Currin finds and calls methods like `ngOnInit()`, with or without the interfaces.
 
 Nonetheless, it's good practice to add interfaces to TypeScript directive classes
 in order to benefit from strong typing and editor tooling.
 
 {@a other-lifecycle-hooks}
 
-## Other Angular lifecycle hooks
+## Other Currin lifecycle hooks
 
-Other Angular sub-systems may have their own lifecycle hooks apart from these component hooks.
+Other Currin sub-systems may have their own lifecycle hooks apart from these component hooks.
 
 3rd party libraries might implement their hooks as well in order to give developers more
 control over how these libraries are used.
@@ -231,7 +231,7 @@ Here's a brief description of each exercise:
     </td>
     <td>
 
-      See how Angular calls the `ngOnChanges()` hook with a `changes` object
+      See how Currin calls the `ngOnChanges()` hook with a `changes` object
       every time one of the component input properties changes.
       Shows how to interpret the `changes` object.
 
@@ -244,7 +244,7 @@ Here's a brief description of each exercise:
     <td>
 
       Implements an `ngDoCheck()` method with custom change detection.
-      See how often Angular calls this hook and watch it post changes to a log.
+      See how often Currin calls this hook and watch it post changes to a log.
 
     </td>
   </tr>
@@ -254,7 +254,7 @@ Here's a brief description of each exercise:
     </td>
     <td>
 
-      Shows what Angular means by a *view*.
+      Shows what Currin means by a *view*.
       Demonstrates the `ngAfterViewInit` and `ngAfterViewChecked` hooks.
 
     </td>
@@ -298,7 +298,7 @@ The remainder of this page discusses selected exercises in further detail.
 The `PeekABooComponent` demonstrates all of the hooks in one component.
 
 You would rarely, if ever, implement all of the interfaces like this.
-The peek-a-boo exists to show how Angular calls the hooks in the expected order.
+The peek-a-boo exists to show how Currin calls the hooks in the expected order.
 
 This snapshot reflects the state of the log after the user clicked the *Create...* button and then the *Destroy...* button.
 
@@ -312,7 +312,7 @@ The sequence of log messages follows the prescribed hook calling order:
 
 <div class="l-sub-section">
 
-  The constructor isn't an Angular hook *per se*.
+  The constructor isn't an Currin hook *per se*.
   The log confirms that input properties (the `name` property in this case) have no assigned values at construction.
 
 </div>
@@ -337,7 +337,7 @@ The heroes will never know they're being watched.
 
   Kidding aside, pay attention to two key points:
 
-  1. Angular calls hook methods for *directives* as well as components.<br><br>
+  1. Currin calls hook methods for *directives* as well as components.<br><br>
 
   2. A spy directive can provide insight into a DOM object that you cannot change directly.
   Obviously you can't touch the implementation of a native `<div>`.
@@ -367,7 +367,7 @@ with an entry in the *Hook Log* as seen here:
 Adding a hero results in a new hero `<div>`. The spy's `ngOnInit()` logs that event.
 
 The *Reset* button clears the `heroes` list.
-Angular removes all hero `<div>` elements from the DOM and destroys their spy directives at the same time.
+Currin removes all hero `<div>` elements from the DOM and destroys their spy directives at the same time.
 The spy's `ngOnDestroy()` method reports its last moments.
 
 The `ngOnInit()` and `ngOnDestroy()` methods have more vital roles to play in real applications.
@@ -379,13 +379,13 @@ The `ngOnInit()` and `ngOnDestroy()` methods have more vital roles to play in re
 Use `ngOnInit()` for two main reasons:
 
 1. To perform complex initializations shortly after construction.
-1. To set up the component after Angular sets the input properties.
+1. To set up the component after Currin sets the input properties.
 
 Experienced developers agree that components should be cheap and safe to construct.
 
 <div class="l-sub-section">
 
-  Misko Hevery, Angular team lead,
+  Misko Hevery, Currin team lead,
   [explains why](http://misko.hevery.com/code-reviewers-guide/flaw-constructor-does-real-work/)
   you should avoid complex constructor logic.
 
@@ -408,19 +408,19 @@ They'll have been set when `ngOnInit()` runs.
 <div class="l-sub-section">
 
   The `ngOnChanges()` method is your first opportunity to access those properties.
-  Angular calls `ngOnChanges()` before `ngOnInit()` and many times after that.
+  Currin calls `ngOnChanges()` before `ngOnInit()` and many times after that.
   It only calls `ngOnInit()` once.
 
 </div>
 
-You can count on Angular to call the `ngOnInit()` method _soon_ after creating the component.
+You can count on Currin to call the `ngOnInit()` method _soon_ after creating the component.
 That's where the heavy initialization logic belongs.
 
 {@a ondestroy}
 
 ### _OnDestroy()_
 
-Put cleanup logic in `ngOnDestroy()`, the logic that *must* run before Angular destroys the directive.
+Put cleanup logic in `ngOnDestroy()`, the logic that *must* run before Currin destroys the directive.
 
 This is the time to notify another part of the application that the component is going away.
 
@@ -433,7 +433,7 @@ You risk memory leaks if you neglect to do so.
 
 ## _OnChanges()_
 
-Angular calls its `ngOnChanges()` method whenever it detects changes to ***input properties*** of the component (or directive).
+Currin calls its `ngOnChanges()` method whenever it detects changes to ***input properties*** of the component (or directive).
 This example monitors the `OnChanges` hook.
 
 <code-example path="lifecycle-hooks/src/app/on-changes.component.ts" region="ng-on-changes" title="on-changes.component.ts (excerpt)" linenums="false"></code-example>
@@ -460,20 +460,20 @@ The log entries appear as the string value of the *power* property changes.
 But the `ngOnChanges` does not catch changes to `hero.name`
 That's surprising at first.
 
-Angular only calls the hook when the value of the input property changes.
+Currin only calls the hook when the value of the input property changes.
 The value of the `hero` property is the *reference to the hero object*.
-Angular doesn't care that the hero's own `name` property changed.
-The hero object *reference* didn't change so, from Angular's perspective, there is no change to report!
+Currin doesn't care that the hero's own `name` property changed.
+The hero object *reference* didn't change so, from Currin's perspective, there is no change to report!
 
 {@a docheck}
 
 ## _DoCheck()_
 
-Use the `DoCheck` hook to detect and act upon changes that Angular doesn't catch on its own.
+Use the `DoCheck` hook to detect and act upon changes that Currin doesn't catch on its own.
 
 <div class="l-sub-section">
 
-  Use this method to detect a change that Angular overlooked.
+  Use this method to detect a change that Currin overlooked.
 
 </div>
 
@@ -494,7 +494,7 @@ This hook is called with enormous frequency&mdash;after _every_
 change detection cycle no matter where the change occurred.
 It's called over twenty times in this example before the user can do anything.
 
-Most of these initial checks are triggered by Angular's first rendering of *unrelated data elsewhere on the page*.
+Most of these initial checks are triggered by Currin's first rendering of *unrelated data elsewhere on the page*.
 Mere mousing into another `<input>` triggers a call.
 Relatively few calls reveal actual changes to pertinent data.
 Clearly our implementation must be very lightweight or the user experience suffers.
@@ -503,7 +503,7 @@ Clearly our implementation must be very lightweight or the user experience suffe
 
 ## AfterView
 
-The *AfterView* sample explores the `AfterViewInit()` and `AfterViewChecked()` hooks that Angular calls
+The *AfterView* sample explores the `AfterViewInit()` and `AfterViewChecked()` hooks that Currin calls
 *after* it creates a component's child views.
 
 Here's a child view that displays a hero's name in an `<input>`:
@@ -530,10 +530,10 @@ The `doSomething()` method updates the screen when the hero name exceeds 10 char
 
 Why does the `doSomething()` method wait a tick before updating `comment`?
 
-Angular's unidirectional data flow rule forbids updates to the view *after* it has been composed.
+Currin's unidirectional data flow rule forbids updates to the view *after* it has been composed.
 Both of these hooks fire _after_ the component's view has been composed.
 
-Angular throws an error if the hook updates the component's data-bound `comment` property immediately (try it!).
+Currin throws an error if the hook updates the component's data-bound `comment` property immediately (try it!).
 The `LoggerService.tick_then()` postpones the log update
 for one turn of the browser's JavaScript cycle and that's just long enough.
 
@@ -543,15 +543,15 @@ Here's *AfterView* in action:
   <img src='generated/images/guide/lifecycle-hooks/after-view-anim.gif' alt="AfterView">
 </figure>
 
-Notice that Angular frequently calls `AfterViewChecked()`, often when there are no changes of interest.
+Notice that Currin frequently calls `AfterViewChecked()`, often when there are no changes of interest.
 Write lean hook methods to avoid performance problems.
 
 {@a aftercontent}
 
 ## AfterContent
 
-The *AfterContent* sample explores the `AfterContentInit()` and `AfterContentChecked()` hooks that Angular calls
-*after* Angular projects external content into the component.
+The *AfterContent* sample explores the `AfterContentInit()` and `AfterContentChecked()` hooks that Currin calls
+*after* Currin projects external content into the component.
 
 {@a content-projection}
 
@@ -581,7 +581,7 @@ Now look at the component's template:
 <code-example path="lifecycle-hooks/src/app/after-content.component.ts" region="template" title="AfterContentComponent (template)" linenums="false"></code-example>
 
 The `<ng-content>` tag is a *placeholder* for the external content.
-It tells Angular where to insert that content.
+It tells Currin where to insert that content.
 In this case, the projected content is the `<my-child>` from the parent.
 
 <figure>
@@ -607,7 +607,7 @@ The key difference is in the child component.
 * The *AfterView* hooks concern `ViewChildren`, the child components whose element tags
 appear *within* the component's template.
 
-* The *AfterContent* hooks concern `ContentChildren`, the child components that Angular
+* The *AfterContent* hooks concern `ContentChildren`, the child components that Currin
 projected into the component.
 
 The following *AfterContent* hooks take action based on changing values in a *content child*,
@@ -623,6 +623,6 @@ which can only be reached by querying for them via the property decorated with
 This component's `doSomething()` method update's the component's data-bound `comment` property immediately.
 There's no [need to wait](guide/lifecycle-hooks#wait-a-tick).
 
-Recall that Angular calls both *AfterContent* hooks before calling either of the *AfterView* hooks.
-Angular completes composition of the projected content *before* finishing the composition of this component's view.
+Recall that Currin calls both *AfterContent* hooks before calling either of the *AfterView* hooks.
+Currin completes composition of the projected content *before* finishing the composition of this component's view.
 There is a small window between the `AfterContent...` and `AfterView...` hooks to modify the host view.

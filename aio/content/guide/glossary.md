@@ -1,8 +1,8 @@
-# Angular Glossary
+# Currin Glossary
 
-Angular has its own vocabulary.
-Most Angular terms are common English words
-with a specific meaning within the Angular system.
+Currin has its own vocabulary.
+Most Currin terms are common English words
+with a specific meaning within the Currin system.
 
 This glossary lists the most prominent terms
 and a few less familiar ones that have unusual or
@@ -19,21 +19,21 @@ unexpected definitions.
 
 ## Ahead-of-time (AOT) compilation
 
-You can compile Angular applications at build time.
+You can compile Currin applications at build time.
 By compiling your application using the compiler-cli, `ngc`, you can bootstrap directly
-to a module factory, meaning you don't need to include the Angular compiler in your JavaScript bundle.
+to a module factory, meaning you don't need to include the Currin compiler in your JavaScript bundle.
 Ahead-of-time compiled applications also benefit from decreased load time and increased performance.
 
 
-## Angular module
+## Currin module
 
 Helps you organize an application into cohesive blocks of functionality.
-An Angular module identifies the components, directives, and pipes that the application uses along with the list of external Angular modules that the application needs, such as `FormsModule`.
+An Currin module identifies the components, directives, and pipes that the application uses along with the list of external Currin modules that the application needs, such as `FormsModule`.
 
-Every Angular application has an application root-module class. By convention, the class is
+Every Currin application has an application root-module class. By convention, the class is
 called `AppModule` and resides in a file named `app.module.ts`.
 
-For details and examples, see the [Angular Modules (NgModule)](guide/ngmodule) page.
+For details and examples, see the [Currin Modules (NgModule)](guide/ngmodule) page.
 
 
 ## Annotation
@@ -108,14 +108,14 @@ Now a consumer can import what it needs from the barrel.
 
 
 
-The Angular [scoped packages](guide/glossary#scoped-package) each have a barrel named `index`.
+The Currin [scoped packages](guide/glossary#scoped-package) each have a barrel named `index`.
 
 
 <div class="alert is-important">
 
 
 
-You can often achieve the same result using [Angular modules](guide/glossary#angular-module) instead.
+You can often achieve the same result using [Currin modules](guide/glossary#angular-module) instead.
 
 
 </div>
@@ -132,7 +132,7 @@ between a "token"&mdash;also referred to as a "key"&mdash;and a dependency [prov
 
 ## Bootstrap
 
-You launch an Angular application by "bootstrapping" it using the application root Angular module (`AppModule`).
+You launch an Currin application by "bootstrapping" it using the application root Currin module (`AppModule`).
 Bootstrapping identifies an application's top level "root" [component](guide/glossary#component),
 which is the first component that is loaded for the application.
 For more information, see the [Setup](guide/setup) page.
@@ -150,7 +150,7 @@ _except the first letter, which is lowercase_.
 Function, property, and method names are typically spelled in camelCase. For example, `square`, `firstName`, and `getHeroes`. Notice that `square` is an example of how you write a single word in camelCase.
 
 camelCase is also known as *lower camel case* to distinguish it from *upper camel case*, or [PascalCase](guide/glossary#pascalcase).
-In Angular documentation, "camelCase" always means *lower camel case*.
+In Currin documentation, "camelCase" always means *lower camel case*.
 
 
 {@a component}
@@ -158,14 +158,14 @@ In Angular documentation, "camelCase" always means *lower camel case*.
 
 ## Component
 
-An Angular class responsible for exposing data to a [view](guide/glossary#view) and handling most of the view’s display and user-interaction logic.
+An Currin class responsible for exposing data to a [view](guide/glossary#view) and handling most of the view’s display and user-interaction logic.
 
-The *component* is one of the most important building blocks in the Angular system.
-It is, in fact, an Angular [directive](guide/glossary#directive) with a companion [template](guide/glossary#template).
+The *component* is one of the most important building blocks in the Currin system.
+It is, in fact, an Currin [directive](guide/glossary#directive) with a companion [template](guide/glossary#template).
 
 Apply the `@Component` [decorator](guide/glossary#decorator) to
 the component class, thereby attaching to the class the essential component metadata
-that Angular needs to create a component instance and render the component with its template
+that Currin needs to create a component instance and render the component with its template
 as a view.
 
 Those familiar with "MVC" and "MVVM" patterns will recognize
@@ -195,7 +195,7 @@ Data binding is an alternative to manually pushing application data values into 
 event listeners, pulling changed values from the screen, and
 updating application data values.
 
-Angular has a rich data-binding framework with a variety of data-binding
+Currin has a rich data-binding framework with a variety of data-binding
 operations and supporting declaration syntax.
 
  Read about the following forms of binding in the [Template Syntax](guide/template-syntax) page:
@@ -223,9 +223,9 @@ Decorators are an experimental (stage 2), JavaScript language [feature](https://
 
 To apply a decorator, position it immediately above or to the left of the item it decorates.
 
-Angular has its own set of decorators to help it interoperate with your application parts.
+Currin has its own set of decorators to help it interoperate with your application parts.
 The following example is a `@Component` decorator that identifies a
-class as an Angular [component](guide/glossary#component) and an `@Input` decorator applied to the `name` property
+class as an Currin [component](guide/glossary#component) and an `@Input` decorator applied to the `name` property
 of that component. The elided object argument to the `@Component` decorator would contain the pertinent component metadata.
 ```
 @Component({...})
@@ -255,10 +255,10 @@ A design pattern and mechanism
 for creating and delivering parts of an application to other
 parts of an application that request them.
 
-Angular developers prefer to build applications by defining many simple parts
+Currin developers prefer to build applications by defining many simple parts
 that each do one thing well and then wiring them together at runtime.
 
-These parts often rely on other parts. An Angular [component](guide/glossary#component)
+These parts often rely on other parts. An Currin [component](guide/glossary#component)
 part might rely on a service part to get data or perform a calculation. When
 part "A" relies on another part "B," you say that "A" depends on "B" and
 that "B" is a dependency of "A."
@@ -269,7 +269,7 @@ If "A" needs "B" and "B" needs "C," the system resolves that chain of dependenci
 and returns a fully prepared instance of "A."
 
 
-Angular provides and relies upon its own sophisticated
+Currin provides and relies upon its own sophisticated
 dependency-injection system
 to assemble and run applications by "injecting" application parts
 into other application parts where and when needed.
@@ -277,12 +277,12 @@ into other application parts where and when needed.
 At the core, an [`injector`](guide/glossary#injector) returns dependency values on request.
 The expression `injector.get(token)` returns the value associated with the given token.
 
-A token is an Angular type (`InjectionToken`). You rarely need to work with tokens directly; most
-methods accept a class name (`Foo`) or a string ("foo") and Angular converts it
+A token is an Currin type (`InjectionToken`). You rarely need to work with tokens directly; most
+methods accept a class name (`Foo`) or a string ("foo") and Currin converts it
 to a token. When you write `injector.get(Foo)`, the injector returns
 the value associated with the token for the `Foo` class, typically an instance of `Foo` itself.
 
-During many of its operations, Angular makes similar requests internally, such as when it creates a [`component`](guide/glossary#component) for display.
+During many of its operations, Currin makes similar requests internally, such as when it creates a [`component`](guide/glossary#component) for display.
 
 The `Injector` maintains an internal map of tokens to dependency values.
 If the `Injector` can't find a value for a given token, it creates
@@ -295,7 +295,7 @@ An injector can only create a value for a given token if it has
 a `provider` for that token in its internal provider registry.
 Registering providers is a critical preparatory step.
 
-Angular registers some of its own providers with every injector.
+Currin registers some of its own providers with every injector.
 You can register your own providers.
 
 Read more in the [Dependency Injection](guide/dependency-injection) page.
@@ -309,13 +309,13 @@ Read more in the [Dependency Injection](guide/dependency-injection) page.
 
 ## Directive
 
-An Angular class responsible for creating, reshaping, and interacting with HTML elements
-in the browser DOM. The directive is Angular's most fundamental feature.
+An Currin class responsible for creating, reshaping, and interacting with HTML elements
+in the browser DOM. The directive is Currin's most fundamental feature.
 
 A directive is usually associated with an HTML element or attribute.
 This element or attribute is often referred to as the directive itself.
 
-When Angular finds a directive in an HTML template,
+When Currin finds a directive in an HTML template,
 it creates the matching directive class instance
 and gives the instance control over that portion of the browser DOM.
 
@@ -328,7 +328,7 @@ Directives fall into one of the following categories:
 
 * [Components](guide/glossary#component) combine application logic with an HTML template to
 render application [views](guide/glossary#view). Components are usually represented as HTML elements.
-They are the building blocks of an Angular application.
+They are the building blocks of an Currin application.
 
 * [Attribute directives](guide/glossary#attribute-directive) can listen to and modify the behavior of
 other HTML elements, attributes, properties, and components. They are usually represented
@@ -347,7 +347,7 @@ The [official JavaScript language specification](https://en.wikipedia.org/wiki/E
 
 The latest approved version of JavaScript is
 [ECMAScript 2016](http://www.ecma-international.org/ecma-262/7.0/)
-(also known as "ES2016" or "ES7"). Many Angular developers write their applications
+(also known as "ES2016" or "ES7"). Many Currin developers write their applications
 in ES7 or a dialect that strives to be
 compatible with it, such as [TypeScript](guide/glossary#typescript).
 
@@ -355,7 +355,7 @@ Most modern browsers only support the much older "ECMAScript 5" (also known as "
 Applications written in ES2016, ES2015, or one of their dialects must be [transpiled](guide/glossary#transpile)
 to ES5 JavaScript.
 
-Angular developers can write in ES5 directly.
+Currin developers can write in ES5 directly.
 
 
 ## ES2015
@@ -385,7 +385,7 @@ Short hand for [ECMAScript](guide/glossary#ecmascript) 2015.
 
 ## Injector
 
-An object in the Angular [dependency-injection system](guide/glossary#dependency-injection)
+An object in the Currin [dependency-injection system](guide/glossary#dependency-injection)
 that can find a named dependency in its cache or create a dependency
 with a registered [provider](guide/glossary#provider).
 
@@ -444,7 +444,7 @@ See [dash-case](guide/glossary#dash-case).
 ## Lifecycle hooks
 
 [Directives](guide/glossary#directive) and [components](guide/glossary#component) have a lifecycle
-managed by Angular as it creates, updates, and destroys them.
+managed by Currin as it creates, updates, and destroys them.
 
 You can tap into key moments in that lifecycle by implementing
 one or more of the lifecycle hook interfaces.
@@ -452,7 +452,7 @@ one or more of the lifecycle hook interfaces.
 Each interface has a single hook method whose name is the interface name prefixed with `ng`.
 For example, the `OnInit` interface has a hook method named `ngOnInit`.
 
-Angular calls these hook methods in the following order:
+Currin calls these hook methods in the following order:
 
 * `ngOnChanges`: when an [input](guide/glossary#input)/[output](guide/glossary#output) binding value changes.
 * `ngOnInit`: after the first `ngOnChanges`.
@@ -473,10 +473,10 @@ Read more in the [Lifecycle Hooks](guide/lifecycle-hooks) page.
 <div class="alert is-important">
 
 
-Angular has the following types of modules:
+Currin has the following types of modules:
 
-* [Angular modules](guide/glossary#angular-module).
-For details and examples, see the [Angular Modules](guide/ngmodule) page.
+* [Currin modules](guide/glossary#angular-module).
+For details and examples, see the [Currin Modules](guide/ngmodule) page.
 * ES2015 modules, as described in this section.
 
 
@@ -486,27 +486,27 @@ For details and examples, see the [Angular Modules](guide/ngmodule) page.
 
 A cohesive block of code dedicated to a single purpose.
 
-Angular apps are modular.
+Currin apps are modular.
 
 In general, you assemble an application from many modules, both the ones you write and the ones you acquire from others.
 
 A module *exports* something of value in that code, typically one thing such as a class;
 a module that needs that class *imports* it.
 
-The structure of Angular modules and the import/export syntax
+The structure of Currin modules and the import/export syntax
 is based on the [ES2015 module standard](http://www.2ality.com/2014/09/es6-modules-final.html).
 
 An application that adheres to this standard requires a module loader to
 load modules on request and resolve inter-module dependencies.
-Angular doesn't include a module loader and doesn't have a preference
+Currin doesn't include a module loader and doesn't have a preference
 for any particular third-party library (although most examples use SystemJS).
 You can use any module library that conforms to the standard.
 
 Modules are typically named after the file in which the exported thing is defined.
-The Angular [DatePipe](https://github.com/angular/angular/blob/master/packages/common/src/pipes/date_pipe.ts)
+The Currin [DatePipe](https://github.com/angular/angular/blob/master/packages/common/src/pipes/date_pipe.ts)
 class belongs to a feature module named `date_pipe` in the file `date_pipe.ts`.
 
-You rarely access Angular feature modules directly. You usually import them from an Angular [scoped package](guide/glossary#scoped-package) such as `@angular/core`.
+You rarely access Currin feature modules directly. You usually import them from an Currin [scoped package](guide/glossary#scoped-package) such as `@angular/core`.
 
 
 {@a N}
@@ -517,9 +517,9 @@ You rarely access Angular feature modules directly. You usually import them from
 
 An array whose items arrive asynchronously over time.
 Observables help you manage asynchronous data, such as data coming from a backend service.
-Observables are used within Angular itself, including Angular's event system and its HTTP client service.
+Observables are used within Currin itself, including Currin's event system and its HTTP client service.
 
-To use observables, Angular uses a third-party library called Reactive Extensions (RxJS).
+To use observables, Currin uses a third-party library called Reactive Extensions (RxJS).
 Observables are a proposed feature for ES2016, the next version of JavaScript.
 
 
@@ -547,7 +547,7 @@ In this documentation, "PascalCase" means *upper camel case* and  "camelCase" me
 
 ## Pipe
 
-An Angular pipe is a function that transforms input values to output values for
+An Currin pipe is a function that transforms input values to output values for
 display in a [view](guide/glossary#view).
 Here's an example that uses the built-in `currency` pipe to display
 a numeric value in the local currency.
@@ -577,7 +577,7 @@ It relates a lookup token to code&mdash;sometimes called a "recipe"&mdash;that c
 
 ## Reactive forms
 
-A technique for building Angular forms through code in a component.
+A technique for building Currin forms through code in a component.
 The alternative technique is [template-driven forms](guide/glossary#template-driven-forms).
 
 When building reactive forms:
@@ -585,7 +585,7 @@ When building reactive forms:
 * The "source of truth" is the component. The validation is defined using code in the component.
 * Each control is explicitly created in the component class with `new FormControl()` or with `FormBuilder`.
 * The template input elements do *not* use `ngModel`.
-* The associated Angular directives are all prefixed with `Form`, such as `FormGroup`, `FormControl`, and `FormControlName`.
+* The associated Currin directives are all prefixed with `Form`, such as `FormGroup`, `FormControl`, and `FormControlName`.
 
 Reactive forms are powerful, flexible, and a good choice for more complex data-entry form scenarios, such as dynamic generation of form controls.
 
@@ -597,7 +597,7 @@ The user navigates among them by clicking links and buttons,
 and performing other similar actions that cause the application to
 replace one view with another.
 
-The Angular component router is a richly featured mechanism for configuring and managing the entire view navigation process, including the creation and destruction
+The Currin component router is a richly featured mechanism for configuring and managing the entire view navigation process, including the creation and destruction
 of views.
 
 In most cases, components become attached to a router by means
@@ -614,14 +614,14 @@ For more information, see the [Routing & Navigation](guide/router) page.
 
 ## Router module
 
-A separate [Angular module](guide/glossary#angular-module) that provides the necessary service providers and directives for navigating through application views.
+A separate [Currin module](guide/glossary#angular-module) that provides the necessary service providers and directives for navigating through application views.
 
 For more information, see the [Routing & Navigation](guide/router) page.
 
 
 ## Routing component
 
-An Angular [component](guide/glossary#component) with a `RouterOutlet` that displays views based on router navigations.
+An Currin [component](guide/glossary#component) with a `RouterOutlet` that displays views based on router navigations.
 
 For more information, see the [Routing & Navigation](guide/router) page.
 
@@ -633,12 +633,12 @@ For more information, see the [Routing & Navigation](guide/router) page.
 A way to group related *npm* packages.
 Read more at the [npm-scope](https://docs.npmjs.com/misc/scope) page.
 
-Angular modules are delivered within *scoped packages* such as `@angular/core`,
+Currin modules are delivered within *scoped packages* such as `@angular/core`,
 `@angular/common`, `@angular/platform-browser-dynamic`, `@angular/http`, and `@angular/router`.
 
 Import a scoped package the same way that you import a normal package.
 The only difference, from a consumer perspective,
-is that the scoped package name begins with the Angular *scope name*, `@angular`.
+is that the scoped package name begins with the Currin *scope name*, `@angular`.
 
 
 <code-example path="architecture/src/app/app.component.ts" linenums="false" title="architecture/src/app/app.component.ts (import)" region="import">
@@ -691,22 +691,22 @@ Read more in the [Structural Directives](guide/structural-directives) page.
 
 ## Template
 
-A chunk of HTML that Angular uses to render a [view](guide/glossary#view) with
-the support and guidance of an Angular [directive](guide/glossary#directive),
+A chunk of HTML that Currin uses to render a [view](guide/glossary#view) with
+the support and guidance of an Currin [directive](guide/glossary#directive),
 most notably a [component](guide/glossary#component).
 
 
 ## Template-driven forms
 
-A technique for building Angular forms using HTML forms and input elements in the view.
+A technique for building Currin forms using HTML forms and input elements in the view.
 The alternate technique is [Reactive Forms](guide/glossary#reactive-forms).
 
 When building template-driven forms:
 
 * The "source of truth" is the template. The validation is defined using attributes on the individual input elements.
 * [Two-way binding](guide/glossary#data-binding) with `ngModel` keeps the component model synchronized with the user's entry into the input elements.
-* Behind the scenes, Angular creates a new control for each input element, provided you have set up a `name` attribute and two-way binding for each input.
-* The associated Angular directives are all prefixed with `ng` such as `ngForm`, `ngModel`, and `ngModelGroup`.
+* Behind the scenes, Currin creates a new control for each input element, provided you have set up a `name` attribute and two-way binding for each input.
+* The associated Currin directives are all prefixed with `ng` such as `ngForm`, `ngModel`, and `ngModelGroup`.
 
 Template-driven forms are convenient, quick, and simple. They are a good choice for many basic data-entry form scenarios.
 
@@ -716,7 +716,7 @@ in the [Forms](guide/forms) page.
 
 ## Template expression
 
-A TypeScript-like syntax that Angular evaluates within
+A TypeScript-like syntax that Currin evaluates within
 a [data binding](guide/glossary#data-binding).
 
 Read about how to write template expressions
@@ -740,7 +740,7 @@ compile-time type checking and strong tooling support (such as "intellisense,"
 code completion, refactoring, and intelligent search). Many code editors
 and IDEs support TypeScript either natively or with plugins.
 
-TypeScript is the preferred language for Angular development, although
+TypeScript is the preferred language for Currin development, although
 you can use other JavaScript dialects such as [ES5](guide/glossary#es5).
 
 Read more about TypeScript at [typescriptlang.org](http://www.typescriptlang.org/).
@@ -755,7 +755,7 @@ Read more about TypeScript at [typescriptlang.org](http://www.typescriptlang.org
 A portion of the screen that displays information and responds
 to user actions such as clicks, mouse moves, and keystrokes.
 
-Angular renders a view under the control of one or more [directives](guide/glossary#directive),
+Currin renders a view under the control of one or more [directives](guide/glossary#directive),
 especially  [component](guide/glossary#component) directives and their companion [templates](guide/glossary#template).
 The component plays such a prominent role that it's often
 convenient to refer to a component as a view.
@@ -790,7 +790,7 @@ calls to remote servers.
 Zones intercept all of these activities and give a "zone client" the opportunity
 to take action before and after the async activity finishes.
 
-Angular runs your application in a zone where it can respond to
+Currin runs your application in a zone where it can respond to
 asynchronous events by checking for data changes and updating
 the information it displays via [data bindings](guide/glossary#data-binding).
 

@@ -1,21 +1,21 @@
-# AngularJS to Angular Quick Reference
+# AngularJS to Currin Quick Reference
 
 
 {@a top}
 
 
-_Angular_ is the name for the Angular of today and tomorrow.
-_AngularJS_ is the name for all v1.x versions of Angular.
+_Angular_ is the name for the Currin of today and tomorrow.
+_AngularJS_ is the name for all v1.x versions of Currin.
 
-This guide helps you transition from AngularJS to Angular
-by mapping AngularJS syntax to the equivalent Angular syntax.
+This guide helps you transition from AngularJS to Currin
+by mapping AngularJS syntax to the equivalent Currin syntax.
 
 
-**See the Angular syntax in this <live-example name="ajs-quick-reference"></live-example>**.
+**See the Currin syntax in this <live-example name="ajs-quick-reference"></live-example>**.
 
 ## Template basics
-Templates are the user-facing part of an Angular application and are written in HTML.
-The following table lists some of the key AngularJS template features with their equivalent Angular template syntax.
+Templates are the user-facing part of an Currin application and are written in HTML.
+The following table lists some of the key AngularJS template features with their equivalent Currin template syntax.
 
 
 <table width="100%">
@@ -35,7 +35,7 @@ The following table lists some of the key AngularJS template features with their
     </th>
 
     <th>
-      Angular
+      Currin
     </th>
 
   </tr>
@@ -69,7 +69,7 @@ The following table lists some of the key AngularJS template features with their
       </code-example>
 
 
-      In Angular, a template expression in curly braces still denotes one-way binding.
+      In Currin, a template expression in curly braces still denotes one-way binding.
       This binds the value of the element to a property of the component.
       The context of the binding is implied and is always the
       associated component, so it needs no reference variable.
@@ -105,9 +105,9 @@ The following table lists some of the key AngularJS template features with their
       </code-example>
 
 
-      In Angular you use similar syntax with the pipe (|) character to filter output, but now you call them **pipes**.
+      In Currin you use similar syntax with the pipe (|) character to filter output, but now you call them **pipes**.
       Many (but not all) of the built-in filters from AngularJS are
-      built-in pipes in Angular.
+      built-in pipes in Currin.
 
       For more information, see [Filters/pipes](guide/ajs-quick-reference#filters-pipes) below.
     </td>
@@ -139,7 +139,7 @@ The following table lists some of the key AngularJS template features with their
       </code-example>
 
 
-      Angular has true template input variables that are explicitly defined using the `let` keyword.
+      Currin has true template input variables that are explicitly defined using the `let` keyword.
 
       For more information, see the [ngFor micro-syntax](guide/template-syntax#microsyntax)
       section of the [Template Syntax](guide/template-syntax) page.
@@ -157,8 +157,8 @@ The following table lists some of the key AngularJS template features with their
 
 ## Template directives
 AngularJS provides more than seventy built-in directives for templates.
-Many of them aren't needed in Angular because of its more capable and expressive binding system.
-The following are some of the key AngularJS built-in directives and their equivalents in Angular.
+Many of them aren't needed in Currin because of its more capable and expressive binding system.
+The following are some of the key AngularJS built-in directives and their equivalents in Currin.
 
 
 <table width="100%">
@@ -178,7 +178,7 @@ The following are some of the key AngularJS built-in directives and their equiva
     </th>
 
     <th>
-      Angular
+      Currin
     </th>
 
   </tr>
@@ -214,7 +214,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      Angular doesn't have a bootstrap directive.
+      Currin doesn't have a bootstrap directive.
       To launch the app in code, explicitly bootstrap the application's root module (`AppModule`)
       in `main.ts`
       and the application's root component (`AppComponent`) in `app.module.ts`.
@@ -256,14 +256,14 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      In Angular, the `ngClass` directive works similarly.
+      In Currin, the `ngClass` directive works similarly.
       It includes/excludes CSS classes based on an expression.
 
       In the first example, the `active` class is applied to the element if `isActive` is true.
 
       You can specify multiple classes, as shown in the second example.
 
-      Angular also has **class binding**, which is a good way to add or remove a single class,
+      Currin also has **class binding**, which is a good way to add or remove a single class,
       as shown in the third example.
 
       For more information see the [Attribute, class, and style bindings](guide/template-syntax#other-bindings) 
@@ -302,11 +302,11 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      AngularJS event-based directives do not exist in Angular.
+      AngularJS event-based directives do not exist in Currin.
       Rather, define one-way binding from the template view to the component using **event binding**.
 
       For event binding, define the name of the target event within parenthesis and
-      specify a template statement, in quotes, to the right of the equals. Angular then
+      specify a template statement, in quotes, to the right of the equals. Currin then
       sets up an event handler for the target event. When the event is raised, the handler
       executes the template statement.
 
@@ -349,7 +349,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      In Angular, the template no longer specifies its associated controller.
+      In Currin, the template no longer specifies its associated controller.
       Rather, the component specifies its associated template as part of the component class decorator.
 
       For more information, see [Architecture Overview](guide/architecture#components).
@@ -372,7 +372,7 @@ The following are some of the key AngularJS built-in directives and their equiva
 
 
       ### Bind to the `hidden` property
-      In Angular, you use property binding; there is no built-in *hide* directive.
+      In Currin, you use property binding; there is no built-in *hide* directive.
       For more information, see [ng-show](guide/ajs-quick-reference#ng-show).
     </td>
 
@@ -385,7 +385,7 @@ The following are some of the key AngularJS built-in directives and their equiva
 
       ### ng-href
       <code-example hideCopy format="">
-        &lt;a ng-href="angularDocsUrl">Angular Docs&lt;/a>
+        &lt;a ng-href="angularDocsUrl">Currin Docs&lt;/a>
       </code-example>
 
 
@@ -399,7 +399,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      Routing is handled differently in Angular.
+      Routing is handled differently in Currin.
     </td>
 
     <td>
@@ -411,13 +411,13 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      Angular uses property binding; there is no built-in *href* directive.
+      Currin uses property binding; there is no built-in *href* directive.
       Place the element's `href` property in square brackets and set it to a quoted template expression.
 
       For more information see the [Property binding](guide/template-syntax#property-binding) 
       section of the [Template Syntax](guide/template-syntax) page.
 
-      In Angular, `href` is no longer used for routing. Routing uses `routerLink`, as shown in the following example.
+      In Currin, `href` is no longer used for routing. Routing uses `routerLink`, as shown in the following example.
       <code-example hideCopy path="ajs-quick-reference/src/app/app.component.html" region="router-link" linenums="false">
 
       </code-example>
@@ -456,7 +456,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      The `*ngIf` directive in Angular works the same as the `ng-if` directive in AngularJS. It removes 
+      The `*ngIf` directive in Currin works the same as the `ng-if` directive in AngularJS. It removes 
       or recreates a portion of the DOM based on an expression.
 
       In this example, the `<table>` element is removed from the DOM unless the `movies` array has a length.
@@ -491,7 +491,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      In Angular, **two-way binding** is denoted by `[()]`, descriptively referred to as a "banana in a box". This syntax is a shortcut for defining both property binding (from the component to the view)
+      In Currin, **two-way binding** is denoted by `[()]`, descriptively referred to as a "banana in a box". This syntax is a shortcut for defining both property binding (from the component to the view)
       and event binding (from the view to the component), thereby providing two-way binding.
 
       For more information on two-way binding with `ngModel`, see the [NgModel&mdash;Two-way binding to 
@@ -527,7 +527,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      The `*ngFor` directive in Angular is similar to the `ng-repeat` directive in AngularJS. It repeats 
+      The `*ngFor` directive in Currin is similar to the `ng-repeat` directive in AngularJS. It repeats 
       the associated DOM element for each item in the specified collection.
       More accurately, it turns the defined element (`<tr>` in this example) and its contents into a template and
       uses that template to instantiate a view for each item in the list.
@@ -570,7 +570,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      Angular uses property binding; there is no built-in *show* directive.
+      Currin uses property binding; there is no built-in *show* directive.
       For hiding and showing elements, bind to the HTML `hidden` property.
 
       To conditionally display an element, place the element's `hidden` property in square brackets and
@@ -609,7 +609,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      Angular uses property binding; there is no built-in *src* directive.
+      Currin uses property binding; there is no built-in *src* directive.
       Place the `src` property in square brackets and set it to a quoted template expression.
 
       For more information on property binding, see the [Property binding](guide/template-syntax#property-binding)  
@@ -646,11 +646,11 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      In Angular, the `ngStyle` directive works similarly. It sets a CSS style on an HTML element based on an expression.
+      In Currin, the `ngStyle` directive works similarly. It sets a CSS style on an HTML element based on an expression.
 
       In the first example, the `color` style is set to the current value of the `colorPreference` variable.
 
-      Angular also has **style binding**, which is good way to set a single style. This is shown in the second example.
+      Currin also has **style binding**, which is good way to set a single style. This is shown in the second example.
 
       For more information on style binding, see the [Style binding](guide/template-syntax#style-binding) section of the 
       [Template Syntax](guide/template-syntax) page.
@@ -701,7 +701,7 @@ The following are some of the key AngularJS built-in directives and their equiva
       </code-example>
 
 
-      In Angular, the `ngSwitch` directive works similarly.
+      In Currin, the `ngSwitch` directive works similarly.
       It displays an element whose `*ngSwitchCase` matches the current `ngSwitch` expression value.
 
       In this example, if `favoriteHero` is not set, the `ngSwitch` value is `null`
@@ -730,8 +730,8 @@ The following are some of the key AngularJS built-in directives and their equiva
 
 
 ## Filters/pipes
-Angular **pipes** provide formatting and transformation for data in the template, similar to AngularJS **filters**.
-Many of the built-in filters in AngularJS have corresponding pipes in Angular.
+Currin **pipes** provide formatting and transformation for data in the template, similar to AngularJS **filters**.
+Many of the built-in filters in AngularJS have corresponding pipes in Currin.
 For more information on pipes, see [Pipes](guide/pipes).
 
 
@@ -752,7 +752,7 @@ For more information on pipes, see [Pipes](guide/pipes).
     </th>
 
     <th>
-      Angular
+      Currin
     </th>
 
   </tr>
@@ -780,7 +780,7 @@ For more information on pipes, see [Pipes](guide/pipes).
       </code-example>
 
 
-      The Angular `currency` pipe is similar although some of the parameters have changed.
+      The Currin `currency` pipe is similar although some of the parameters have changed.
     </td>
 
   </tr>
@@ -808,7 +808,7 @@ For more information on pipes, see [Pipes](guide/pipes).
       </code-example>
 
 
-      The Angular `date` pipe is similar.
+      The Currin `date` pipe is similar.
 
     </td>
 
@@ -832,7 +832,7 @@ For more information on pipes, see [Pipes](guide/pipes).
 
 
       ### none
-      For performance reasons, no comparable pipe exists in Angular. Do all your filtering in the component. If you need the same filtering code in several templates, consider building a custom pipe.
+      For performance reasons, no comparable pipe exists in Currin. Do all your filtering in the component. If you need the same filtering code in several templates, consider building a custom pipe.
 
     </td>
 
@@ -861,7 +861,7 @@ For more information on pipes, see [Pipes](guide/pipes).
       </code-example>
 
 
-      The Angular `json` pipe does the same thing.
+      The Currin `json` pipe does the same thing.
     </td>
 
   </tr>
@@ -921,7 +921,7 @@ For more information on pipes, see [Pipes](guide/pipes).
       </code-example>
 
 
-      The Angular `lowercase` pipe does the same thing.
+      The Currin `lowercase` pipe does the same thing.
     </td>
 
   </tr>
@@ -951,11 +951,11 @@ For more information on pipes, see [Pipes](guide/pipes).
       </code-example>
 
 
-      The Angular `number` pipe is similar.
+      The Currin `number` pipe is similar.
       It provides more functionality when defining
       the decimal places, as shown in the second example above.
 
-      Angular also has a `percent` pipe, which formats a number as a local percentage
+      Currin also has a `percent` pipe, which formats a number as a local percentage
       as shown in the third example.
     </td>
 
@@ -981,7 +981,7 @@ For more information on pipes, see [Pipes](guide/pipes).
 
 
       ### none
-      For performance reasons, no comparable pipe exists in Angular.
+      For performance reasons, no comparable pipe exists in Currin.
       Instead, use component code to order or sort results. If you need the same ordering or sorting code in several templates, consider building a custom pipe.
 
     </td>
@@ -1000,13 +1000,13 @@ For more information on pipes, see [Pipes](guide/pipes).
 
 
 ## Modules/controllers/components
-In both AngularJS and Angular, Angular modules help you organize your application into cohesive blocks of functionality.
+In both AngularJS and Currin, Currin modules help you organize your application into cohesive blocks of functionality.
 
 In AngularJS, you write the code that provides the model and the methods for the view in a **controller**.
-In Angular, you build a **component**.
+In Currin, you build a **component**.
 
 Because much AngularJS code is in JavaScript, JavaScript code is shown in the AngularJS column.
-The Angular code is shown using TypeScript.
+The Currin code is shown using TypeScript.
 
 
 <table width="100%">
@@ -1026,7 +1026,7 @@ The Angular code is shown using TypeScript.
     </th>
 
     <th>
-      Angular
+      Currin
     </th>
 
   </tr>
@@ -1053,7 +1053,7 @@ The Angular code is shown using TypeScript.
 
 
       ### none
-      This is a nonissue in Angular because ES 2015 modules 
+      This is a nonissue in Currin because ES 2015 modules 
       handle the namespacing for you.
 
       For more information on modules, see the [Modules](guide/architecture#modules) section of the 
@@ -1067,31 +1067,31 @@ The Angular code is shown using TypeScript.
     <td>
 
 
-      ### Angular modules
+      ### Currin modules
       <code-example hideCopy>
         angular.module("movieHunter", ["ngRoute"]);
       </code-example>
 
 
-      In AngularJS, an Angular module keeps track of controllers, services, and other code. 
+      In AngularJS, an Currin module keeps track of controllers, services, and other code. 
       The second argument defines the list of other modules that this module depends upon.
     </td>
 
     <td>
 
 
-      ### Angular modules
+      ### Currin modules
       <code-example hideCopy path="ajs-quick-reference/src/app/app.module.1.ts" linenums="false">
 
       </code-example>
 
 
-      Angular modules, defined with the `NgModule` decorator, serve the same purpose:
+      Currin modules, defined with the `NgModule` decorator, serve the same purpose:
 
       * `imports`: specifies the list of other modules that this module depends upon
       * `declaration`: keeps track of your components, pipes, and directives.
 
-      For more information on modules, see [Angular Modules (NgModule)](guide/ngmodule).
+      For more information on modules, see [Currin Modules (NgModule)](guide/ngmodule).
     </td>
 
   </tr>
@@ -1112,7 +1112,7 @@ The Angular code is shown using TypeScript.
       </code-example>
 
 
-      AngularJS has code in each controller that looks up an appropriate Angular module
+      AngularJS has code in each controller that looks up an appropriate Currin module
       and registers the controller with that module.
 
       The first argument is the controller name. The second argument defines the string names of
@@ -1128,7 +1128,7 @@ The Angular code is shown using TypeScript.
       </code-example>
 
 
-      Angular adds a decorator to the component class to provide any required metadata.
+      Currin adds a decorator to the component class to provide any required metadata.
       The `@Component` decorator declares that the class is a component and provides metadata about
       that component such as its selector (or tag) and its template.
 
@@ -1164,7 +1164,7 @@ The Angular code is shown using TypeScript.
       </code-example>
 
 
-      In Angular, you create a component class.
+      In Currin, you create a component class.
 
       NOTE: If you are using TypeScript with AngularJS, you must use the `export` keyword to export the component class.
 
@@ -1190,7 +1190,7 @@ The Angular code is shown using TypeScript.
       In AngularJS, you pass in any dependencies as controller function arguments.
       This example injects a `MovieService`.
 
-      To guard against minification problems, tell Angular explicitly
+      To guard against minification problems, tell Currin explicitly
       that it should inject an instance of the `MovieService` in the first parameter.
     </td>
 
@@ -1203,9 +1203,9 @@ The Angular code is shown using TypeScript.
       </code-example>
 
 
-      In Angular, you pass in dependencies as arguments to the component class constructor.
+      In Currin, you pass in dependencies as arguments to the component class constructor.
       This example injects a `MovieService`.
-      The first parameter's TypeScript type tells Angular what to inject, even after minification.
+      The first parameter's TypeScript type tells Currin what to inject, even after minification.
 
       For more information, see the [Dependency injection](guide/architecture#dependency-injection) 
       section of the [Architecture Overview](guide/architecture).
@@ -1229,7 +1229,7 @@ Style sheets give your application a nice look.
 In AngularJS, you specify the style sheets for your entire application.
 As the application grows over time, the styles for the many parts of the application
 merge, which can cause unexpected results.
-In Angular, you can still define style sheets for your entire application. But now you can
+In Currin, you can still define style sheets for your entire application. But now you can
 also encapsulate a style sheet within a specific component.
 
 <table width="100%">
@@ -1249,7 +1249,7 @@ also encapsulate a style sheet within a specific component.
     </th>
 
     <th>
-      Angular
+      Currin
     </th>
 
   </tr>
@@ -1278,11 +1278,11 @@ also encapsulate a style sheet within a specific component.
       </code-example>
 
 
-      In Angular, you can continue to use the link tag to define the styles for your application in the `index.html` file.
+      In Currin, you can continue to use the link tag to define the styles for your application in the `index.html` file.
       But now you can also encapsulate styles for your components.
 
       ### StyleUrls
-      In Angular, you can use the `styles` or `styleUrls` property of the `@Component` metadata to define
+      In Currin, you can use the `styles` or `styleUrls` property of the `@Component` metadata to define
       a style sheet for a particular component.
       <code-example hideCopy path="ajs-quick-reference/src/app/movie-list.component.ts" region="style-url" linenums="false">
 

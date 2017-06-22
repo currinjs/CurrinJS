@@ -27,7 +27,7 @@ The obvious approach is to bind a property of the component to the HTML `<title>
 
 Sorry but that won't work.
 The root component of the application is an element contained within the `<body>` tag.
-The HTML `<title>` is in the document `<head>`, outside the body, making it inaccessible to Angular data binding.
+The HTML `<title>` is in the document `<head>`, outside the body, making it inaccessible to Currin data binding.
 
 You could grab the browser `document` object and set the title manually.
 That's dirty and undermines your chances of running the app outside of a browser someday.
@@ -43,7 +43,7 @@ That's dirty and undermines your chances of running the app outside of a browser
 
 ## Use the `Title` service
 
-Fortunately, Angular bridges the gap by providing a `Title` service as part of the *Browser platform*.
+Fortunately, Currin bridges the gap by providing a `Title` service as part of the *Browser platform*.
 The [Title](api/platform-browser/Title) service is a simple class that provides an API
 for getting and setting the current HTML document title:
 
@@ -74,10 +74,10 @@ Here's the complete solution:
 Generally you want to provide application-wide services in the root application component, `AppComponent`.
 
 This cookbook recommends registering the title service during bootstrapping,
-a location you reserve for configuring the runtime Angular environment.
+a location you reserve for configuring the runtime Currin environment.
 
 That's exactly what you're doing.
-The `Title` service is part of the Angular *browser platform*.
+The `Title` service is part of the Currin *browser platform*.
 If you bootstrap your application into a different platform,
 you'll have to provide a different `Title` service that understands
 the concept of a "document title" for that specific platform.

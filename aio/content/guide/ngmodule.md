@@ -5,7 +5,7 @@
 I'm not sure what's appropriate, so I left them as is for now.  -->
 
 An NgModule is a class adorned with the *@NgModule* decorator function.
-`@NgModule` takes a metadata object that tells Angular how to compile and run module code.
+`@NgModule` takes a metadata object that tells Currin how to compile and run module code.
 It identifies the module's own components, directives, and pipes,
 making some of them public so external components can use them.
 `@NgModule` may add service providers to the application dependency injectors.
@@ -19,7 +19,7 @@ This page covers NgModules in greater depth.
 
 <!-- CF: See my comment in the "Resolve directive conflicts" section below proposing renaming or reorganizing that section.
 
-* [Angular modularity](guide/ngmodule#angular-modularity "Add structure to the app with NgModule")
+* [Currin modularity](guide/ngmodule#angular-modularity "Add structure to the app with NgModule")
 * [The application root module](guide/ngmodule#root-module "The startup module that every app requires")
 * [Bootstrap the root module](guide/ngmodule#bootstrap "Launch the app in a browser with the root module as the entry point")
 * [Declarations](guide/ngmodule#declarations "Declare the components, directives, and pipes that belong to a module")
@@ -64,11 +64,11 @@ Read this page before reading those FAQs.
 
 
 
-## Angular modularity
+## Currin modularity
 
 Modules are a great way to organize an application and extend it with capabilities from external libraries.
 
-Many Angular libraries are modules (such as `FormsModule`, `HttpModule`, and `RouterModule`).
+Many Currin libraries are modules (such as `FormsModule`, `HttpModule`, and `RouterModule`).
 Many third-party libraries are available as NgModules (such as
 <a href="https://material.angular.io/">Material Design</a>,
 <a href="http://ionicframework.com/">Ionic</a>,
@@ -80,7 +80,7 @@ feature area, application business domain, workflow, or common collection of uti
 
 Modules can also add services to the application.
 Such services might be internally developed, such as the application logger.
-Services can come from outside sources, such as the Angular router and Http client.
+Services can come from outside sources, such as the Currin router and Http client.
 
 Modules can be loaded eagerly when the application starts.
 They can also be _lazy loaded_ asynchronously by the router.
@@ -92,7 +92,7 @@ An NgModule is a class decorated with `@NgModule` metadata. The metadata do the 
 * Import other modules with the components, directives, and pipes needed by the components in _this_ module.
 * Provide services at the application level that any application component can use.
 
-Every Angular app has at least one module class, the _root module_.
+Every Currin app has at least one module class, the _root module_.
 You bootstrap that module to launch the application.
 
 The root module is all you need in a simple application with a few components.
@@ -109,7 +109,7 @@ Later in this page, you'll read about this process. For now, you'll start with t
 
 ## The root _AppModule_
 
-Every Angular app has a *root module* class.
+Every Currin app has a *root module* class.
 By convention, the *root module* class is called `AppModule` and it exists in a file named `app.module.ts`.
 
 The `AppModule` from the QuickStart seed on the [Setup](guide/setup) page is as minimal as possible:
@@ -141,7 +141,7 @@ The example `AppComponent` simply displays a data-bound title:
 
 
 Lastly, the `@NgModule.bootstrap` property identifies this `AppComponent` as the _bootstrap component_.
-When Angular launches the app, it places the HTML rendering of `AppComponent` in the DOM,
+When Currin launches the app, it places the HTML rendering of `AppComponent` in the DOM,
 inside the `<my-app>` element tags of the `index.html`.
 
 
@@ -152,11 +152,11 @@ inside the `<my-app>` element tags of the `index.html`.
 ## Bootstrapping in _main.ts_
 You launch the application by bootstrapping the `AppModule` in the `main.ts` file.
 
-Angular offers a variety of bootstrapping options targeting multiple platforms.
+Currin offers a variety of bootstrapping options targeting multiple platforms.
 This page describes two options, both targeting the browser.
 
 ### Compile just-in-time (JIT)
-In the first, _dynamic_ option, the [Angular compiler](guide/ngmodule-faq#q-angular-compiler "About the Angular Compiler")
+In the first, _dynamic_ option, the [Currin compiler](guide/ngmodule-faq#q-angular-compiler "About the Currin Compiler")
 compiles the application in the browser and then launches the app.
 
 
@@ -176,7 +176,7 @@ The samples in this page demonstrate the dynamic bootstrapping approach.
 Consider the static alternative which can produce a much smaller application that
 launches faster, especially on mobile devices and high latency networks.
 
-In the _static_ option, the Angular compiler runs ahead of time as part of the build process,
+In the _static_ option, the Currin compiler runs ahead of time as part of the build process,
 producing a collection of class factories in their own files.
 Among them is the `AppModuleNgFactory`.
 
@@ -191,7 +191,7 @@ the dynamic version that bootstraps the `AppModule` class.
 
 
 Because the entire application was pre-compiled,
-Angular doesn't ship the Angular compiler to the browser and doesn't compile in the browser.
+Currin doesn't ship the Currin compiler to the browser and doesn't compile in the browser.
 
 The application code downloaded to the browser is much smaller than the dynamic equivalent
 and it's ready to execute immediately. The performance boost can be significant.
@@ -235,7 +235,7 @@ Update the `AppComponent` template to attach the directive to the title:
 
 
 
-If you ran the app now, Angular wouldn't recognize the `highlight` attribute and would ignore it.
+If you ran the app now, Currin wouldn't recognize the `highlight` attribute and would ignore it.
 You must declare the directive in `AppModule`.
 
 Import the `HighlightDirective` class and add it to the module's `declarations` like this:
@@ -268,7 +268,7 @@ using an input binding to set the `subtitle`.
 
 
 
-Angular won't recognize the `<app-title>` tag until you declare it in `AppModule`.
+Currin won't recognize the `<app-title>` tag until you declare it in `AppModule`.
 Import the `TitleComponent` class and add it to the module's `declarations`:
 
 <code-example path="ngmodule/src/app/app.module.1.ts" region="component" title="src/app/app.module.ts" linenums="false">
@@ -286,7 +286,7 @@ Import the `TitleComponent` class and add it to the module's `declarations`:
 Modules are a great way to provide services for all of the module's components.
 
 The [Dependency Injection](guide/dependency-injection) page describes
-the Angular hierarchical dependency-injection system and how to configure that system
+the Currin hierarchical dependency-injection system and how to configure that system
 with [providers](guide/dependency-injection#providers) at different levels of the
 application's component tree.
 
@@ -347,9 +347,9 @@ There is no message if there is no user.
 
 
 Although `AppModule` doesn't declare `NgIf`, the application still compiles and runs.
-How can that be? The Angular compiler should either ignore or complain about unrecognized HTML.
+How can that be? The Currin compiler should either ignore or complain about unrecognized HTML.
 
-Angular does recognize `NgIf` because you imported it earlier.
+Currin does recognize `NgIf` because you imported it earlier.
 The initial version of `AppModule` imports `BrowserModule`.
 
 <code-example path="ngmodule/src/app/app.module.0.ts" region="imports" title="src/app/app.module.ts (imports)" linenums="false">
@@ -376,28 +376,28 @@ The net effect is that an importer of `BrowserModule` gets `CommonModule` direct
 
 
 
-Many familiar Angular directives don't belong to `CommonModule`.
-For example,  `NgModel` and `RouterLink` belong to Angular's `FormsModule` and `RouterModule` respectively.
+Many familiar Currin directives don't belong to `CommonModule`.
+For example,  `NgModel` and `RouterLink` belong to Currin's `FormsModule` and `RouterModule` respectively.
 You must import those modules before you can use their directives.
 
 To illustrate this point, you'll extend the sample app with `ContactComponent`,
-a form component that imports form support from the Angular `FormsModule`.
+a form component that imports form support from the Currin `FormsModule`.
 
 <h3 class="no-toc">Add the _ContactComponent_</h3>
 
-[Angular forms](guide/forms) are a great way to manage user data entry.
+[Currin forms](guide/forms) are a great way to manage user data entry.
 
 The `ContactComponent` presents a "contact editor,"
-implemented with Angular forms in the [template-driven form](guide/forms#template-driven) style.
+implemented with Currin forms in the [template-driven form](guide/forms#template-driven) style.
 
 
 <div class="l-sub-section">
 
 
 
-<h3 class="no-toc">Angular form styles</h3>
+<h3 class="no-toc">Currin form styles</h3>
 
-You can write Angular form components in
+You can write Currin form components in
 template-driven or
 [reactive](guide/dynamic-form) style.
 <!-- CF: this link goes to a page titled "Dynamic Forms". Should the link text be "dynamic" instead of "reactive"? -->
@@ -462,13 +462,13 @@ In the middle of the component template,
 notice the two-way data binding `[(ngModel)]`.
 `ngModel` is the selector for the `NgModel` directive.
 
-Although `NgModel` is an Angular directive, the _Angular compiler_ won't recognize it for the following reasons:
+Although `NgModel` is an Currin directive, the _Angular compiler_ won't recognize it for the following reasons:
 
 * `AppModule` doesn't declare `NgModel`.
 * `NgModel` wasn't imported via `BrowserModule`.
 
-Even if Angular somehow recognized `ngModel`,
-`ContactComponent` wouldn't behave like an Angular form because
+Even if Currin somehow recognized `ngModel`,
+`ContactComponent` wouldn't behave like an Currin form because
 form features such as validation aren't yet available.
 
 <h3 class="no-toc">Import the FormsModule</h3>
@@ -481,7 +481,7 @@ Add the `FormsModule` to the `AppModule` metadata's `imports` list.
 
 
 
-Now `[(ngModel)]` binding will work and the user input will be validated by Angular forms,
+Now `[(ngModel)]` binding will work and the user input will be validated by Currin forms,
 once you declare the new component, pipe, and directive.
 
 
@@ -544,7 +544,7 @@ You'll learn more about that issue later in this page, in [Resolve directive con
 
 <h3 class="no-toc">Provide the _ContactService_</h3>
 The `ContactComponent` displays contacts retrieved by the `ContactService`,
-which Angular injects into its constructor.
+which Currin injects into its constructor.
 
 You have to provide that service somewhere.
 The `ContactComponent` could provide it,
@@ -570,13 +570,13 @@ Now you can inject `ContactService` (like `UserService`) into any component in t
 
 
 <h3 class="no-toc">Application-scoped providers</h3>
-  The `ContactService` provider is _application_-scoped because Angular
+  The `ContactService` provider is _application_-scoped because Currin
   registers a module's `providers` with the application's *root injector*.
 
   Architecturally, the `ContactService` belongs to the Contact business domain.
   Classes in other domains don't need the `ContactService` and shouldn't inject it.
 
-  You might expect Angular to offer a _module_-scoping mechanism to enforce this design.
+  You might expect Currin to offer a _module_-scoping mechanism to enforce this design.
   It doesn't. NgModule instances, unlike components, don't have their own injectors
   so they can't have their own provider scopes.
 
@@ -708,10 +708,10 @@ when it should stay gold.
 The issue is that two different classes are trying to do the same thing.
 
 It's OK to import the same directive class multiple times.
-Angular removes duplicate classes and only registers one of them.
+Currin removes duplicate classes and only registers one of them.
 
-But from Angular's perspective, two different classes, defined in different files, that have the same name
-are not duplicates. Angular keeps both directives and
+But from Currin's perspective, two different classes, defined in different files, that have the same name
+are not duplicates. Currin keeps both directives and
 they take turns modifying the same HTML element.
 
 
@@ -904,7 +904,7 @@ the <live-example plnkr="pre-shared.3" img="guide/ngmodule/v3-plunker.png">live 
 Some facets of the current application merit discussion are as follows:
 
 * The app has three feature modules: Contact, Hero, and Crisis.
-* The Angular router helps users navigate among these modules.
+* The Currin router helps users navigate among these modules.
 * The `ContactComponent` is the default destination when the app starts.
 * The `ContactModule` continues to be "eagerly" loaded when the application starts.
 * `HeroModule` and the `CrisisModule` are lazy loaded.
@@ -1061,7 +1061,7 @@ Always call `RouterModule.forChild` in a feature-routing module.
 
 _forRoot_ and _forChild_ are conventional names for methods that
 deliver different `import` values to root and feature modules.
-Angular doesn't recognize them but Angular developers do.
+Currin doesn't recognize them but Currin developers do.
 
 [Follow this convention](guide/ngmodule-faq#q-for-root) if you write a similar module
 that has both shared [declarables](guide/ngmodule-faq#q-declarable) and services.
@@ -1240,7 +1240,7 @@ There's no point in sharing it.
 ### Why _UserService_ isn't shared
 
 While many components share the same service instances,
-they rely on Angular dependency injection to do this kind of sharing, not the module system.
+they rely on Currin dependency injection to do this kind of sharing, not the module system.
 
 Several components of the sample inject the `UserService`.
 There should be only one instance of the `UserService` in the entire application
@@ -1297,7 +1297,7 @@ Most of this work is familiar. The interesting part is the `CoreModule`.
 
 
 
-You're importing some extra symbols from the Angular core library that you're not using yet.
+You're importing some extra symbols from the Currin core library that you're not using yet.
 They'll become relevant later in this page.
 
 </div>
@@ -1307,9 +1307,9 @@ They'll become relevant later in this page.
 The `@NgModule` metadata should be familiar.
 You declare the `TitleComponent`  because this module owns it and you export it
 because `AppComponent` (which is in `AppModule`) displays the title in its template.
-`TitleComponent` needs the Angular `NgIf` directive that you import from `CommonModule`.
+`TitleComponent` needs the Currin `NgIf` directive that you import from `CommonModule`.
 
-`CoreModule` provides the `UserService`. Angular registers that provider with the app root injector,
+`CoreModule` provides the `UserService`. Currin registers that provider with the app root injector,
 making a singleton instance of the `UserService` available to any component that needs it,
 whether that component is eagerly or lazily loaded.
 
@@ -1427,7 +1427,7 @@ The root `AppModule` imports the `CoreModule` and adds the `providers` to the `A
 
 
 
-More precisely, Angular accumulates all imported providers before appending the items listed in `@NgModule.providers`.
+More precisely, Currin accumulates all imported providers before appending the items listed in `@NgModule.providers`.
 This sequence ensures that whatever you add explicitly to the `AppModule` providers takes precedence
 over the providers of imported modules.
 
@@ -1504,10 +1504,10 @@ Or you can guard against it and fail fast by adding the following `CoreModule` c
 
 
 
-The constructor tells Angular to inject the `CoreModule` into itself.
+The constructor tells Currin to inject the `CoreModule` into itself.
 That seems dangerously circular.
 
-The injection would be circular if Angular looked for `CoreModule` in the _current_ injector.
+The injection would be circular if Currin looked for `CoreModule` in the _current_ injector.
 The `@SkipSelf` decorator means "look for `CoreModule` in an ancestor injector, above me in the injector hierarchy."
 
 If the constructor executes as intended in the `AppModule`,
@@ -1521,8 +1521,8 @@ and the constructor concludes uneventfully.
 
 It's a different story if you improperly import `CoreModule` into a lazy-loaded module such as `HeroModule` (try it).
 
-Angular creates a lazy-loaded module with its own injector, a _child_ of the root injector.
-`@SkipSelf` causes Angular to look for a `CoreModule` in the parent injector, which this time is the root injector.
+Currin creates a lazy-loaded module with its own injector, a _child_ of the root injector.
+`@SkipSelf` causes Currin to look for a `CoreModule` in the parent injector, which this time is the root injector.
 Of course it finds the instance imported by the root `AppModule`.
 Now `parentModule` exists and the constructor throws the error.
 

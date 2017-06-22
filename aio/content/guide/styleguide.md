@@ -1,6 +1,6 @@
 # Style Guide
 
-Looking for an opinionated guide to Angular syntax, conventions, and application structure?
+Looking for an opinionated guide to Currin syntax, conventions, and application structure?
 Step right in!
 This style guide presents preferred conventions and, as importantly, explains why.
 
@@ -966,7 +966,7 @@ As always, strive for consistency.
 
 
 
-**Why?** The Angular HTML parser is case sensitive and recognizes lower camel case.
+**Why?** The Currin HTML parser is case sensitive and recognizes lower camel case.
 
 
 </div>
@@ -1472,7 +1472,7 @@ For example, the prefix `toh` represents from **T**our **o**f **H**eroes and the
 
 {@a 02-12}
 
-### Angular _NgModule_ names
+### Currin _NgModule_ names
 
 #### Style 02-12
 
@@ -1569,7 +1569,7 @@ For example, the prefix `toh` represents from **T**our **o**f **H**eroes and the
 
 
 
-**Why?** A `RoutingModule` is a module dedicated exclusively to configuring the Angular router.
+**Why?** A `RoutingModule` is a module dedicated exclusively to configuring the Currin router.
 A consistent class and file name convention make these modules easy to spot and verify.
 
 </div>
@@ -1949,7 +1949,7 @@ discourage the `I` prefix.
 
 
 
-**Why?** An interface-class can be a provider lookup token in Angular dependency injection.
+**Why?** An interface-class can be a provider lookup token in Currin dependency injection.
 
 
 </div>
@@ -2129,12 +2129,12 @@ discourage the `I` prefix.
 <a href="#toc">Back to top</a>
 
 
-## Application structure and Angular modules
+## Application structure and Currin modules
 
 Have a near-term view of implementation and a long-term vision. Start small but keep in mind where the app is heading down the road.
 
 All of the app's code goes in a folder named `src`.
-All feature areas are in their own folder, with their own Angular module.
+All feature areas are in their own folder, with their own Currin module.
 
 All content is one asset per file. Each component, service, and pipe is in its own file.
 All third party vendor scripts are stored in another folder and not in the `src` folder.
@@ -2779,7 +2779,7 @@ and more difficult in a flat structure.
 
 
 
-**Do** create an Angular module for each feature area.
+**Do** create an Currin module for each feature area.
 
 
 </div>
@@ -2790,7 +2790,7 @@ and more difficult in a flat structure.
 
 
 
-**Why?** Angular modules make it easy to lazy load routable features.
+**Why?** Currin modules make it easy to lazy load routable features.
 
 
 </div>
@@ -2801,7 +2801,7 @@ and more difficult in a flat structure.
 
 
 
-**Why?** Angular modules make it easier to isolate, test, and re-use features.
+**Why?** Currin modules make it easier to isolate, test, and re-use features.
 
 
 </div>
@@ -2827,7 +2827,7 @@ and more difficult in a flat structure.
 
 
 
-**Do** create an Angular module in the app's root folder,
+**Do** create an Currin module in the app's root folder,
 for example, in `/src/app`.
 
 
@@ -2839,7 +2839,7 @@ for example, in `/src/app`.
 
 
 
-**Why?** Every app requires at least one root Angular module.
+**Why?** Every app requires at least one root Currin module.
 
 
 </div>
@@ -2888,7 +2888,7 @@ for example, in `/src/app`.
 
 
 
-**Do** create an Angular module for all distinct features in an application;
+**Do** create an Currin module for all distinct features in an application;
 for example, a `Heroes` feature.
 
 
@@ -3319,7 +3319,7 @@ and emphasizes its role as orchestrator of the application as a whole.
 
 
 
-**Why?** `CoreModule` provides one or more singleton services. Angular registers the providers with the app root injector, making a singleton instance of each service available to any component that needs them, whether that component is eagerly or lazily loaded.
+**Why?** `CoreModule` provides one or more singleton services. Currin registers the providers with the app root injector, making a singleton instance of each service available to any component that needs them, whether that component is eagerly or lazily loaded.
 
 
 </div>
@@ -3774,7 +3774,7 @@ A typical *lazy loaded folder* contains a *routing component*, its child compone
 
 
 
-**Why?** components have templates containing HTML and optional Angular template syntax.
+**Why?** components have templates containing HTML and optional Currin template syntax.
 They display content.
 Developers place components on the page as they would native HTML elements and web components.
 
@@ -3893,7 +3893,7 @@ Developers place components on the page as they would native HTML elements and w
 
 
 **Why?** In most editors, syntax hints and code snippets aren't available when developing inline templates and styles.
-The Angular TypeScript Language Service (forthcoming) promises to overcome this deficiency for HTML templates
+The Currin TypeScript Language Service (forthcoming) promises to overcome this deficiency for HTML templates
 in those editors that support it; it won't help with CSS styles.
 
 
@@ -3916,7 +3916,7 @@ in those editors that support it; it won't help with CSS styles.
 
 
 
-**Why?** The `./` prefix is standard syntax for relative URLs; don't depend on Angular's current ability to do without that prefix.
+**Why?** The `./` prefix is standard syntax for relative URLs; don't depend on Currin's current ability to do without that prefix.
 
 
 
@@ -4312,7 +4312,7 @@ helps instantly identify which members of the component serve which purpose.
 
 
 
-**Why?** Angular allows for an [alternative syntax](guide/template-syntax#binding-syntax) `on-*`. If the event itself was prefixed with `on` this would result in an `on-onEvent` binding expression.
+**Why?** Currin allows for an [alternative syntax](guide/template-syntax#binding-syntax) `on-*`. If the event itself was prefixed with `on` this would result in an `on-onEvent` binding expression.
 
 
 </div>
@@ -4651,7 +4651,7 @@ Compare with the less preferred `host` metadata alternative.
 
 
 
-**Do** provide services to the Angular injector at the top-most component where they will be shared.
+**Do** provide services to the Currin injector at the top-most component where they will be shared.
 
 
 </div>
@@ -4662,7 +4662,7 @@ Compare with the less preferred `host` metadata alternative.
 
 
 
-**Why?** The Angular injector is hierarchical.
+**Why?** The Currin injector is hierarchical.
 
 
 </div>
@@ -4741,7 +4741,7 @@ that instance is shared and available to all child components of that top level 
 
 
 
-**Why?** The Angular Dependency Injection (DI) mechanism resolves a service's own
+**Why?** The Currin Dependency Injection (DI) mechanism resolves a service's own
 dependencies based on the declared types of that service's constructor parameters.
 
 
@@ -4850,7 +4850,7 @@ easier to test the consumers with mock service implementations.
 
 ## Lifecycle hooks
 
-Use Lifecycle hooks to tap into important events exposed by Angular.
+Use Lifecycle hooks to tap into important events exposed by Currin.
 
 <a href="#toc">Back to top</a>
 
@@ -4903,7 +4903,7 @@ signatures. use those signatures to flag spelling and syntax mistakes.
 
 ## Appendix
 
-Useful tools and tips for Angular.
+Useful tools and tips for Currin.
 
 <a href="#toc">Back to top</a>
 

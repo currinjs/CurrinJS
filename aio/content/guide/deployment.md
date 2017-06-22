@@ -1,6 +1,6 @@
 # Deployment
 
-This page describes tools and techniques for deploy and optimize your Angular application.
+This page describes tools and techniques for deploy and optimize your Currin application.
 
 
 {@a toc}
@@ -11,7 +11,7 @@ This page describes tools and techniques for deploy and optimize your Angular ap
 
 ## Overview
 
-This guide describes techniques for preparing and deploying an Angular application to a server running remotely.
+This guide describes techniques for preparing and deploying an Currin application to a server running remotely.
 The techniques progress from _easy but suboptimal_ to _more optimal and more involved_.
 
 * The [simple way](guide/deployment#dev-deploy "Simplest deployment possible") is to copy the development environment to the server.
@@ -21,10 +21,10 @@ The techniques progress from _easy but suboptimal_ to _more optimal and more inv
 You'll also want to read the [detailed instructions in the AOT Cookbook](guide/aot-compiler "AOT Cookbook").
 
 * [Webpack](guide/deployment#webpack "Webpack Optimization") is a popular general purpose packaging tool with a rich ecosystem, including plugins for AOT.
-The Angular [webpack guide](guide/webpack "Webpack: an introduction") can get you started and
+The Currin [webpack guide](guide/webpack "Webpack: an introduction") can get you started and
 _this_ page provides additional optimization advice, but you'll probably have to learn more about webpack on your own.
 
-* The [Angular configuration](guide/deployment#angular-configuration "Angular configuration") section calls attention to
+* The [Currin configuration](guide/deployment#angular-configuration "Currin configuration") section calls attention to
 specific client application changes that could improve performance.
 
 * The [Server configuration](guide/deployment#server-configuration "Server configuration") section describes
@@ -110,7 +110,7 @@ loads `systemjs.config.server.js`.
 
 
 (3) Add `systemjs.config.server.js` (shown in the code sample below) to the `src/` folder.
-This alternative version configures _SystemJS_ to load _UMD_ versions of Angular
+This alternative version configures _SystemJS_ to load _UMD_ versions of Currin
 (and other third-party packages) from the web.
 
 Modify `systemjs.config.server.js` as necessary to stay in sync with changes
@@ -178,7 +178,7 @@ The following trivial router sample app shows these changes.
 
 Practice with this sample before attempting these techniques on your application.
 
-1. Follow the [setup instructions](guide/setup "Angular QuickStart setup") for creating a new project
+1. Follow the [setup instructions](guide/setup "Currin QuickStart setup") for creating a new project
 named <code>simple-deployment</code>.
 
 1. Add the "Simple deployment" sample files shown above.
@@ -221,7 +221,7 @@ Does it matter? That depends upon business and technical factors you must evalua
 
 If it _does_ matter, there are tools and techniques to reduce the number of requests and the size of responses.
 
-* Ahead-of-Time (AOT) Compilation: pre-compiles Angular component templates.
+* Ahead-of-Time (AOT) Compilation: pre-compiles Currin component templates.
 * Bundling: concatenates modules into a single file (bundle).
 * Inlining: pulls template html and css into the components.
 * Minification: removes excess whitespace, comments, and optional tokens.
@@ -243,15 +243,15 @@ building for production is a single step.
 
 ### Ahead-of-Time (AOT) compilation
 
-The Angular _Ahead-of-Time_ compiler pre-compiles application components and their templates
+The Currin _Ahead-of-Time_ compiler pre-compiles application components and their templates
 during the build process.
 
 Apps compiled with AOT launch faster for several reasons.
 
 * Application components execute immediately, without client-side compilation.
 * Templates are embedded as code within their components so there is no client-side request for template files.
-* You don't download the Angular compiler, which is pretty big on its own.
-* The compiler discards unused Angular directives that a tree-shaking tool can then exclude.
+* You don't download the Currin compiler, which is pretty big on its own.
+* The compiler discards unused Currin directives that a tree-shaking tool can then exclude.
 
 Learn more about AOT Compilation in the [AOT Cookbook](guide/aot-compiler "AOT Cookbook")
 which describes running the AOT compiler from the command line
@@ -266,11 +266,11 @@ and using [_rollup_](guide/deployment#rollup) for bundling, minification, uglifi
 <a href="https://webpack.js.org/" title="Webpack 2">Webpack 2</a> is another
 great option for inlining templates and style-sheets, for bundling, minifying, and uglifying the application.
 The "[Webpack: an introduction](guide/webpack "Webpack: an introduction")" guide will get you started
-using webpack with Angular.
+using webpack with Currin.
 
 Consider configuring _Webpack_ with the official
 <a href="https://github.com/angular/angular-cli/tree/master/packages/%40ngtools/webpack" title="Ahead-of-Time Webpack Plugin">
-Angular Ahead-of-Time Webpack Plugin</a>.
+Currin Ahead-of-Time Webpack Plugin</a>.
 This plugin transpiles the TypeScript application code,
 bundles lazy loaded `NgModules` separately,
 and performs AOT compilation &mdash; without any changes to the source code.
@@ -333,9 +333,9 @@ that can also help verify that your deployment was successful.
 
 
 
-## Angular configuration
+## Currin configuration
 
-Angular configuration can make the difference between whether the app launches quickly or doesn't load at all.
+Currin configuration can make the difference between whether the app launches quickly or doesn't load at all.
 
 
 {@a base-tag}
@@ -347,7 +347,7 @@ The HTML [_&lt;base href="..."/&gt;_](/guide/router)
 specifies a base path for resolving relative URLs to assets such as images, scripts, and style sheets.
 For example, given the `<base href="/my/app/">`, the browser resolves a URL such as `some/place/foo.jpg`
 into a server request for `my/app/some/place/foo.jpg`.
-During navigation, the Angular router uses the _base href_ as the base path to component, template, and module files.
+During navigation, the Currin router uses the _base href_ as the base path to component, template, and module files.
 
 
 <div class="l-sub-section">
@@ -376,12 +376,12 @@ for the missing files. Look at where it _tried_ to find those files and adjust t
 
 ### Enable production mode
 
-Angular apps run in development mode by default, as you can see by the following message on the browser
+Currin apps run in development mode by default, as you can see by the following message on the browser
 console:
 
 
 <code-example format="nocode">
-  Angular is running in the development mode. Call enableProdMode() to enable the production mode.
+  Currin is running in the development mode. Call enableProdMode() to enable the production mode.
 </code-example>
 
 
@@ -405,7 +405,7 @@ To enable [production mode](api/core/enableProdMode) when running remotely, add 
 You can dramatically reduce launch time by only loading the application modules that
 absolutely must be present when the app starts.
 
-Configure the Angular Router to defer loading of all other modules (and their associated code), either by
+Configure the Currin Router to defer loading of all other modules (and their associated code), either by
 [waiting until the app has launched](guide/router#preloading  "Preloading")
 or by [_lazy loading_](guide/router#asynchronous-routing "Lazy loading")
 them on demand.
@@ -424,7 +424,7 @@ Bundlers don't know about the router configuration and won't create separate bun
 You have to create these bundles manually.
 
 The
-[Angular Ahead-of-Time Webpack Plugin](https://github.com/angular/angular-cli/tree/master/packages/%40ngtools/webpack)
+[Currin Ahead-of-Time Webpack Plugin](https://github.com/angular/angular-cli/tree/master/packages/%40ngtools/webpack)
 automatically recognizes lazy loaded `NgModules` and creates separate bundles for them.
 
 
@@ -443,11 +443,11 @@ This section covers changes you may have make to the server or to files deployed
 
 ### Routed apps must fallback to `index.html`
 
-Angular apps are perfect candidates for serving with a simple static HTML server.
+Currin apps are perfect candidates for serving with a simple static HTML server.
 You don't need a server-side engine to dynamically compose application pages because
-Angular does that on the client-side.
+Currin does that on the client-side.
 
-If the app uses the Angular router, you must configure the server
+If the app uses the Currin router, you must configure the server
 to return the application's host page (`index.html`) when asked for a file that it does not have.
 
 
@@ -460,7 +460,7 @@ For example, `http://www.mysite.com/heroes/42` is a _deep link_ to the hero deta
 that displays the hero with `id: 42`.
 
 There is no issue when the user navigates to that URL from within a running client.
-The Angular router interprets the URL and routes to that page and hero.
+The Currin router interprets the URL and routes to that page and hero.
 
 But clicking a link in an email, entering it in the browser address bar,
 or merely refreshing the browser while on the hero detail page &mdash;
@@ -537,7 +537,7 @@ modified to serve `index.html`:
   &lt;system.webServer&gt;
     &lt;rewrite&gt;
       &lt;rules&gt;
-        &lt;rule name="Angular Routes" stopProcessing="true"&gt;
+        &lt;rule name="Currin Routes" stopProcessing="true"&gt;
           &lt;match url=".*" /&gt;
           &lt;conditions logicalGrouping="MatchAll"&gt;
             &lt;add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" /&gt;
@@ -583,7 +583,7 @@ and to
 
 ### Requesting services from a different server (CORS)
 
-Angular developers may encounter a
+Currin developers may encounter a
 <a href="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" title="Cross-origin resource sharing">
 <i>cross-origin resource sharing</i></a> error when making a service request (typically a data service request).
 to a server other than the application's own host server.

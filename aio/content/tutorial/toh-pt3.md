@@ -100,7 +100,7 @@ by entering the `npm start` command in a terminal window
 Add a file named `hero-detail.component.ts` to the `app/` folder.
 This file will hold the new `HeroDetailComponent`.
 
-The file and component names follow the standard described in the Angular
+The file and component names follow the standard described in the Currin
 [style guide](guide/styleguide#naming).
 
 * The component _class_ name should be written in _upper camel case_ and end in the word "Component".
@@ -124,7 +124,7 @@ Start writing the `HeroDetailComponent` as follows:
 
 To define a component, you always import the `Component` symbol.
 
-The `@Component` decorator provides the Angular metadata for the component.
+The `@Component` decorator provides the Currin metadata for the component.
 The CSS selector name, `hero-detail`, will match the element tag
 that identifies this component within a parent component's template.
 [Near the end of this tutorial page](tutorial/toh-pt3#add-hero-detail "Add the HeroDetailComponent to the AppComponent"),
@@ -162,7 +162,7 @@ Add that property to the `HeroDetailComponent` class like this:
 The `hero` property is typed as an instance of `Hero`.
 The `Hero` class is still in the `app.component.ts` file.
 Now there are two components that need to reference the `Hero` class.
-The Angular [style guide](guide/styleguide#rule-of-one "Style guide: rule of one") recommends one class per file anyway.
+The Currin [style guide](guide/styleguide#rule-of-one "Style guide: rule of one") recommends one class per file anyway.
 
 Move the `Hero` class from `app.component.ts` to its own `hero.ts` file.
 
@@ -198,7 +198,7 @@ The binding will look like this:
 Putting square brackets around the `hero` property, to the left of the equal sign (=),
 makes it the *target* of a property binding expression.
 You must declare a *target* binding property to be an *input* property.
-Otherwise, Angular rejects the binding and throws an error.
+Otherwise, Currin rejects the binding and throws an error.
 
 First, amend the `@angular/core` import statement to include the `Input` symbol.
 
@@ -249,7 +249,7 @@ Here's the complete `HeroDetailComponent`.
 
 
 ## Declare _HeroDetailComponent_ in the _AppModule_
-Every component must be declared in one&mdash;and only one&mdash;Angular module.
+Every component must be declared in one&mdash;and only one&mdash;Currin module.
 
 Open `app.module.ts` in your editor and import the `HeroDetailComponent` so you can refer to it.
 
@@ -276,7 +276,7 @@ This module declares only the two application components, `AppComponent` and `He
 
 
 
-Read more about Angular modules in the [NgModules](guide/ngmodule "Angular Modules") guide.
+Read more about Currin modules in the [NgModules](guide/ngmodule "Currin Modules") guide.
 
 
 </div>
@@ -449,7 +449,7 @@ Here's what you achieved in this page:
 
 * You created a reusable component.
 * You learned how to make a component accept input.
-* You learned to declare the required application directives in an Angular module. You
+* You learned to declare the required application directives in an Currin module. You
 listed the directives in the `NgModule` decorator's `declarations` array.
 * You learned to bind a parent component to a child component.
 

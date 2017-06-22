@@ -1,6 +1,6 @@
 # Dependency Injection (DI): Documentation
 
-This document describes in detail how the DI module works in Angular.
+This document describes in detail how the DI module works in Currin.
 
 ## Core Abstractions
 

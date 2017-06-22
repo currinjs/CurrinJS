@@ -2,15 +2,15 @@
 
 ## Introduction
 
-Anything you can do with Angular in _TypeScript_, you can also do
+Anything you can do with Currin in _TypeScript_, you can also do
 in JavaScript. Translating from one language to the other is mostly a
-matter of changing the way you organize your code and access Angular APIs.
+matter of changing the way you organize your code and access Currin APIs.
 
-_TypeScript_ is a popular language option for Angular development.
+_TypeScript_ is a popular language option for Currin development.
 Most code examples on the Internet as well as on this site are written in _TypeScript_.
 This cookbook contains recipes for translating _TypeScript_
 code examples to _ES6_ and to _ES5_ so that JavaScript developers
-can read and write Angular apps in their preferred dialect.
+can read and write Currin apps in their preferred dialect.
 
 Run and compare the live <live-example name="ts-to-js/ts">TypeScript</live-example> and <live-example name="ts-to-js/js">JavaScript</live-example>
 code shown in this cookbook.
@@ -55,11 +55,11 @@ To use decorators and annotations with Babel, install the
 
 ## Importing and Exporting
 
-### Importing Angular Code
+### Importing Currin Code
 
-In both _TypeScript_ and _ES6_, you import Angular classes, functions, and other members with _ES6_ `import` statements.
+In both _TypeScript_ and _ES6_, you import Currin classes, functions, and other members with _ES6_ `import` statements.
 
-In _ES5_, you access the Angular entities of the [the Angular packages](guide/glossary#scoped-package)
+In _ES5_, you access the Currin entities of the [the Currin packages](guide/glossary#scoped-package)
 through the global `ng` object.
 Anything you can import from `@angular` is a nested member of this `ng` object:
 
@@ -76,11 +76,11 @@ Anything you can import from `@angular` is a nested member of this `ng` object:
 
 ### Exporting application code
 
-Each file in a _TypeScript_ or _ES6_ Angular application constitutes an _ES6_ module.
+Each file in a _TypeScript_ or _ES6_ Currin application constitutes an _ES6_ module.
 When you want to make something available to other modules, you `export` it.
 
 _ES5_ lacks native support for modules.
-In an Angular _ES5_ application, you load each file manually by adding a `<script>` tag to `index.html`.
+In an Currin _ES5_ application, you load each file manually by adding a `<script>` tag to `index.html`.
 
 <div class="alert is-important">
 
@@ -132,8 +132,8 @@ In _ES5_ you use the shared namespace object to access "exported" entities from 
 <div class="alert is-helpful">
 
   Alternatively, you can use a module loader such as Webpack or
-  Browserify in an Angular JavaScript project. In such a project, you   would
-  use _CommonJS_ modules and the `require` function to load Angular   framework code.
+  Browserify in an Currin JavaScript project. In such a project, you   would
+  use _CommonJS_ modules and the `require` function to load Currin   framework code.
   Then use `module.exports` and `require` to export and import  application  code.
 
 </div>
@@ -144,7 +144,7 @@ In _ES5_ you use the shared namespace object to access "exported" entities from 
 
 ### Classes
 
-Most Angular _TypeScript_ and _ES6_ code is written as classes.
+Most Currin _TypeScript_ and _ES6_ code is written as classes.
 
 Properties and method parameters of _TypeScript_ classes may be marked with the access modifiers
 `private`, `internal`, and `public`.
@@ -227,7 +227,7 @@ Note that both the _TypeScript_ and _ES6_ `templateUrl` properties identify the 
 
 ## _ES5_ DSL
 
-This _ES5_ pattern of creating a constructor and annotating it with metadata is so common that Angular
+This _ES5_ pattern of creating a constructor and annotating it with metadata is so common that Currin
 provides a convenience API to make it a little more compact and locates the metadata above the constructor,
 as you would if you wrote in _TypeScript_ or _ES6-with-decorators_.
 
@@ -311,11 +311,11 @@ and a pipe with `ng.core.Pipe`:
 ## Interfaces
 
 A _TypeScript_ interface helps ensure that a class implements the interface's members correctly.
-Always try to use Angular interfaces where appropriate.
+Always try to use Currin interfaces where appropriate.
 For example, the component class that implements the `ngOnInit` lifecycle hook method
 should implement the `OnInit` interface.
 
-_TypeScript_ interfaces exist for developer convenience and are not used by Angular at runtime.
+_TypeScript_ interfaces exist for developer convenience and are not used by Currin at runtime.
 They have no physical manifestation in the generated JavaScript code.
 Just implement the methods and ignore interfaces when translating code samples from _TypeScript_ to JavaScript.
 
@@ -366,7 +366,7 @@ combined in the metadata `inputs` and `outputs` _arrays_.
 
 In the previous example, one of the public-facing binding names, `cancelMsg`,
 differs from the corresponding class property name, `notOkMsg`.
-That's OK but you must tell Angular about it so that it can map an external binding of `cancelMsg`
+That's OK but you must tell Currin about it so that it can map an external binding of `cancelMsg`
 to the component's `notOkMsg` property.
 
 In _TypeScript_ and _ES6-with-decorators_,
@@ -377,11 +377,11 @@ In _ES5_ and _plain ES6_ code, convey this pairing with the `propertyName: bindi
 {@a dependency-injection}
 
 ## Dependency injection
-Angular relies heavily on [Dependency Injection](guide/dependency-injection) to provide services to the objects it creates.
-When Angular creates a new component, directive, pipe or another service,
+Currin relies heavily on [Dependency Injection](guide/dependency-injection) to provide services to the objects it creates.
+When Currin creates a new component, directive, pipe or another service,
 it sets the class constructor parameters to instances of services provided by an _Injector_.
 
-The developer must tell Angular what to inject into each parameter.
+The developer must tell Currin what to inject into each parameter.
 
 {@a injection-class-type}
 
@@ -391,7 +391,7 @@ The easiest and most popular technique in _TypeScript_ and _ES6-with-decorators_
 to the class associated with the service to inject.
 
 The _TypeScript_ transpiler writes parameter type information into the generated JavaScript.
-Angular reads that information at runtime and locates the corresponding service in the appropriate _Injector_.
+Currin reads that information at runtime and locates the corresponding service in the appropriate _Injector_.
 The _ES6-with-decorators_ transpiler does essentially the same thing using the same parameter-typing syntax.
 
 _ES5_ and _plain ES6_ lack types so you must identify "injectables" by attaching a **`parameters`** array to the constructor function.
@@ -488,8 +488,8 @@ array as before. Use a nested array to define a parameter's complete injection s
 <div class="l-sub-section">
 
   In the example above, there is no provider for the `'titlePrefix'` token.
-  Without `@Optional()`, Angular would raise an error.
-  With `@Optional()`, Angular sets the constructor parameter to `null`
+  Without `@Optional()`, Currin would raise an error.
+  With `@Optional()`, Currin sets the constructor parameter to `null`
   and the component displays the title without a prefix.
 
 </div>
@@ -498,7 +498,7 @@ array as before. Use a nested array to define a parameter's complete injection s
 
 ## Host Binding
 
-Angular supports bindings to properties and events of the _host element_, which is the
+Currin supports bindings to properties and events of the _host element_, which is the
 element whose tag matches the component selector.
 
 ### Host Decorators
@@ -515,7 +515,7 @@ same effect as `@HostBinding` and `@HostListener`.
 
 The  `host` value is an object whose properties are host property and listener bindings:
 
-* Each key follows regular Angular binding syntax: `[property]` for host bindings
+* Each key follows regular Currin binding syntax: `[property]` for host bindings
   or `(event)` for host listeners.
 * Each value identifies the corresponding component property or method.
 
@@ -616,7 +616,7 @@ They can be added in the same way as [`@ViewChild`](api/core/ViewChild) and
 
 ## AOT Compilation in _TypeScript_ only
 
-Angular offers two modes of template compilation, JIT (_just-in-time_) and
+Currin offers two modes of template compilation, JIT (_just-in-time_) and
 [AOT (_ahead-of-time_)](guide/aot-compiler).
 Currently the AOT compiler only works with _TypeScript_ applications because, in part, it generates
 _TypeScript_ files as an intermediate result.

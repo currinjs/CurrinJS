@@ -323,7 +323,7 @@ Bind to the new `selectedHero` property instead as follows:
 
 When the app loads, `selectedHero` is undefined.
 The selected hero is initialized when the user clicks a hero's name.
-Angular can't display properties of the undefined `selectedHero` and throws the following error,
+Currin can't display properties of the undefined `selectedHero` and throws the following error,
 visible in the browser's console:
 
 
@@ -407,8 +407,8 @@ In the template, add the following `[class.selected]` binding to  the `<li>`:
 
 
 
-When the expression (`hero === selectedHero`) is `true`, Angular adds the `selected` CSS class.
-When the expression is `false`, Angular removes the `selected` class.
+When the expression (`hero === selectedHero`) is `true`, Currin adds the `selected` CSS class.
+When the expression is `false`, Currin removes the `selected` class.
 
 
 

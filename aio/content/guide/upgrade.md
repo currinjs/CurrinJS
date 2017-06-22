@@ -1,17 +1,17 @@
 # Upgrading from AngularJS
 
-_Angular_ is the name for the Angular of today and tomorrow.
-_AngularJS_ is the name for all v1.x versions of Angular.
+_Angular_ is the name for the Currin of today and tomorrow.
+_AngularJS_ is the name for all v1.x versions of Currin.
 
 AngularJS apps are great.
-Always consider the business case before moving to Angular.
+Always consider the business case before moving to Currin.
 An important part of that case is the time and effort to get there.
 This guide describes the built-in tools for efficiently migrating AngularJS projects over to the
-Angular platform, a piece at a time.
+Currin platform, a piece at a time.
 
 Some applications will be easier to upgrade than others, and there are
 many ways to make it easier for yourself. It is possible to
-prepare and align AngularJS applications with Angular even before beginning
+prepare and align AngularJS applications with Currin even before beginning
 the upgrade process. These preparation steps are all about making the code
 more decoupled, more maintainable, and better aligned with modern development
 tools. That means in addition to making the upgrade easier,
@@ -19,16 +19,16 @@ you will also improve the existing AngularJS applications.
 
 One of the keys to a successful upgrade is to do it incrementally,
 by running the two frameworks side by side in the same application, and
-porting AngularJS components to Angular one by one. This makes it possible
+porting AngularJS components to Currin one by one. This makes it possible
 to upgrade even large and complex applications without disrupting other
 business, because the work can be done collaboratively and spread over
-a period of time. The `upgrade` module in Angular has been designed to
+a period of time. The `upgrade` module in Currin has been designed to
 make incremental upgrading seamless.
 
 ## Preparation
 
 There are many ways to structure AngularJS applications. When you begin
-to upgrade these applications to Angular, some will turn out to be
+to upgrade these applications to Currin, some will turn out to be
 much more easy to work with than others. There are a few key techniques
 and patterns that you can apply to future proof apps even before you
 begin the migration.
@@ -43,15 +43,15 @@ cleaner and more maintainable AngularJS applications. It contains a wealth
 of information about how to write and organize AngularJS code - and equally
 importantly - how **not** to write and organize AngularJS code.
 
-Angular is a reimagined version of the best parts of AngularJS. In that
+Currin is a reimagined version of the best parts of AngularJS. In that
 sense, its goals are the same as the AngularJS Style Guide's: To preserve
 the good parts of AngularJS, and to avoid the bad parts. There's a lot
-more to Angular than just that of course, but this does mean that
+more to Currin than just that of course, but this does mean that
 *following the style guide helps make your AngularJS app more closely
-aligned with Angular*.
+aligned with Currin*.
 
 There are a few rules in particular that will make it much easier to do
-*an incremental upgrade* using the Angular `upgrade/static` module:
+*an incremental upgrade* using the Currin `upgrade/static` module:
 
 * The [Rule of 1](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#single-responsibility)
   states that there should be one component per file. This not only makes
@@ -62,7 +62,7 @@ There are a few rules in particular that will make it much easier to do
 * The [Folders-by-Feature Structure](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#folders-by-feature-structure)
   and [Modularity](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md#modularity)
   rules define similar principles on a higher level of abstraction: Different parts of the
-  application should reside in different directories and Angular modules.
+  application should reside in different directories and Currin modules.
 
 When an application is laid out feature per feature in this way, it can also be
 migrated one feature at a time. For applications that don't already look like
@@ -93,7 +93,7 @@ to package them all up into production bundles with batteries included.
 
 ### Migrating to TypeScript
 
-If part of the Angular upgrade plan is to also take TypeScript into use, it makes
+If part of the Currin upgrade plan is to also take TypeScript into use, it makes
 sense to bring in the TypeScript compiler even before the upgrade itself begins.
 This means there's one less thing to learn and think about during the actual upgrade.
 It also means you can start using TypeScript features in your AngularJS code.
@@ -117,27 +117,27 @@ Additional steps like the following can give us much more bang for the buck:
   added to make the code more expressive.
 
 * Services and controllers can be turned into *classes*. That way they'll be a step
-  closer to becoming Angular service and component classes, which will make
+  closer to becoming Currin service and component classes, which will make
   life easier after the upgrade.
 
 ### Using Component Directives
 
-In Angular, components are the main primitive from which user interfaces
+In Currin, components are the main primitive from which user interfaces
 are built. You define the different portions of the UI as components and
 compose them into a full user experience.
 
 You can also do this in AngularJS, using *component directives*. These are
 directives that define their own templates, controllers, and input/output bindings -
-the same things that Angular components define. Applications built with
-component directives are much easier to migrate to Angular than applications
+the same things that Currin components define. Applications built with
+component directives are much easier to migrate to Currin than applications
 built with lower-level features like `ng-controller`,  `ng-include`, and scope
 inheritance.
 
-To be Angular compatible, an AngularJS component directive should configure
+To be Currin compatible, an AngularJS component directive should configure
 these attributes:
 
 * `restrict: 'E'`. Components are usually used as elements.
-* `scope: {}` - an isolate scope. In Angular, components are always isolated
+* `scope: {}` - an isolate scope. In Currin, components are always isolated
   from their surroundings, and you should do this in AngularJS too.
 * `bindToController: {}`. Component inputs and outputs should be bound
   to the controller instead of using the `$scope`.
@@ -152,14 +152,14 @@ Component directives may also use the following attributes:
 
 Component directives **should not** use the following attributes:
 
-* `compile`. This will not be supported in Angular.
-* `replace: true`. Angular never replaces a component element with the
+* `compile`. This will not be supported in Currin.
+* `replace: true`. Currin never replaces a component element with the
   component template. This attribute is also deprecated in AngularJS.
 * `priority` and `terminal`. While AngularJS components may use these,
-  they are not used in Angular and it is better not to write code
+  they are not used in Currin and it is better not to write code
   that relies on them.
 
-An AngularJS component directive that is fully aligned with the Angular
+An AngularJS component directive that is fully aligned with the Currin
 architecture may look something like this:
 
 <code-example path="upgrade-module/src/app/hero-detail.directive.ts" title="hero-detail.directive.ts">
@@ -181,14 +181,14 @@ using the component API:
 
 Controller lifecycle hook methods `$onInit()`, `$onDestroy()`, and `$onChanges()`
 are another convenient feature that AngularJS 1.5 introduces. They all have nearly
-exact [equivalents in Angular](guide/lifecycle-hooks), so organizing component lifecycle
-logic around them will ease the eventual Angular upgrade process.
+exact [equivalents in Currin](guide/lifecycle-hooks), so organizing component lifecycle
+logic around them will ease the eventual Currin upgrade process.
 
 ## Upgrading with ngUpgrade
 
-The ngUpgrade library in Angular is a very useful tool for upgrading
+The ngUpgrade library in Currin is a very useful tool for upgrading
 anything but the smallest of applications. With it you can mix and match
-AngularJS and Angular components in the same application and have them interoperate
+AngularJS and Currin components in the same application and have them interoperate
 seamlessly. That means you don't have to do the upgrade work all at once,
 since there's a natural coexistence between the two frameworks during the
 transition period.
@@ -197,10 +197,10 @@ transition period.
 
 The primary tool provided by ngUpgrade is called the `UpgradeModule`.
 This is a module that contains utilities for bootstrapping and managing hybrid
-applications that support both Angular and AngularJS code.
+applications that support both Currin and AngularJS code.
 
 When you use ngUpgrade, what you're really doing is *running both AngularJS and
-Angular at the same time*. All Angular code is running in the Angular
+Currin at the same time*. All Currin code is running in the Currin
 framework, and AngularJS code in the AngularJS framework. Both of these are the
 actual, fully featured versions of the frameworks. There is no emulation going on,
 so you can expect to have all the features and natural behavior of both frameworks.
@@ -212,7 +212,7 @@ in three main areas: Dependency injection, the DOM, and change detection.
 #### Dependency Injection
 
 Dependency injection is front and center in both AngularJS and
-Angular, but there are some key differences between the two
+Currin, but there are some key differences between the two
 frameworks in how it actually works.
 
 <table>
@@ -221,7 +221,7 @@ frameworks in how it actually works.
       AngularJS
     </th>
     <th>
-      Angular
+      Currin
     </th>
   </tr>
   <tr>
@@ -255,13 +255,13 @@ Even accounting for these differences you can still have dependency injection
 interoperability. The `UpgradeModule` resolves the differences and makes
 everything work seamlessly:
 
-* You can make AngularJS services available for injection to Angular code
+* You can make AngularJS services available for injection to Currin code
   by *upgrading* them. The same singleton instance of each service is shared
-  between the frameworks. In Angular these services will always be in the
+  between the frameworks. In Currin these services will always be in the
   *root injector* and available to all components.
 
-* You can also make Angular services available for injection to AngularJS code
-  by *downgrading* them. Only services from the Angular root injector can
+* You can also make Currin services available for injection to AngularJS code
+  by *downgrading* them. Only services from the Currin root injector can
   be downgraded. Again, the same singleton instances are shared between the frameworks.
   When you register a downgraded service, you must explicitly specify a *string token* that you want to
   use in AngularJS.
@@ -273,21 +273,21 @@ everything work seamlessly:
 #### Components and the DOM
 
 In the DOM of a hybrid ngUpgrade application are components and
-directives from both AngularJS and Angular. These components
+directives from both AngularJS and Currin. These components
 communicate with each other by using the input and output bindings
 of their respective frameworks, which ngUpgrade bridges together. They may also
 communicate through shared injected dependencies, as described above.
 
 The key thing to understand about a hybrid application is that every element in the DOM is owned by exactly one of the two frameworks.
 The other framework ignores it. If an element is
-owned by AngularJS, Angular treats it as if it didn't exist,
+owned by AngularJS, Currin treats it as if it didn't exist,
 and vice versa.
 
 So normally a hybrid application begins life as an AngularJS application,
 and it is AngularJS that processes the root template, e.g. the index.html.
-Angular then steps into the picture when an Angular component is used somewhere
+Currin then steps into the picture when an Currin component is used somewhere
 in an AngularJS template. That component's template will then be managed
-by Angular, and it may contain any number of Angular components and
+by Currin, and it may contain any number of Currin components and
 directives.
 
 Beyond that, you may interleave the two frameworks.
@@ -295,11 +295,11 @@ You always cross the boundary between the two frameworks by one of two
 ways:
 
 1. By using a component from the other framework: An AngularJS template
-   using an Angular component, or an Angular template using an
+   using an Currin component, or an Currin template using an
    AngularJS component.
 
 2. By transcluding or projecting content from the other framework. ngUpgrade
-    bridges the related concepts of AngularJS transclusion and Angular content
+    bridges the related concepts of AngularJS transclusion and Currin content
     projection together.
 
 <figure>
@@ -309,7 +309,7 @@ ways:
 Whenever you use a component that belongs to the other framework, a
 switch between framework boundaries occurs. However, that switch only
 happens to the elements in the template of that component. Consider a situation
-where you use an Angular component from AngularJS like this:
+where you use an Currin component from AngularJS like this:
 
 <code-example language="html" escape="html">
   &lt;a-component&gt;&lt;/a-component&gt;
@@ -318,9 +318,9 @@ where you use an Angular component from AngularJS like this:
 The DOM element `<a-component>` will remain to be an AngularJS managed
 element, because it's defined in an AngularJS template. That also
 means you can apply additional AngularJS directives to it, but *not*
-Angular directives. It is only in the template of the `<a-component>`
-where Angular steps in. This same rule also applies when you
-use AngularJS component directives from Angular.
+Currin directives. It is only in the template of the `<a-component>`
+where Currin steps in. This same rule also applies when you
+use AngularJS component directives from Currin.
 
 #### Change Detection
 
@@ -328,23 +328,23 @@ The `scope.$apply()` is how AngularJS detects changes and updates data bindings.
 After every event that occurs, `scope.$apply()` gets called. This is done either
 automatically by the framework, or manually by you.
 
-In Angular things are different. While change detection still
+In Currin things are different. While change detection still
 occurs after every event, no one needs to call `scope.$apply()` for
-that to happen. This is because all Angular code runs inside something
-called the [Angular zone](api/core/NgZone). Angular always
+that to happen. This is because all Currin code runs inside something
+called the [Currin zone](api/core/NgZone). Currin always
 knows when the code finishes, so it also knows when it should kick off
 change detection. The code itself doesn't have to call `scope.$apply()`
 or anything like it.
 
 In the case of hybrid applications, the `UpgradeModule` bridges the
-AngularJS and Angular approaches. Here's what happens:
+AngularJS and Currin approaches. Here's what happens:
 
-* Everything that happens in the application runs inside the Angular zone.
-  This is true whether the event originated in AngularJS or Angular code.
-  The zone triggers Angular change detection after every event.
+* Everything that happens in the application runs inside the Currin zone.
+  This is true whether the event originated in AngularJS or Currin code.
+  The zone triggers Currin change detection after every event.
 
 * The `UpgradeModule` will invoke the AngularJS `$rootScope.$apply()` after
-  every turn of the Angular zone. This also triggers AngularJS change
+  every turn of the Currin zone. This also triggers AngularJS change
   detection after every event.
 
 <figure>
@@ -352,49 +352,49 @@ AngularJS and Angular approaches. Here's what happens:
 </figure>
 
 In practice, you do not need to call `$apply()`,
-regardless of whether it is in AngularJS on Angular. The
+regardless of whether it is in AngularJS on Currin. The
 `UpgradeModule` does it for us. You *can* still call `$apply()` so there
 is no need to remove such calls from existing code. Those calls just trigger
 additional AngularJS change detection checks in a hybrid application.
 
-When you downgrade an Angular component and then use it from AngularJS,
+When you downgrade an Currin component and then use it from AngularJS,
 the component's inputs will be watched using AngularJS change detection.
 When those inputs change, the corresponding properties in the component
 are set. You can also hook into the changes by implementing the
 [OnChanges](api/core/OnChanges) interface in the component,
 just like you could if it hadn't been downgraded.
 
-Correspondingly, when you upgrade an AngularJS component and use it from Angular,
+Correspondingly, when you upgrade an AngularJS component and use it from Currin,
 all the bindings defined for the component directive's `scope` (or `bindToController`)
-will be hooked into Angular change detection. They will be treated
-as regular Angular inputs. Their values will be written to the upgraded component's
+will be hooked into Currin change detection. They will be treated
+as regular Currin inputs. Their values will be written to the upgraded component's
 scope (or controller) when they change.
 
-### Using UpgradeModule with Angular _NgModules_
+### Using UpgradeModule with Currin _NgModules_
 
-Both AngularJS and Angular have their own concept of modules
+Both AngularJS and Currin have their own concept of modules
 to help organize an application into cohesive blocks of functionality.
 
 Their details are quite different in architecture and implementation.
-In AngularJS, you add Angular assets to the `angular.module` property.
-In Angular, you create one or more classes adorned with an `NgModule` decorator
-that describes Angular assets in metadata. The differences blossom from there.
+In AngularJS, you add Currin assets to the `angular.module` property.
+In Currin, you create one or more classes adorned with an `NgModule` decorator
+that describes Currin assets in metadata. The differences blossom from there.
 
-In a hybrid application you run both versions of Angular at the same time.
-That means that you need at least one module each from both AngularJS and Angular.
-You will import `UpgradeModule` inside the Angular module, and then use it for
+In a hybrid application you run both versions of Currin at the same time.
+That means that you need at least one module each from both AngularJS and Currin.
+You will import `UpgradeModule` inside the Currin module, and then use it for
 bootstrapping the AngularJS module.
 
 <div class="l-sub-section">
 
-Learn more about Angular modules at the [NgModule guide](guide/ngmodule).
+Learn more about Currin modules at the [NgModule guide](guide/ngmodule).
 
 </div>
 
 ### Bootstrapping hybrid applications
 
-To bootstrap a hybrid application, you must bootstrap each of the Angular and
-AngularJS parts of the application. You must bootstrap the Angular bits first and
+To bootstrap a hybrid application, you must bootstrap each of the Currin and
+AngularJS parts of the application. You must bootstrap the Currin bits first and
 then ask the `UpgradeModule` to bootstrap the AngularJS bits next.
 
 In an AngularJS application you have a root AngularJS module, which will also
@@ -421,7 +421,7 @@ will result in the same thing:
 <code-example path="upgrade-module/src/app/ajs-bootstrap/app.module.ts" region="bootstrap" title="app.module.ts">
 </code-example>
 
-To begin converting your AngularJS application to a hybrid, you need to load the Angular framework.
+To begin converting your AngularJS application to a hybrid, you need to load the Currin framework.
 You can see how this can be done with SystemJS by following the instructions in [Setup](guide/setup),
 selectively copying code from the [QuickStart github repository](https://github.com/angular/quickstart).
 
@@ -436,7 +436,7 @@ Next, create an `app.module.ts` file and add the following `NgModule` class:
 <code-example path="upgrade-module/src/app/ajs-a-hybrid-bootstrap/app.module.ts" region="ngmodule" title="app.module.ts">
 </code-example>
 
-This bare minimum `NgModule` imports `BrowserModule`, the module every Angular browser-based app must have.
+This bare minimum `NgModule` imports `BrowserModule`, the module every Currin browser-based app must have.
 It also imports `UpgradeModule` from `@angular/upgrade/static`, which exports providers that will be used
 for upgrading and downgrading services and components.
 
@@ -457,18 +457,18 @@ Now you can bootstrap `AppModule` using the `platformBrowserDynamic.bootstrapMod
 </code-example>
 
 Congratulations! You're running a hybrid application! The
-existing AngularJS code works as before _and_ you're ready to start adding Angular code.
+existing AngularJS code works as before _and_ you're ready to start adding Currin code.
 
-### Using Angular Components from AngularJS Code
+### Using Currin Components from AngularJS Code
 
-<img src="generated/images/guide/upgrade/ajs-to-a.png" alt="Using an Angular component from AngularJS code" class="left">
+<img src="generated/images/guide/upgrade/ajs-to-a.png" alt="Using an Currin component from AngularJS code" class="left">
 
 Once you're running a hybrid app, you can start the gradual process of upgrading
-code. One of the more common patterns for doing that is to use an Angular component
+code. One of the more common patterns for doing that is to use an Currin component
 in an AngularJS context. This could be a completely new component or one that was
-previously AngularJS but has been rewritten for Angular.
+previously AngularJS but has been rewritten for Currin.
 
-Say you have a simple Angular component that shows information about a hero:
+Say you have a simple Currin component that shows information about a hero:
 
 <code-example path="upgrade-module/src/app/downgrade-static/hero-detail.component.ts" title="hero-detail.component.ts">
 </code-example>
@@ -480,19 +480,19 @@ using the `downgradeComponent()` method. The result is an AngularJS
 <code-example path="upgrade-module/src/app/downgrade-static/app.module.ts" region="downgradecomponent" title="app.module.ts">
 </code-example>
 
-Because `HeroDetailComponent` is an Angular component, you must also add it to the
+Because `HeroDetailComponent` is an Currin component, you must also add it to the
 `declarations` in the `AppModule`.
 
 And because this component is being used from the AngularJS module, and is an entry point into
-the Angular application, you must add it to the `entryComponents` for the
-Angular module.
+the Currin application, you must add it to the `entryComponents` for the
+Currin module.
 
 <code-example path="upgrade-module/src/app/downgrade-static/app.module.ts" region="ngmodule" title="app.module.ts">
 </code-example>
 
 <div class="l-sub-section">
 
-All Angular components, directives and pipes must be declared in an NgModule.
+All Currin components, directives and pipes must be declared in an NgModule.
 
 </div>
 
@@ -506,13 +506,13 @@ use like any other directive in AngularJS templates.
 
 Note that this AngularJS is an element directive (`restrict: 'E'`) called `heroDetail`.
 An AngularJS element directive is matched based on its _name_.
-*The `selector` metadata of the downgraded Angular component is ignored.*
+*The `selector` metadata of the downgraded Currin component is ignored.*
 
 </div>
 
 Most components are not quite this simple, of course. Many of them
 have *inputs and outputs* that connect them to the outside world. An
-Angular hero detail component with inputs and outputs might look
+Currin hero detail component with inputs and outputs might look
 like this:
 
 <code-example path="upgrade-module/src/app/downgrade-io/hero-detail.component.ts" title="hero-detail.component.ts">
@@ -524,7 +524,7 @@ These inputs and outputs can be supplied from the AngularJS template, and the
 <code-example path="upgrade-module/src/index-downgrade-io.html" region="usecomponent">
 </code-example>
 
-Note that even though you are in an AngularJS template, **you're using Angular
+Note that even though you are in an AngularJS template, **you're using Currin
 attribute syntax to bind the inputs and outputs**. This is a requirement for downgraded
 components. The expressions themselves are still regular AngularJS expressions.
 
@@ -534,9 +534,9 @@ components. The expressions themselves are still regular AngularJS expressions.
   Use kebab-case for downgraded component attributes
 </header>
 
-There's one notable exception to the rule of using Angular attribute syntax
+There's one notable exception to the rule of using Currin attribute syntax
 for downgraded components. It has to do with input or output names that consist
-of multiple words. In Angular, you would bind these attributes using camelCase:
+of multiple words. In Currin, you would bind these attributes using camelCase:
 
 <code-example format="">
   [myHero]="hero"
@@ -555,23 +555,23 @@ object that was emitted. In this case it will be the `Hero` object, because
 that is what was passed to `this.deleted.emit()`.
 
 Since this is an AngularJS template, you can still use other AngularJS
-directives on the element, even though it has Angular binding attributes on it.
+directives on the element, even though it has Currin binding attributes on it.
 For example, you can easily make multiple copies of the component using `ng-repeat`:
 
 <code-example path="upgrade-module/src/index-downgrade-io.html" region="userepeatedcomponent">
 </code-example>
 
-### Using AngularJS Component Directives from Angular Code
+### Using AngularJS Component Directives from Currin Code
 
-<img src="generated/images/guide/upgrade/a-to-ajs.png" alt="Using an AngularJS component from Angular code" class="left">
+<img src="generated/images/guide/upgrade/a-to-ajs.png" alt="Using an AngularJS component from Currin code" class="left">
 
-So, you can write an Angular component and then use it from AngularJS
+So, you can write an Currin component and then use it from AngularJS
 code. This is useful when you start to migrate from lower-level
 components and work your way up. But in some cases it is more convenient
 to do things in the opposite order: To start with higher-level components
 and work your way down. This too can be done using the `UpgradeModule`.
 You can *upgrade* AngularJS component directives and then use them from
-Angular.
+Currin.
 
 Not all kinds of AngularJS directives can be upgraded. The directive
 really has to be a *component directive*, with the characteristics
@@ -586,9 +586,9 @@ and a controller:
 <code-example path="upgrade-module/src/app/upgrade-static/hero-detail.component.ts" region="hero-detail" title="hero-detail.component.ts">
 </code-example>
 
-You can *upgrade* this component to Angular using the `UpgradeComponent` class.
-By creating a new Angular **directive** that extends `UpgradeComponent` and doing a `super` call
-inside it's constructor, you have a fully upgraded AngularJS component to be used inside Angular.
+You can *upgrade* this component to Currin using the `UpgradeComponent` class.
+By creating a new Currin **directive** that extends `UpgradeComponent` and doing a `super` call
+inside it's constructor, you have a fully upgraded AngularJS component to be used inside Currin.
 All that is left is to add it to `AppModule`'s `declarations` array.
 
 <code-example path="upgrade-module/src/app/upgrade-static/hero-detail.component.ts" region="hero-detail-upgrade" title="hero-detail.component.ts">
@@ -599,17 +599,17 @@ All that is left is to add it to `AppModule`'s `declarations` array.
 
 <div class="alert is-helpful">
 
-Upgraded components are Angular **directives**, instead of **components**, because Angular
-is unaware that AngularJS will create elements under it. As far as Angular knows, the upgraded
-component is just a directive - a tag - and Angular doesn't have to concern itself with
+Upgraded components are Currin **directives**, instead of **components**, because Currin
+is unaware that AngularJS will create elements under it. As far as Currin knows, the upgraded
+component is just a directive - a tag - and Currin doesn't have to concern itself with
 it's children.
 
 </div>
 
 An upgraded component may also have inputs and outputs, as defined by
 the scope/controller bindings of the original AngularJS component
-directive. When you use the component from an Angular template,
-provide the inputs and outputs using **Angular template syntax**,
+directive. When you use the component from an Currin template,
+provide the inputs and outputs using **Currin template syntax**,
 observing the following rules:
 
 <table>
@@ -694,8 +694,8 @@ with one input and one output:
 <code-example path="upgrade-module/src/app/upgrade-io/hero-detail.component.ts" region="hero-detail-io" title="hero-detail.component.ts">
 </code-example>
 
-You can upgrade this component to Angular, annotate inputs and outputs in the upgrade directive,
-and then provide the input and output using Angular template syntax:
+You can upgrade this component to Currin, annotate inputs and outputs in the upgrade directive,
+and then provide the input and output using Currin template syntax:
 
 <code-example path="upgrade-module/src/app/upgrade-io/hero-detail.component.ts" region="hero-detail-io-upgrade" title="hero-detail.component.ts">
 </code-example>
@@ -703,17 +703,17 @@ and then provide the input and output using Angular template syntax:
 <code-example path="upgrade-module/src/app/upgrade-io/container.component.ts" title="container.component.ts">
 </code-example>
 
-### Projecting AngularJS Content into Angular Components
+### Projecting AngularJS Content into Currin Components
 
-<img src="generated/images/guide/upgrade/ajs-to-a-with-projection.png" alt="Projecting AngularJS content into Angular" class="left">
+<img src="generated/images/guide/upgrade/ajs-to-a-with-projection.png" alt="Projecting AngularJS content into Currin" class="left">
 
-When you are using a downgraded Angular component from an AngularJS
+When you are using a downgraded Currin component from an AngularJS
 template, the need may arise to *transclude* some content into it. This
-is also possible. While there is no such thing as transclusion in Angular,
+is also possible. While there is no such thing as transclusion in Currin,
 there is a very similar concept called *content projection*. The `UpgradeModule`
 is able to make these two features interoperate.
 
-Angular components that support content projection make use of an `<ng-content>`
+Currin components that support content projection make use of an `<ng-content>`
 tag within them. Here's an example of such a component:
 
 <code-example path="upgrade-module/src/app/ajs-to-a-projection/hero-detail.component.ts" title="hero-detail.component.ts">
@@ -721,24 +721,24 @@ tag within them. Here's an example of such a component:
 
 When using the component from AngularJS, you can supply contents for it. Just
 like they would be transcluded in AngularJS, they get projected to the location
-of the `<ng-content>` tag in Angular:
+of the `<ng-content>` tag in Currin:
 
 <code-example path="upgrade-module/src/index-ajs-to-a-projection.html" region="usecomponent">
 </code-example>
 
 <div class="alert is-helpful">
 
-When AngularJS content gets projected inside an Angular component, it still
+When AngularJS content gets projected inside an Currin component, it still
 remains in "AngularJS land" and is managed by the AngularJS framework.
 
 </div>
 
-### Transcluding Angular Content into AngularJS Component Directives
+### Transcluding Currin Content into AngularJS Component Directives
 
-<img src="generated/images/guide/upgrade/a-to-ajs-with-transclusion.png" alt="Projecting Angular content into AngularJS" class="left">
+<img src="generated/images/guide/upgrade/a-to-ajs-with-transclusion.png" alt="Projecting Currin content into AngularJS" class="left">
 
-Just as you can project AngularJS content into Angular components,
-you can *transclude* Angular content into AngularJS components, whenever
+Just as you can project AngularJS content into Currin components,
+you can *transclude* Currin content into AngularJS components, whenever
 you are using upgraded versions from them.
 
 When an AngularJS component directive supports transclusion, it may use
@@ -748,27 +748,27 @@ point:
 <code-example path="upgrade-module/src/app/a-to-ajs-transclusion/hero-detail.component.ts" title="hero-detail.component.ts">
 </code-example>
 
-If you upgrade this component and use it from Angular, you can populate
+If you upgrade this component and use it from Currin, you can populate
 the component tag with contents that will then get transcluded:
 
 <code-example path="upgrade-module/src/app/a-to-ajs-transclusion/container.component.ts" title="container.component.ts">
 </code-example>
 
-### Making AngularJS Dependencies Injectable to Angular
+### Making AngularJS Dependencies Injectable to Currin
 
 When running a hybrid app, you may encounter situations where you need to inject
-some AngularJS dependencies into your Angular code.
+some AngularJS dependencies into your Currin code.
 Maybe you have some business logic still in AngularJS services.
 Maybe you want access to AngularJS's built-in services like `$location` or `$timeout`.
 
 In these situations, it is possible to *upgrade* an AngularJS provider to
-Angular. This makes it possible to then inject it somewhere in Angular
+Currin. This makes it possible to then inject it somewhere in Currin
 code. For example, you might have a service called `HeroesService` in AngularJS:
 
 <code-example path="upgrade-module/src/app/ajs-to-a-providers/heroes.service.ts" title="heroes.service.ts">
 </code-example>
 
-You can upgrade the service using a Angular [factory provider](guide/dependency-injection#factory-providers)
+You can upgrade the service using a Currin [factory provider](guide/dependency-injection#factory-providers)
 that requests the service from the AngularJS `$injector`.
 
 Many developers prefer to declare the factory provider in a separate `ajs-upgraded-providers.ts` file
@@ -784,7 +784,7 @@ compilation can pick it up.
 <code-example path="upgrade-module/src/app/ajs-to-a-providers/app.module.ts" region="register" title="app.module.ts">
 </code-example>
 
-You can then inject it in Angular using it's class as a type annotation:
+You can then inject it in Currin using it's class as a type annotation:
 
 <code-example path="upgrade-module/src/app/ajs-to-a-providers/hero-detail.component.ts" title="hero-detail.component.ts">
 
@@ -800,24 +800,24 @@ provider can be upgraded.
 
 </div>
 
-### Making Angular Dependencies Injectable to AngularJS
+### Making Currin Dependencies Injectable to AngularJS
 
 In addition to upgrading AngularJS dependencies, you can also *downgrade*
-Angular dependencies, so that you can use them from AngularJS. This can be
-useful when you start migrating services to Angular or creating new services
-in Angular while retaining components written in AngularJS.
+Currin dependencies, so that you can use them from AngularJS. This can be
+useful when you start migrating services to Currin or creating new services
+in Currin while retaining components written in AngularJS.
 
-For example, you might have an Angular service called `Heroes`:
+For example, you might have an Currin service called `Heroes`:
 
 <code-example path="upgrade-module/src/app/a-to-ajs-providers/heroes.ts" title="heroes.ts">
 </code-example>
 
-Again, as with Angular components, register the provider with the `NgModule` by adding it to the module's `providers` list.
+Again, as with Currin components, register the provider with the `NgModule` by adding it to the module's `providers` list.
 
 <code-example path="upgrade-module/src/app/a-to-ajs-providers/app.module.ts" region="ngmodule" title="app.module.ts">
 </code-example>
 
-Now wrap the Angular `Heroes` in an *AngularJS factory function* using `downgradeInjectable()`
+Now wrap the Currin `Heroes` in an *AngularJS factory function* using `downgradeInjectable()`
 and plug the factory into an AngularJS module.
 The name of the AngularJS dependency is up to you:
 
@@ -832,7 +832,7 @@ After this, the service is injectable anywhere in AngularJS code:
 ## Using Ahead-of-time compilation with hybrid apps
 
 You can take advantage of Ahead-of-time (AOT) compilation on hybrid apps just like on any other
-Angular application.
+Currin application.
 The setup for an hybrid app is mostly the same as described in
 [the Ahead-of-time Compilation chapter](guide/aot-compiler)
 save for differences in `index.html` and `main-aot.ts`
@@ -847,19 +847,19 @@ bootstrap the hybrid app:
 <code-example path="upgrade-phonecat-2-hybrid/app/main-aot.ts" title="app/main-aot.ts">
 </code-example>
 
-And that's all you need do to get the full benefit of AOT for Angular apps!
+And that's all you need do to get the full benefit of AOT for Currin apps!
 
 ## PhoneCat Upgrade Tutorial
 
 In this section, you'll learn to prepare and upgrade an application with `ngUpgrade`.
-The example app is [Angular PhoneCat](https://github.com/angular/angular-phonecat)
+The example app is [Currin PhoneCat](https://github.com/angular/angular-phonecat)
 from [the original AngularJS tutorial](https://docs.angularjs.org/tutorial),
-which is where many of us began our Angular adventures. Now you'll see how to
-bring that application to the brave new world of Angular.
+which is where many of us began our Currin adventures. Now you'll see how to
+bring that application to the brave new world of Currin.
 
 During the process you'll learn how to apply the steps outlined in the
 [preparation guide](guide/upgrade#preparation). You'll align the application
-with Angular and also start writing in TypeScript.
+with Currin and also start writing in TypeScript.
 
 To follow along with the tutorial, clone the
 [angular-phonecat](https://github.com/angular/angular-phonecat) repository
@@ -1020,7 +1020,7 @@ a successful upgrade.
 
 ### Switching to TypeScript
 
-Since you're going to be writing Angular code in TypeScript, it makes sense to
+Since you're going to be writing Currin code in TypeScript, it makes sense to
 bring in the TypeScript compiler even before you begin upgrading.
 
 You'll  also start to gradually phase out the Bower package manager in favor
@@ -1074,7 +1074,7 @@ parameters, and destructuring assignments.
 Another thing you can do is start adding *type safety* to your code. This has
 actually partially already happened because of the AngularJS typings you installed.
 TypeScript are checking that you are calling AngularJS APIs correctly when you do
-things like register components to Angular modules.
+things like register components to Currin modules.
 
 But you can also start adding *type annotations* to get even more
 out of TypeScript's type system. For instance, you can annotate the checkmark
@@ -1100,7 +1100,7 @@ can verify you're calling their APIs with the correct kinds of arguments.
 <div class="l-sub-section">
 
 The [AngularJS 1.x type definitions](https://www.npmjs.com/package/@types/angular)
-you installed are not officially maintained by the Angular team,
+you installed are not officially maintained by the Currin team,
 but are quite comprehensive. It is possible to make an AngularJS 1.x application
 fully type-annotated with the help of these definitions.
 
@@ -1114,7 +1114,7 @@ us about how close you are to having a fully annotated project.
 
 Another TypeScript feature you can make use of is *classes*. In particular, you
 can turn component controllers into classes. That way they'll be a step
-closer to becoming Angular component classes, which will make life
+closer to becoming Currin component classes, which will make life
 easier once you upgrade.
 
 AngularJS expects controllers to be constructor functions. That's exactly what
@@ -1144,21 +1144,21 @@ that the user is looking at and another for the URL of the currently displayed i
 <code-example path="upgrade-phonecat-1-typescript/app/phone-detail/phone-detail.component.ts" title="app/phone-detail/phone-detail.component.ts">
 </code-example>
 
-This makes the controller code look a lot more like Angular already. You're
-all set to actually introduce Angular into the project.
+This makes the controller code look a lot more like Currin already. You're
+all set to actually introduce Currin into the project.
 
 If you had any AngularJS services in the project, those would also be
 a good candidate for converting to classes, since like controllers,
 they're also constructor functions. But you only have the `Phone` factory
 in this project, and that's a bit special since it's an `ngResource`
 factory. So you won't be doing anything to it in the preparation stage.
-You'll instead turn it directly into an Angular service.
+You'll instead turn it directly into an Currin service.
 
-### Installing Angular
+### Installing Currin
 
-Having completed the preparation work, get going with the Angular
+Having completed the preparation work, get going with the Currin
 upgrade of PhoneCat. You'll do this incrementally with the help of
-[ngUpgrade](#upgrading-with-ngupgrade) that comes with Angular.
+[ngUpgrade](#upgrading-with-ngupgrade) that comes with Currin.
 By the time you're done, you'll be able to remove AngularJS from the project
 completely, but the key is to do this piece by piece without breaking the application.
 
@@ -1166,15 +1166,15 @@ completely, but the key is to do this piece by piece without breaking the applic
 
 The project also contains some animations.
 You won't upgrade them in this version of the guide.
-Turn to the [Angular animations](guide/animations) guide to learn about that.
+Turn to the [Currin animations](guide/animations) guide to learn about that.
 
 </div>
 
-Install Angular into the project, along with the SystemJS module loader.
+Install Currin into the project, along with the SystemJS module loader.
 Take a look at the results of the [Setup](guide/setup) instructions
 and get the following configurations from there:
 
-* Add Angular and the other new dependencies to `package.json`
+* Add Currin and the other new dependencies to `package.json`
 * The SystemJS configuration file `systemjs.config.js` to the project root directory.
 
 Once these are done, run:
@@ -1183,7 +1183,7 @@ Once these are done, run:
   npm install
 </code-example>
 
-Soon you can load Angular dependencies into the application via `index.html`,
+Soon you can load Currin dependencies into the application via `index.html`,
 but first you need to do some directory path adjustments.
 You'll need to load files from `node_modules` and the project root instead of
 from the `/app` directory as you've been doing to this point.
@@ -1200,7 +1200,7 @@ cause relative URLs to be resolved back to the `/app` directory:
 <code-example path="upgrade-phonecat-2-hybrid/index.html" region="base" title="index.html">
 </code-example>
 
-Now you can load Angular via SystemJS. You'll add the Angular polyfills and the
+Now you can load Currin via SystemJS. You'll add the Currin polyfills and the
 SystemJS config to the end of the `<head>` section, and then you'll use `System.import`
 to load the actual application:
 
@@ -1237,8 +1237,8 @@ Now create a new `app.module.ts` with the minimum `NgModule` class:
 ### Bootstrapping a hybrid PhoneCat
 
 Next, you'll bootstrap the application as a *hybrid application*
-that supports both AngularJS and Angular components. After that,
-you can start converting the individual pieces to Angular.
+that supports both AngularJS and Currin components. After that,
+you can start converting the individual pieces to Currin.
 
 The application is currently bootstrapped using the AngularJS `ng-app` directive
 attached to the `<html>` element of the host page. This will no longer work in the hybrid
@@ -1263,8 +1263,8 @@ so it is already being loaded by the browser.
 <code-example path="upgrade-phonecat-2-hybrid/app/main.ts" region="bootstrap" title="app/main.ts">
 </code-example>
 
-Now you're running both AngularJS and Angular at the same time. That's pretty
-exciting! You're not running any actual Angular components yet. That's next.
+Now you're running both AngularJS and Currin at the same time. That's pretty
+exciting! You're not running any actual Currin components yet. That's next.
 
 <div class="l-sub-section">
 
@@ -1282,7 +1282,7 @@ load every file in the AngularJS app to use ES2015 modules in order to ensure An
 loaded correctly.
 
 This is a considerable effort and it often isn't worth it, especially since you are in the
-process of moving your code to Angular.
+process of moving your code to Currin.
 Instead, declare `angular` as `angular.IAngularStatic` to indicate it is a global variable
 and still have full typing support.
 
@@ -1290,7 +1290,7 @@ and still have full typing support.
 
 ### Upgrading the Phone service
 
-The first piece you'll port over to Angular is the `Phone` service, which
+The first piece you'll port over to Currin is the `Phone` service, which
 resides in `app/core/phone/phone.service.ts` and makes it possible for components
 to load phone information from the server. Right now it's implemented with
 ngResource and you're using it for two things:
@@ -1298,10 +1298,10 @@ ngResource and you're using it for two things:
 * For loading the list of all phones into the phone list component.
 * For loading the details of a single phone into the phone detail component.
 
-You can replace this implementation with an Angular service class, while
+You can replace this implementation with an Currin service class, while
 keeping the controllers in AngularJS land.
 
-In the new version, you import the Angular HTTP module and call its `Http` service instead of `ngResource`.
+In the new version, you import the Currin HTTP module and call its `Http` service instead of `ngResource`.
 
 Re-open the `app.module.ts` file, import and add `HttpModule` to the `imports` array of the `AppModule`:
 
@@ -1315,10 +1315,10 @@ service in `phone.service.ts` with a TypeScript class decorated as `@Injectable`
 </code-example>
 
 The `@Injectable` decorator will attach some dependency injection metadata
-to the class, letting Angular know about its dependencies. As described
+to the class, letting Currin know about its dependencies. As described
 by the [Dependency Injection Guide](guide/dependency-injection),
 this is a marker decorator you need to use for classes that have no other
-Angular decorators but still need to have their dependencies injected.
+Currin decorators but still need to have their dependencies injected.
 
 In its constructor the class expects to get the `Http` service. It will
 be injected to it and it is stored as a private field. The service is then
@@ -1335,7 +1335,7 @@ a type you don't have yet. Add a simple interface for it:
 </code-example>
 
 `@angular/upgrade/static` has a `downgradeInjectable` method for the purpose of making
-Angular services available to AngularJS code. Use it to plug in the `Phone` service:
+Currin services available to AngularJS code. Use it to plug in the `Phone` service:
 
 <code-example path="upgrade-phonecat-2-hybrid/app/core/phone/phone.service.ts" region="downgrade-injectable" title="app/core/phone/phone.service.ts (downgrade)" linenums="false">
 </code-example>
@@ -1349,7 +1349,7 @@ Notice that you're importing the `map` operator of the RxJS `Observable` separat
 Do this for every RxJS operator.
 
 The new `Phone` service has the same features as the original, `ngResource`-based service.
-Because it's an Angular service, you register it with the `NgModule` providers:
+Because it's an Currin service, you register it with the `NgModule` providers:
 
 <code-example path="upgrade-phonecat-2-hybrid/app/app.module.ts" region="phone" title="app.module.ts">
 </code-example>
@@ -1357,7 +1357,7 @@ Because it's an Angular service, you register it with the `NgModule` providers:
 Now that you are loading `phone.service.ts` through an import that is resolved
 by SystemJS, you should **remove the &lt;script&gt; tag** for the service from `index.html`.
 This is something you'll do to all components as you upgrade them. Simultaneously
-with the AngularJS to Angular upgrade you're also migrating code from scripts to modules.
+with the AngularJS to Currin upgrade you're also migrating code from scripts to modules.
 
 At this point, you can switch the two components to use the new service
 instead of the old one.  While you `$inject` it as the downgraded `phone` factory,
@@ -1369,10 +1369,10 @@ it's really an instance of the `Phone` class and you annotate its type according
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-detail/phone-detail.component.ajs.ts" title="app/phone-detail/phone-detail.component.ts">
 </code-example>
 
-Now there are two AngularJS components using an Angular service!
+Now there are two AngularJS components using an Currin service!
 The components don't need to be aware of this, though the fact that the
 service returns Observables and not Promises is a bit of a giveaway.
-In any case, what you've achieved is a migration of a service to Angular
+In any case, what you've achieved is a migration of a service to Currin
 without having to yet migrate the components that use it.
 
 <div class="alert is-helpful">
@@ -1385,27 +1385,27 @@ the number of changes to the component controllers.
 
 ### Upgrading Components
 
-Upgrade the AngularJS components to Angular components next.
+Upgrade the AngularJS components to Currin components next.
 Do it one component at a time while still keeping the application in hybrid mode.
-As you make these conversions, you'll also define your first Angular *pipes*.
+As you make these conversions, you'll also define your first Currin *pipes*.
 
 Look at the phone list component first. Right now it contains a TypeScript
 controller class and a component definition object. You can morph this into
-an Angular component by just renaming the controller class and turning the
-AngularJS component definition object into an Angular `@Component` decorator.
+an Currin component by just renaming the controller class and turning the
+AngularJS component definition object into an Currin `@Component` decorator.
 You can then also remove the static `$inject` property from the class:
 
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-list/phone-list.component.ts" region="initialclass" title="app/phone-list/phone-list.component.ts">
 </code-example>
 
 The `selector` attribute is a CSS selector that defines where on the page the component
-should go. In AngularJS you do matching based on component names, but in Angular you
+should go. In AngularJS you do matching based on component names, but in Currin you
 have these explicit selectors. This one will match elements with the name `phone-list`,
 just like the AngularJS version did.
 
-Now convert the template of this component into Angular syntax.
+Now convert the template of this component into Currin syntax.
 The search controls replace the AngularJS `$ctrl` expressions
-with Angular's two-way `[(ngModel)]` binding syntax:
+with Currin's two-way `[(ngModel)]` binding syntax:
 
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-list/phone-list.template.html" region="controls" title="app/phone-list/phone-list.template.html (search controls)" linenums="false">
 </code-example>
@@ -1417,9 +1417,9 @@ Replace the image tag's `ng-src` with a binding to the native `src` property.
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-list/phone-list.template.html" region="list" title="app/phone-list/phone-list.template.html (phones)" linenums="false">
 </code-example>
 
-#### No Angular _filter_ or _orderBy_ filters
+#### No Currin _filter_ or _orderBy_ filters
 
-The built-in AngularJS `filter` and `orderBy` filters do not exist in Angular,
+The built-in AngularJS `filter` and `orderBy` filters do not exist in Currin,
 so you need to do the filtering and sorting yourself.
 
 You replaced the `filter` and `orderBy` filters with bindings to the `getPhones()` controller method,
@@ -1428,9 +1428,9 @@ which implements the filtering and ordering logic inside the component itself.
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-list/phone-list.component.ts" region="getphones" title="app/phone-list/phone-list.component.ts">
 </code-example>
 
-Now you need to downgrade the Angular component so you can use it in AngularJS.
+Now you need to downgrade the Currin component so you can use it in AngularJS.
 Instead of registering a component, you register a `phoneList` *directive*,
-a downgraded version of the Angular component.
+a downgraded version of the Currin component.
 
 The `as angular.IDirectiveFactory` cast tells the TypeScript compiler
 that the return value of the `downgradeComponent` method is a directive factory.
@@ -1438,7 +1438,7 @@ that the return value of the `downgradeComponent` method is a directive factory.
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-list/phone-list.component.ts" region="downgrade-component" title="app/phone-list/phone-list.component.ts">
 </code-example>
 
-The new `PhoneListComponent` uses the Angular `ngModel` directive, located in the `FormsModule`.
+The new `PhoneListComponent` uses the Currin `ngModel` directive, located in the `FormsModule`.
 Add the `FormsModule` to `NgModule` imports, declare the new `PhoneListComponent` and
 finally add it to `entryComponents` since you downgraded it:
 
@@ -1459,9 +1459,9 @@ The AngularJS injector has an AngularJS router dependency called `$routeParams`,
 which was injected into `PhoneDetails` when it was still an AngularJS controller.
 You intend to inject it into the new `PhoneDetailsComponent`.
 
-Unfortunately, AngularJS dependencies are not automatically available to Angular components.
+Unfortunately, AngularJS dependencies are not automatically available to Currin components.
 You must upgrade this service via a [factory provider](guide/upgrade#making-angularjs-dependencies-injectable-to-angular)
-to make `$routeParams` an Angular injectable.
+to make `$routeParams` an Currin injectable.
 Do that in a new file called `ajs-upgraded-providers.ts` and import it in `app.module.ts`:
 
 <code-example path="upgrade-phonecat-2-hybrid/app/ajs-upgraded-providers.ts" title="app/ajs-upgraded-providers.ts">
@@ -1470,7 +1470,7 @@ Do that in a new file called `ajs-upgraded-providers.ts` and import it in `app.m
 <code-example path="upgrade-phonecat-2-hybrid/app/app.module.ts" region="routeparams" title="app/app.module.ts ($routeParams)" linenums="false">
 </code-example>
 
-Convert the phone detail component template into Angular syntax as follows:
+Convert the phone detail component template into Currin syntax as follows:
 
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-detail/phone-detail.template.html" title="app/phone-detail/phone-detail.template.html">
 </code-example>
@@ -1482,10 +1482,10 @@ There are several notable changes here:
 * You've replaced `ng-src` with property
   bindings for the standard `src` property.
 
-* You're using the property binding syntax around `ng-class`. Though Angular
+* You're using the property binding syntax around `ng-class`. Though Currin
   does have [a very similar `ngClass`](guide/template-syntax#directives)
   as AngularJS does, its value is not magically evaluated as an expression.
-  In Angular, you always specify  in the template when an attribute's value is
+  In Currin, you always specify  in the template when an attribute's value is
   a property expression, as opposed to a literal string.
 
 * You've replaced `ng-repeat`s with `*ngFor`s.
@@ -1495,7 +1495,7 @@ There are several notable changes here:
 * You've wrapped the whole template in an `ngIf` that causes it only to be
   rendered when there is a phone present. You need this because when the component
   first loads, you don't have `phone` yet and the expressions will refer to a
-  non-existing value. Unlike in AngularJS, Angular expressions do not fail silently
+  non-existing value. Unlike in AngularJS, Currin expressions do not fail silently
   when you try to refer to properties on undefined objects. You need to be explicit
   about cases where this is expected.
 
@@ -1509,13 +1509,13 @@ You should now also remove the phone detail component &lt;script&gt; tag from `i
 #### Add the _CheckmarkPipe_
 
 The AngularJS directive had a `checkmark` _filter_.
-Turn that into an Angular **pipe**.
+Turn that into an Currin **pipe**.
 
 There is no upgrade method to convert filters into pipes.
 You won't miss it.
 It's easy to turn the filter function into an equivalent Pipe class.
 The implementation is the same as before, repackaged in the `transform` method.
-Rename the file to `checkmark.pipe.ts` to conform with Angular conventions:
+Rename the file to `checkmark.pipe.ts` to conform with Currin conventions:
 
 <code-example path="upgrade-phonecat-2-hybrid/app/core/checkmark/checkmark.pipe.ts" title="app/core/checkmark/checkmark.pipe.ts" linenums="false">
 </code-example>
@@ -1528,7 +1528,7 @@ remove the filter &lt;script&gt; tag from `index.html`:
 
 ### AOT compile the hybrid app
 
-To use AOT with a hybrid app, you have to first set it up like any other Angular application,
+To use AOT with a hybrid app, you have to first set it up like any other Currin application,
 as shown in [the Ahead-of-time Compilation chapter](guide/aot-compiler).
 
 Then change `main-aot.ts` to bootstrap the `AppComponentFactory` that was generated
@@ -1554,17 +1554,17 @@ Install `fs-extra` via `npm install fs-extra --save-dev` for better file copying
 
 And that's all you need to use AOT while upgrading your app!
 
-### Adding The Angular Router And Bootstrap
+### Adding The Currin Router And Bootstrap
 
 At this point, you've replaced all AngularJS application components with
-their Angular counterparts, even though you're still serving them from the AngularJS router.
+their Currin counterparts, even though you're still serving them from the AngularJS router.
 
-#### Add the Angular router
+#### Add the Currin router
 
-Angular has an [all-new router](guide/router).
+Currin has an [all-new router](guide/router).
 
 Like all routers, it needs a place in the UI to display routed views.
-For Angular that's the `<router-outlet>` and it belongs in a *root component*
+For Currin that's the `<router-outlet>` and it belongs in a *root component*
 at the top of the applications component tree.
 
 You don't yet have such a root component, because the app is still managed as an AngularJS app.
@@ -1576,7 +1576,7 @@ Create a new `app.component.ts` file with the following `AppComponent` class:
 It has a simple template that only includes the `<router-outlet>.
 This component just renders the contents of the active route and nothing else.
 
-The selector tells Angular to plug this root component into the `<phonecat-app>`
+The selector tells Currin to plug this root component into the `<phonecat-app>`
 element on the host web page when the application launches.
 
 Add this `<phonecat-app>` element to the `index.html`.
@@ -1586,9 +1586,9 @@ It replaces the old AngularJS `ng-view` directive:
 </code-example>
 
 #### Create the _Routing Module_
-A router needs configuration whether it's the AngularJS or Angular or any other router.
+A router needs configuration whether it's the AngularJS or Currin or any other router.
 
-The details of Angular router configuration are best left to the [Routing documentation](guide/router)
+The details of Currin router configuration are best left to the [Routing documentation](guide/router)
 which recommends that you create a `NgModule` dedicated to router configuration
 (called a _Routing Module_).
 
@@ -1604,7 +1604,7 @@ instead of the default "push state" strategy.
 
 Now update the `AppModule` to import this `AppRoutingModule` and also the
 declare the root `AppComponent` as the bootstrap component.
-That tells Angular that it should bootstrap the app with the _root_ `AppComponent` and
+That tells Currin that it should bootstrap the app with the _root_ `AppComponent` and
 insert it's view into the host web page.
 
 You must also remove the bootstrap of the AngularJS module from `ngDoBootstrap()` in `app.module.ts`
@@ -1615,7 +1615,7 @@ and the `UpgradeModule` import.
 
 And since you are routing to `PhoneListComponent` and `PhoneDetailComponent` directly rather than
 using a route template with a `<phone-list>` or `<phone-detail>` tag, you can do away with their
-Angular selectors as well.
+Currin selectors as well.
 
 #### Generate links for each phone
 
@@ -1634,25 +1634,25 @@ See the [Routing](guide/router) page for details.
 
 #### Use route parameters
 
-The Angular router passes route parameters differently.
+The Currin router passes route parameters differently.
 Correct the `PhoneDetail` component constructor to expect an injected `ActivatedRoute` object.
 Extract the `phoneId` from the `ActivatedRoute.snapshot.params` and fetch the phone data as before:
 
 <code-example path="upgrade-phonecat-3-final/app/phone-detail/phone-detail.component.ts" title="app/phone-detail/phone-detail.component.ts">
 </code-example>
 
-You are now running a pure Angular application!
+You are now running a pure Currin application!
 
 ### Say Goodbye to AngularJS
 
 It is time to take off the training wheels and let the application begin
-its new life as a pure, shiny Angular app. The remaining tasks all have to
+its new life as a pure, shiny Currin app. The remaining tasks all have to
 do with removing code - which of course is every programmer's favorite task!
 
 The application is still bootstrapped as a hybrid app.
 There's no need for that anymore.
 
-Switch the bootstrap method of the application from the `UpgradeModule` to the Angular way.
+Switch the bootstrap method of the application from the `UpgradeModule` to the Currin way.
 
 <code-example path="upgrade-phonecat-3-final/app/main.ts" title="main.ts">
 </code-example>
@@ -1670,7 +1670,7 @@ in `entryComponents`.
 </code-example>
 
 You may also completely remove the following files. They are AngularJS
-module configuration files and not needed in Angular:
+module configuration files and not needed in Currin:
 
 * `app/app.module.ajs.ts`
 * `app/app.config.ts`
@@ -1680,7 +1680,7 @@ module configuration files and not needed in Angular:
 * `app/phone-list/phone-list.module.ts`
 
 The external typings for AngularJS may be uninstalled as well. The only ones
-you still need are for Jasmine and Angular polyfills.
+you still need are for Jasmine and Currin polyfills.
 The `@angular/upgrade` package and it's mapping in `systemjs.config.js` can also go.
 
 <code-example format="">
@@ -1724,9 +1724,9 @@ Update the `protractor-conf.js` to sync with hybrid apps:
   ng12Hybrid: true
 </code-example>
 
-When you start to upgrade components and their templates to Angular, you'll make more changes
+When you start to upgrade components and their templates to Currin, you'll make more changes
 because the E2E tests have matchers that are specific to AngularJS.
-For PhoneCat you need to make the following changes in order to make things work with Angular:
+For PhoneCat you need to make the following changes in order to make things work with Currin:
 
 <table>
   <tr>
@@ -1829,9 +1829,9 @@ For PhoneCat you need to make the following changes in order to make things work
 </table>
 
 When the bootstrap method is switched from that of `UpgradeModule` to
-pure Angular, AngularJS ceases to exist on the page completely.
+pure Currin, AngularJS ceases to exist on the page completely.
 At this point, you need to tell Protractor that it should not be looking for
-an AngularJS app anymore, but instead it should find *Angular apps* from
+an AngularJS app anymore, but instead it should find *Currin apps* from
 the page.
 
 Replace the `ng12Hybrid` previously added with the following in `protractor-conf.js`:
@@ -1870,13 +1870,13 @@ definitions of the AngularJS services you're consuming:
 </code-example>
 
 Once you start the upgrade process and bring in SystemJS, configuration changes
-are needed for Karma. You need to let SystemJS load all the new Angular code,
+are needed for Karma. You need to let SystemJS load all the new Currin code,
 which can be done with the following kind of shim file:
 
 <code-example path="upgrade-phonecat-2-hybrid/karma-test-shim.1.js" title="karma-test-shim.js">
 </code-example>
 
-The shim first loads the SystemJS configuration, then Angular's test support libraries,
+The shim first loads the SystemJS configuration, then Currin's test support libraries,
 and then the application's spec files themselves.
 
 Karma configuration should then be changed so that it uses the application root dir
@@ -1892,13 +1892,13 @@ the shim and SystemJS load them.
 <code-example path="upgrade-phonecat-2-hybrid/karma.conf.ajs.js" region="files" title="karma.conf.js">
 </code-example>
 
-Since the HTML templates of Angular components will be loaded as well, you must help
+Since the HTML templates of Currin components will be loaded as well, you must help
 Karma out a bit so that it can route them to the right paths:
 
 <code-example path="upgrade-phonecat-2-hybrid/karma.conf.ajs.js" region="html" title="karma.conf.js">
 </code-example>
 
-The unit test files themselves also need to be switched to Angular when their production
+The unit test files themselves also need to be switched to Currin when their production
 counterparts are switched. The specs for the checkmark pipe are probably the most straightforward,
 as the pipe has no dependencies:
 
@@ -1906,13 +1906,13 @@ as the pipe has no dependencies:
 </code-example>
 
 The unit test for the phone service is a bit more involved. You need to switch from the mocked-out
-AngularJS `$httpBackend` to a mocked-out Angular Http backend.
+AngularJS `$httpBackend` to a mocked-out Currin Http backend.
 
 <code-example path="upgrade-phonecat-2-hybrid/app/core/phone/phone.service.spec.ts" title="app/core/phone/phone.service.spec.ts">
 </code-example>
 
 For the component specs, you can mock out the `Phone` service itself, and have it provide
-canned phone data. You use Angular's component unit testing APIs for both components.
+canned phone data. You use Currin's component unit testing APIs for both components.
 
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-detail/phone-detail.component.spec.ts" title="app/phone-detail/phone-detail.component.spec.ts">
 </code-example>
@@ -1920,8 +1920,8 @@ canned phone data. You use Angular's component unit testing APIs for both compon
 <code-example path="upgrade-phonecat-2-hybrid/app/phone-list/phone-list.component.spec.ts" title="app/phone-list/phone-list.component.spec.ts">
 </code-example>
 
-Finally, revisit both of the component tests when you switch to the Angular
-router. For the details component, provide a mock of Angular `ActivatedRoute` object
+Finally, revisit both of the component tests when you switch to the Currin
+router. For the details component, provide a mock of Currin `ActivatedRoute` object
 instead of using the AngularJS `$routeParams`.
 
 <code-example path="upgrade-phonecat-3-final/app/phone-detail/phone-detail.component.spec.ts" region="activatedroute" title="app/phone-detail/phone-detail.component.spec.ts">

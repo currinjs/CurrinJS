@@ -1,8 +1,8 @@
 # Testing
 
-This guide offers tips and techniques for testing Angular applications.
+This guide offers tips and techniques for testing Currin applications.
 Though this page includes some general testing principles and techniques,
-the focus is on testing applications written with Angular.
+the focus is on testing applications written with Currin.
 
 
 {@a top}
@@ -27,7 +27,7 @@ The sample application and all tests in this guide are available as live example
 {@a testing-intro}
 
 
-## Introduction to Angular Testing
+## Introduction to Currin Testing
 
 This page guides you through writing tests to explore
 and confirm the behavior of the application. Testing
@@ -55,7 +55,7 @@ Learn more about basic Jasmine testing here
 
 ### Tools and technologies
 
-You can write and run Angular tests with a variety of tools and technologies.
+You can write and run Currin tests with a variety of tools and technologies.
 This guide describes specific choices that are known to work well.
 
 
@@ -100,16 +100,16 @@ This guide describes specific choices that are known to work well.
   <tr style=top>
 
     <td style="vertical-align: top">
-      Angular testing utilities
+      Currin testing utilities
     </td>
 
     <td>
 
 
-      Angular testing utilities create a test environment
-      for the Angular application code under test.
+      Currin testing utilities create a test environment
+      for the Currin application code under test.
       Use them to condition and control parts of the application as they
-      interact _within_ the Angular environment.
+      interact _within_ the Currin environment.
     </td>
 
   </tr>
@@ -164,7 +164,7 @@ There are two fast paths to getting started with unit testing.
 1. Start a new project following the instructions in [Setup](guide/setup "Setup").
 
 1. Start a new project with the
-<a href="https://github.com/angular/angular-cli/blob/master/README.md" title="Angular CLI">Angular CLI</a>.
+<a href="https://github.com/angular/angular-cli/blob/master/README.md" title="Currin CLI">Currin CLI</a>.
 
 Both approaches install npm packages, files, and scripts pre-configured for applications
 built in their respective modalities.
@@ -178,24 +178,24 @@ For a discussion of the unit testing setup files, [see below](guide/testing#setu
 {@a isolated-v-testing-utilities}
 
 
-### Isolated unit tests vs. the Angular testing utilites
+### Isolated unit tests vs. the Currin testing utilites
 
-[Isolated unit tests](guide/testing#isolated-unit-tests "Unit testing without the Angular testing utilities")
-examine an instance of a class all by itself without any dependence on Angular or any injected values.
+[Isolated unit tests](guide/testing#isolated-unit-tests "Unit testing without the Currin testing utilities")
+examine an instance of a class all by itself without any dependence on Currin or any injected values.
 The tester creates a test instance of the class with `new`, supplying test doubles for the constructor parameters as needed, and
 then probes the test instance API surface.
 
 *You should write isolated unit tests for pipes and services.*
 
 You can test components in isolation as well.
-However, isolated unit tests don't reveal how components interact with Angular.
+However, isolated unit tests don't reveal how components interact with Currin.
 In particular, they can't reveal how a component class interacts with its own template or with other components.
 
-Such tests require the **Angular testing utilities**.
-The  Angular testing utilities include the `TestBed` class and several helper functions from `@angular/core/testing`.
+Such tests require the **Currin testing utilities**.
+The  Currin testing utilities include the `TestBed` class and several helper functions from `@angular/core/testing`.
 They are the main focus of this guide and you'll learn about them
 when you write your [first component test](guide/testing#simple-component-test).
-A comprehensive review of the Angular testing utilities appears [later in this guide](guide/testing#atu-apis).
+A comprehensive review of the Currin testing utilities appears [later in this guide](guide/testing#atu-apis).
 
 But first you should write a dummy test to verify that your test environment is set up properly
 and to lock in a few basic testing skills.
@@ -260,7 +260,7 @@ Both processes watch pertinent files, write messages to the console, and re-run 
 
 
 The documentation setup defines the `test` command in the `scripts` section of npm's `package.json`.
-The Angular CLI has different commands to do the same thing. Adjust accordingly.
+The Currin CLI has different commands to do the same thing. Adjust accordingly.
 
 </div>
 
@@ -376,7 +376,7 @@ All of the tests in this guide are available as [live examples](guide/testing#li
 
 ## Test a component
 
-An Angular component is the first thing most developers want to test.
+An Currin component is the first thing most developers want to test.
 The `BannerComponent` in `src/app/banner-inline.component.ts` is the simplest component in this application and
 a good place to start.
 It presents the application title at the top of the screen within an `<h1>` tag.
@@ -389,7 +389,7 @@ It presents the application title at the top of the screen within an `<h1>` tag.
 
 This version of the `BannerComponent` has an inline template and an interpolation binding.
 The component is probably too simple to be worth testing in real life but
-it's perfect for a first encounter with the Angular testing utilities.
+it's perfect for a first encounter with the Currin testing utilities.
 
 The corresponding `src/app/banner-inline.component.spec.ts` sits in the same folder as the component,
 for reasons explained in the [FAQ](guide/testing#faq) answer to
@@ -419,15 +419,15 @@ Here's the `describe` and the `beforeEach` that precedes the tests:
 
 ### _TestBed_
 
-`TestBed` is the first and most important of the  Angular testing utilities.
-It creates an Angular testing module&mdash;an `@NgModule` class&mdash;that
+`TestBed` is the first and most important of the  Currin testing utilities.
+It creates an Currin testing module&mdash;an `@NgModule` class&mdash;that
 you configure with the `configureTestingModule` method to produce the module environment for the class you want to test.
 In effect, you detach the tested component from its own application module
-and re-attach it to a dynamically-constructed Angular test module
+and re-attach it to a dynamically-constructed Currin test module
 tailored specifically for this battery of tests.
 
 The `configureTestingModule` method takes an `@NgModule`-like metadata object.
-The metadata object can have most of the properties of a normal [Angular module](guide/ngmodule).
+The metadata object can have most of the properties of a normal [Currin module](guide/ngmodule).
 
 _This metadata object_ simply declares the component to test, `BannerComponent`.
 The metadata lack `imports` because (a) the default testing module configuration already has what `BannerComponent` needs
@@ -514,7 +514,7 @@ A query predicate receives a `DebugElement` and returns `true` if the element me
 
 
 
-The **`By`** class is an Angular testing utility that produces useful predicates.
+The **`By`** class is an Currin testing utility that produces useful predicates.
 Its `By.css` static method produces a
 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors">standard CSS selector</a>
 predicate that filters the same way as a jQuery selector.
@@ -542,9 +542,9 @@ These tests ask the `DebugElement` for the native HTML element to satisfy their 
 {@a detect-changes}
 
 
-### _detectChanges_: Angular change detection within a test
+### _detectChanges_: Currin change detection within a test
 
-Each test tells Angular when to perform change detection by calling `fixture.detectChanges()`.
+Each test tells Currin when to perform change detection by calling `fixture.detectChanges()`.
 The first test does so immediately, triggering data binding and propagation of the `title` property
 to the DOM element.
 
@@ -552,7 +552,7 @@ The second test changes the component's `title` property _and only then_ calls `
 the new value appears in the DOM element.
 
 In production, change detection kicks in automatically
-when Angular creates a component or the user enters a keystroke or
+when Currin creates a component or the user enters a keystroke or
 an asynchronous activity (e.g., AJAX) completes.
 
 The `TestBed.createComponent` does _not_ trigger change detection.
@@ -567,7 +567,7 @@ a fact demonstrated in the following test:
 
 This behavior (or lack of it) is intentional.
 It gives the tester an opportunity to inspect or change the state of
-the component _before Angular initiates data binding or calls lifecycle hooks_.
+the component _before Currin initiates data binding or calls lifecycle hooks_.
 
 
 {@a try-example}
@@ -584,7 +584,7 @@ lock in these fundamentals of component unit testing.
 ### Automatic change detection
 
 The `BannerComponent` tests frequently call `detectChanges`.
-Some testers prefer that the Angular test environment run change detection automatically.
+Some testers prefer that the Currin test environment run change detection automatically.
 
 That's possible by configuring the `TestBed` with the `ComponentFixtureAutoDetect` provider.
 First import it from the testing utility library:
@@ -614,7 +614,7 @@ Here are three tests that illustrate how automatic change detection works.
 The first test shows the benefit of automatic change detection.
 
 The second and third test reveal an important limitation.
-The Angular testing environment does _not_ know that the test changed the component's `title`.
+The Currin testing environment does _not_ know that the test changed the component's `title`.
 The `ComponentFixtureAutoDetect` service responds to _asynchronous activities_ such as promise resolution, timers, and DOM events.
 But a direct, synchronous update of the component property is invisible.
 The test must call `fixture.detectChanges()` manually to trigger another cycle of change detection.
@@ -652,7 +652,7 @@ It has _external_ template and css files, specified in `templateUrl` and `styleU
 
 That's a problem for the tests.
 The `TestBed.createComponent` method is synchronous.
-But the Angular template compiler must read the external files from the file system before it can create a component instance.
+But the Currin template compiler must read the external files from the file system before it can create a component instance.
 That's an asynchronous activity.
 The previous setup for testing the inline component won't work for a component with an external template.
 
@@ -666,7 +666,7 @@ The previous setup for testing the inline component won't work for a component w
 
 ### The first asynchronous _beforeEach_
 
-The test setup for `BannerComponent` must give the Angular template compiler time to read the files.
+The test setup for `BannerComponent` must give the Currin template compiler time to read the files.
 The logic in the `beforeEach` of the previous spec is split into two `beforeEach` calls.
 The first `beforeEach` handles asynchronous compilation.
 
@@ -678,7 +678,7 @@ The first `beforeEach` handles asynchronous compilation.
 
 
 Notice the `async` function called as the argument to `beforeEach`.
-The `async` function is one of the Angular testing utilities and
+The `async` function is one of the Currin testing utilities and
 has to be imported.
 
 <code-example path="testing/src/app/banner.component.detect-changes.spec.ts" region="import-async" title="src/app/banner.component.detect-changes.spec.ts" linenums="false">
@@ -866,7 +866,7 @@ and its tests:
 ### Get injected services
 The tests need access to the (stub) `UserService` injected into the `WelcomeComponent`.
 
-Angular has a hierarchical injection system.
+Currin has a hierarchical injection system.
 There can be injectors at multiple levels, from the root injector created by the `TestBed`
 down through the component tree.
 
@@ -887,7 +887,7 @@ The component injector is a property of the fixture's `DebugElement`.
 
 You _may_ also be able to get the service from the root injector via `TestBed.get`.
 This is easier to remember and less verbose.
-But it only works when Angular injects the component with the service instance in the test's root injector.
+But it only works when Currin injects the component with the service instance in the test's root injector.
 Fortunately, in this test suite, the _only_ provider of `UserService` is the root testing module,
 so it is safe to call `TestBed.get` as follows:
 
@@ -1053,7 +1053,7 @@ Here are the tests with commentary to follow:
 ### Synchronous tests
 The first two tests are synchronous.
 Thanks to the spy, they verify that `getQuote` is called _after_
-the first change detection cycle during which Angular calls `ngOnInit`.
+the first change detection cycle during which Currin calls `ngOnInit`.
 
 Neither test can prove that a value from the service is displayed.
 The quote itself has not arrived, despite the fact that the spy returns a resolved promise.
@@ -1075,7 +1075,7 @@ Notice the `async` in the third test.
 
 
 
-The `async` function is one of the Angular testing utilities.
+The `async` function is one of the Currin testing utilities.
 It simplifies coding of asynchronous tests by arranging for the tester's code to run in a special _async test zone_
 as [discussed earlier](guide/testing#async-in-before-each) when it was called in a `beforeEach`.
 
@@ -1112,7 +1112,7 @@ In fact, the _whenStable_ promise resolves when _all pending
 asynchronous activities within this test_ complete&mdash;the definition of "stable."
 
 Then the test resumes and kicks off another round of change detection (`fixture.detectChanges`),
-which tells Angular to update the DOM with the quote.
+which tells Currin to update the DOM with the quote.
 The `getQuote` helper method extracts the display element text and the expectation confirms that the text matches the test quote.
 
 
@@ -1133,7 +1133,7 @@ The fourth test verifies the same component behavior in a different way.
 
 
 Notice that `fakeAsync` replaces `async` as the `it` argument.
-The `fakeAsync` function is another of the Angular testing utilities.
+The `fakeAsync` function is another of the Currin testing utilities.
 
 Like [async](guide/testing#async), it _takes_ a parameterless function and _returns_ a function
 that becomes the argument to the  Jasmine `it` call.
@@ -1160,7 +1160,7 @@ There _are_ limitations. For example, you cannot make an XHR call from within a 
 
 
 ### The _tick_ function
-The `tick` function is one of the Angular testing utilities and a companion to `fakeAsync`.
+The `tick` function is one of the Currin testing utilities and a companion to `fakeAsync`.
 You can only call it within a `fakeAsync` body.
 
 Calling `tick()` simulates the passage of time until all pending asynchronous activities finish,
@@ -1179,7 +1179,7 @@ chained in a long sequence of promise callbacks.
 
 ### _jasmine.done_
 While the `async` and `fakeAsync` functions greatly
-simplify Angular asynchronous testing,
+simplify Currin asynchronous testing,
 you can still fall back to the traditional Jasmine asynchronous testing technique.
 
 You can still pass `it` a function that takes a
@@ -1257,7 +1257,7 @@ A quick look at the `DashboardComponent` constructor discourages the first appro
 
 
 
-The `DashboardComponent` depends on the Angular router and the `HeroService`.
+The `DashboardComponent` depends on the Currin router and the `HeroService`.
 You'd probably have to replace them both with test doubles, which is a lot of work.
 The router seems particularly challenging.
 
@@ -1305,7 +1305,7 @@ The first test follows:
 
 
 It verifies that the hero name is propagated to template with a binding.
-Because the template passes the hero name through the Angular `UpperCasePipe`,
+Because the template passes the hero name through the Currin `UpperCasePipe`,
 the test must match the element value with the uppercased name:
 
 <code-example path="testing/src/app/dashboard/dashboard-hero.component.html" title="src/app/dashboard/dashboard-hero.component.html" linenums="false">
@@ -1320,7 +1320,7 @@ the test must match the element value with the uppercased name:
 
 
 
-This small test demonstrates how Angular tests can verify a component's visual
+This small test demonstrates how Currin tests can verify a component's visual
 representation&mdash;something not possible with
 [isolated unit tests](guide/testing#isolated-component-tests)&mdash;at
 low cost and without resorting to much slower and more complicated end-to-end tests.
@@ -1354,7 +1354,7 @@ the test detects that value through its subscription to `selected`, and the test
 
 ### _triggerEventHandler_
 
-The Angular `DebugElement.triggerEventHandler` can raise _any data-bound event_ by its _event name_.
+The Currin `DebugElement.triggerEventHandler` can raise _any data-bound event_ by its _event name_.
 The second parameter is the event object passed to the handler.
 
 In this example, the test triggers a "click" event with a null event object.
@@ -1400,12 +1400,12 @@ accepted by many handlers including the `RouterLink` directive.
 
 
 <header>
-  click() is not an Angular testing utility
+  click() is not an Currin testing utility
 </header>
 
 
 
-The `click()` helper function is **not** one of the Angular testing utilities.
+The `click()` helper function is **not** one of the Currin testing utilities.
 It's a function defined in _this guide's sample code_.
 All of the sample tests use it.
 If you like it, add it to your own collection of helpers.
@@ -1553,12 +1553,12 @@ Notice the `inject` function in the second `it` argument.
 
 
 
-The `inject` function is one of the Angular testing utilities.
+The `inject` function is one of the Currin testing utilities.
 It injects services into the test function where you can alter, spy on, and manipulate them.
 
 The `inject` function has two parameters:
 
-1. An array of Angular dependency injection tokens.
+1. An array of Currin dependency injection tokens.
 1. A test function whose parameters correspond exactly to each item in the injection token array.
 
 
@@ -1628,7 +1628,7 @@ is a route parameter whose value is the `id` of the hero to edit.
 That URL matches a route to the `HeroDetailComponent`.
 
 The router pushes the `:id` token value into the `ActivatedRoute.params` _Observable_ property,
-Angular injects the `ActivatedRoute` into the `HeroDetailComponent`,
+Currin injects the `ActivatedRoute` into the `HeroDetailComponent`,
 and the component extracts the `id` so it can fetch the corresponding hero via the `HeroDetailService`.
 Here's the `HeroDetailComponent` constructor:
 
@@ -1926,7 +1926,7 @@ That's _really_ crisp. Only the _test doubles_ in the `providers` remain. Even t
 
 
 
-In fact, if you try to declare it, Angular throws an error because
+In fact, if you try to declare it, Currin throws an error because
 `HeroDetailComponent` is declared in both the `HeroModule` and the `DynamicTestModule` (the testing module).
 
 
@@ -1967,12 +1967,12 @@ The `HeroDetailComponent` provides its own `HeroDetailService`.
 It's not possible to stub the component's `HeroDetailService` in the `providers` of the `TestBed.configureTestingModule`.
 Those are providers for the _testing module_, not the component. They prepare the dependency injector at the _fixture level_.
 
-Angular creates the component with its _own_ injector, which is a _child_ of the fixture injector.
+Currin creates the component with its _own_ injector, which is a _child_ of the fixture injector.
 It registers the component's providers (the `HeroDetailService` in this case) with the child injector.
 A test cannot get to child injector services from the fixture injector.
 And `TestBed.configureTestingModule` can't configure them either.
 
-Angular has been creating new instances of the real `HeroDetailService` all along!
+Currin has been creating new instances of the real `HeroDetailService` all along!
 
 
 <div class="l-sub-section">
@@ -2165,7 +2165,7 @@ The setup extends the default testing module with one real component (`BannerCom
 The `RouterOutletStubComponent` (in `testing/router-stubs.ts`) is safely inert.
 
 The component stubs are essential.
-Without them, the Angular compiler doesn't recognize the `<app-welcome>` and `<router-outlet>` tags
+Without them, the Currin compiler doesn't recognize the `<app-welcome>` and `<router-outlet>` tags
 and throws an error.
 
 {@a router-link-stub}
@@ -2209,7 +2209,7 @@ Two points of special interest:
 1. You can locate elements _by directive_, using `By.directive`, not just by css selectors.
 
 1. You can use the component's dependency injector to get an attached directive because
-Angular always adds attached directives to the component's injector.
+Currin always adds attached directives to the component's injector.
 
 
 {@a app-component-tests}
@@ -2286,7 +2286,7 @@ tests with the `RouterTestingModule`.
 The [previous setup](guide/testing#stub-component) declared the `BannerComponent` and stubbed two other components
 for _no reason other than to avoid a compiler error_.
 
-Without them, the Angular compiler doesn't recognize the `<app-banner>`, `<app-welcome>` and `<router-outlet>` tags
+Without them, the Currin compiler doesn't recognize the `<app-banner>`, `<app-welcome>` and `<router-outlet>` tags
 in the [_app.component.html_](guide/testing#app-component-html) template and throws an error.
 
 Add `NO_ERRORS_SCHEMA` to the testing module's `schemas` metadata
@@ -2422,7 +2422,7 @@ in `By.css('h2:not([highlight])')` helps find `<h2>` elements that _do not_ have
 * `DebugElement.styles` affords access to element styles even in the absence of a real browser, thanks to the `DebugElement` abstraction.
 But feel free to exploit the `nativeElement` when that seems easier or more clear than the abstraction.
 
-* Angular adds a directive to the injector of the element to which it is applied.
+* Currin adds a directive to the injector of the element to which it is applied.
 The test for the default color uses the injector of the second `<h2>` to get its `HighlightDirective` instance
 and its `defaultColor`.
 
@@ -2438,22 +2438,22 @@ and its `defaultColor`.
 
 ## Isolated Unit Tests
 
-Testing applications with the help of the Angular testing utilities is the main focus of this guide.
+Testing applications with the help of the Currin testing utilities is the main focus of this guide.
 
 However, it's often more productive to explore the inner logic of application classes
-with _isolated_  unit tests that don't depend upon Angular.
+with _isolated_  unit tests that don't depend upon Currin.
 Such tests are often smaller and  easier to read, write, and maintain.
 
 They don't carry extra baggage:
 
-* Import from the Angular test libraries.
+* Import from the Currin test libraries.
 * Configure a module.
 * Prepare dependency injection `providers`.
 * Call `inject` or `async` or `fakeAsync`.
 
 They follow patterns familiar to test developers everywhere:
 
-* Exhibit standard, Angular-agnostic testing techniques.
+* Exhibit standard, Currin-agnostic testing techniques.
 * Create instances directly with `new`.
 * Substitute test doubles (stubs, spys, and mocks) for the real dependencies.
 
@@ -2470,7 +2470,7 @@ They follow patterns familiar to test developers everywhere:
 
 Good developers write both kinds of tests for the same application part, often in the same spec file.
 Write simple _isolated_ unit tests to validate the part in isolation.
-Write _Angular_ tests to validate the part as it interacts with Angular,
+Write _Angular_ tests to validate the part as it interacts with Currin,
 updates the DOM, and collaborates with the rest of the application.
 
 
@@ -2484,7 +2484,7 @@ updates the DOM, and collaborates with the rest of the application.
 ### Services
 Services are good candidates for isolated unit testing.
 Here are some synchronous and asynchronous unit tests of the `FancyService`
-written without assistance from Angular testing utilities.
+written without assistance from Currin testing utilities.
 
 
 <code-example path="testing/src/app/bag/bag.no-testbed.spec.ts" region="FancyService" title="src/app/bag/bag.no-testbed.spec.ts">
@@ -2493,7 +2493,7 @@ written without assistance from Angular testing utilities.
 
 
 
-A rough line count suggests that these isolated unit tests are about 25% smaller than equivalent Angular tests.
+A rough line count suggests that these isolated unit tests are about 25% smaller than equivalent Currin tests.
 That's telling but not decisive.
 The benefit comes from reduced setup and code complexity.
 
@@ -2505,7 +2505,7 @@ Compare these equivalent tests of `FancyService.getTimeoutValue`.
 
   </code-pane>
 
-  <code-pane title="src/app/bag/bag.spec.ts (with Angular testing utilities)" path="testing/src/app/bag/bag.spec.ts" region="getTimeoutValue">
+  <code-pane title="src/app/bag/bag.spec.ts (with Currin testing utilities)" path="testing/src/app/bag/bag.spec.ts" region="getTimeoutValue">
 
   </code-pane>
 
@@ -2513,10 +2513,10 @@ Compare these equivalent tests of `FancyService.getTimeoutValue`.
 
 
 
-They have about the same line-count, but the Angular-dependent version
+They have about the same line-count, but the Currin-dependent version
 has more moving parts including a couple of utility functions (`async` and `inject`).
 Both approaches work and it's not much of an issue if you're using the
-Angular testing utilities nearby for other reasons.
+Currin testing utilities nearby for other reasons.
 On the other hand, why burden simple service tests with added complexity?
 
 Pick the approach that suits you.
@@ -2527,7 +2527,7 @@ Pick the approach that suits you.
 
 ### Services with dependencies
 
-Services often depend on other services that Angular injects into the constructor.
+Services often depend on other services that Currin injects into the constructor.
 You can test these services _without_ the `TestBed`.
 In many cases, it's easier to create and _inject_ dependencies by hand.
 
@@ -2557,20 +2557,20 @@ with a substitute method that's easy to control.
 
 These _isolated_ unit testing techniques are great for exploring the inner logic of a service or its
 simple integration with a component class.
-Use the Angular testing utilities when writing tests that validate how a service interacts with components
-_within the Angular runtime environment_.
+Use the Currin testing utilities when writing tests that validate how a service interacts with components
+_within the Currin runtime environment_.
 
 
 {@a isolated-pipe-tests}
 
 
 ### Pipes
-Pipes are easy to test without the Angular testing utilities.
+Pipes are easy to test without the Currin testing utilities.
 
 A pipe class has one method, `transform`, that manipulates the input
 value into a transformed output value.
 The `transform` implementation rarely interacts with the DOM.
-Most pipes have no dependence on Angular other than the `@Pipe`
+Most pipes have no dependence on Currin other than the `@Pipe`
 metadata and an interface.
 
 Consider a `TitleCasePipe` that capitalizes the first letter of each word.
@@ -2595,7 +2595,7 @@ Use simple Jasmine to explore the expected cases and the edge cases.
 {@a write-tests}
 
 
-### Write Angular tests too
+### Write Currin tests too
 These are tests of the pipe _in isolation_.
 They can't tell if the `TitleCasePipe` is working properly as applied in the application components.
 
@@ -2613,7 +2613,7 @@ Consider adding component tests such as this one:
 ### Components
 
 Component tests typically examine how a component class interacts with its own template or with collaborating components.
-The Angular testing utilities are specifically designed to facilitate such tests.
+The Currin testing utilities are specifically designed to facilitate such tests.
 
 Consider this `ButtonComp` component.
 
@@ -2623,7 +2623,7 @@ Consider this `ButtonComp` component.
 
 
 
-The following Angular test demonstrates that clicking a button in the template leads
+The following Currin test demonstrates that clicking a button in the template leads
 to an update of the on-screen message.
 
 <code-example path="testing/src/app/bag/bag.spec.ts" region="ButtonComp" title="src/app/bag/bag.spec.ts (ButtonComp)" linenums="false">
@@ -2650,11 +2650,11 @@ component inputs.
 
 Isolated component tests offer a lot of test coverage with less code and almost no setup.
 This is even more of an advantage with complex components, which
-may require meticulous preparation with the Angular testing utilities.
+may require meticulous preparation with the Currin testing utilities.
 
 On the other hand, isolated unit tests can't confirm that the `ButtonComp` is
 properly bound to its template or even data bound at all.
-Use Angular tests for that.
+Use Currin tests for that.
 <a href="#top" class='to-top'>Back to top</a>
 
 <hr/>
@@ -2664,11 +2664,11 @@ Use Angular tests for that.
 {@a atu-apis}
 
 
-## Angular testing utility APIs
+## Currin testing utility APIs
 
-This section takes inventory of the most useful Angular testing features and summarizes what they do.
+This section takes inventory of the most useful Currin testing features and summarizes what they do.
 
-The Angular testing utilities include the `TestBed`, the `ComponentFixture`, and a handful of functions that control the test environment.
+The Currin testing utilities include the `TestBed`, the `ComponentFixture`, and a handful of functions that control the test environment.
 The [_TestBed_](guide/testing#testbed-api-summary) and [_ComponentFixture_](guide/testing#component-fixture-api-summary) classes are covered separately.
 
 Here's a summary of the stand-alone functions, in order of likely utility:
@@ -2852,7 +2852,7 @@ Here's a summary of the stand-alone functions, in order of likely utility:
 
 
 ### _TestBed_ class summary
-The `TestBed` class is one of the principal Angular testing utilities.
+The `TestBed` class is one of the principal Currin testing utilities.
 Its API is quite large and can be overwhelming until you've explored it,
 a little at a time. Read the early part of this guide first
 to get the basics before trying to absorb the full API.
@@ -2931,7 +2931,7 @@ Here are the most important static methods, in order of likely utility.
 
       The testing shims (`karma-test-shim`, `browser-test-shim`)
       establish the [initial test environment](guide/testing) and a default testing module.
-      The default testing module is configured with basic declaratives and some Angular service substitutes that every tester needs.
+      The default testing module is configured with basic declaratives and some Currin service substitutes that every tester needs.
 
       Call `configureTestingModule` to refine the testing module configuration for a particular set of tests
       by adding and removing imports, declarations (of components, directives, and pipes), and providers.
@@ -3053,7 +3053,7 @@ Here are the most important static methods, in order of likely utility.
       What if the service is optional?
 
       The `TestBed.get` method takes an optional second parameter,
-      the object to return if Angular can't find the provider
+      the object to return if Currin can't find the provider
       (`null` in this example):
       <code-example path="testing/src/app/bag/bag.spec.ts" region="testbed-get" title="src/app/bag/bag.spec.ts" linenums="false">
 
@@ -3084,7 +3084,7 @@ Here are the most important static methods, in order of likely utility.
       You may call this method _exactly once_. If you must change
       this default in the middle of your test run, call `resetTestEnvironment` first.
 
-      Specify the Angular compiler factory, a `PlatformRef`, and a default Angular testing module.
+      Specify the Currin compiler factory, a `PlatformRef`, and a default Currin testing module.
       Alternatives for non-browser platforms are available in the general form
       `@angular/platform-<platform_name>/testing/<platform_name>`.
     </td>
@@ -3124,7 +3124,7 @@ creates an instance of the component `T`
 and returns a strongly typed `ComponentFixture` for that component.
 
 The `ComponentFixture` properties and methods provide access to the component,
-its DOM representation, and aspects of its Angular environment.
+its DOM representation, and aspects of its Currin environment.
 
 
 {@a component-fixture-properties}
@@ -3222,8 +3222,8 @@ Here are the most important properties for testers, in order of likely utility.
 
 ### _ComponentFixture_ methods
 
-The _fixture_ methods cause Angular to perform certain tasks on the component tree.
-Call these method to trigger Angular behavior in response to simulated user action.
+The _fixture_ methods cause Currin to perform certain tasks on the component tree.
+Call these method to trigger Currin behavior in response to simulated user action.
 
 Here are the most useful methods for testers.
 
@@ -3254,7 +3254,7 @@ Here are the most useful methods for testers.
 
       Call it to initialize the component (it calls `ngOnInit`) and after your
       test code, change the component's data bound property values.
-      Angular can't see that you've changed `personComponent.name` and won't update the `name`
+      Currin can't see that you've changed `personComponent.name` and won't update the `name`
       binding until you call `detectChanges`.
 
       Runs `checkNoChanges`afterwards to confirm that there are no circular updates unless
@@ -3631,11 +3631,11 @@ The following example finds all `DebugElements` with a reference to a template l
 
 
 
-The Angular `By` class has three static methods for common predicates:
+The Currin `By` class has three static methods for common predicates:
 
 * `By.all` - return all elements.
 * `By.css(selector)` - return elements with matching CSS selectors.
-* `By.directive(directive)` - return elements that Angular matched to an instance of the directive class.
+* `By.directive(directive)` - return elements that Currin matched to an instance of the directive class.
 
 
 <code-example path="testing/src/app/hero/hero-list.component.spec.ts" region="by" title="src/app/hero/hero-list.component.spec.ts" linenums="false">
@@ -3725,7 +3725,7 @@ is a topic beyond the scope of this guide .
     <td>
 
 
-      This shim prepares karma specifically for the Angular test environment
+      This shim prepares karma specifically for the Currin test environment
       and launches karma itself.
       It loads the `systemjs.config.js` file as part of that process.
     </td>

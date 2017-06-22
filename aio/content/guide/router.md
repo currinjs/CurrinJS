@@ -1,6 +1,6 @@
 # Routing & Navigation
 
-The Angular **`Router`** enables navigation from one [view](guide/glossary#view) to the next
+The Currin **`Router`** enables navigation from one [view](guide/glossary#view) to the next
 as users perform application tasks.
 
 This guide covers the router's primary features, illustrating them through the evolution
@@ -17,7 +17,7 @@ The browser is a familiar model of application navigation:
 * Click the browser's back and forward buttons and the browser navigates
   backward and forward through the history of pages you've seen.
 
-The Angular `Router` ("the router") borrows from this model.
+The Currin `Router` ("the router") borrows from this model.
 It can interpret a browser URL as an instruction to navigate to a client-generated view.
 It can pass optional parameters along to the supporting view component that help it decide what specific content to present.
 You can bind the router to links on a page and it will navigate to
@@ -60,9 +60,9 @@ set the `href` value *exactly* as shown here.
 
 ### Router imports
 
-The Angular Router is an optional service that presents a particular component view for a given URL.
-It is not part of the Angular core. It is in its own library package, `@angular/router`.
-Import what you need from it as you would from any other Angular package.
+The Currin Router is an optional service that presents a particular component view for a given URL.
+It is not part of the Currin core. It is in its own library package, `@angular/router`.
+Import what you need from it as you would from any other Currin package.
 
 
 <code-example path="router/src/app/app.module.1.ts" linenums="false" title="src/app/app.module.ts (import)" region="import-router">
@@ -87,7 +87,7 @@ You'll learn about more options in the [details below](guide/router#browser-url-
 
 ### Configuration
 
-A routed Angular application has one singleton instance of the *`Router`* service.
+A routed Currin application has one singleton instance of the *`Router`* service.
 When the browser's URL changes, that router looks for a corresponding `Route`
 from which it can determine the component to display.
 
@@ -251,7 +251,7 @@ Here are the key `Router` terms and their meanings:
     </td>
 
     <td>
-      A separate Angular module that provides the necessary service providers
+      A separate Currin module that provides the necessary service providers
       and directives for navigating through application views.
     </td>
 
@@ -368,7 +368,7 @@ Here are the key `Router` terms and their meanings:
     </td>
 
     <td>
-      An Angular component with a <code>RouterOutlet</code> that displays views based on router navigations.
+      An Currin component with a <code>RouterOutlet</code> that displays views based on router navigations.
 
     </td>
 
@@ -399,7 +399,7 @@ Along the way, it highlights design decisions and describes key features of the 
 * The `CanLoad` guard (check before loading feature module assets).
 
 The guide proceeds as a sequence of milestones as if you were building the app step-by-step.
-But, it is not a tutorial and it glosses over details of Angular application construction
+But, it is not a tutorial and it glosses over details of Currin application construction
 that are more thoroughly covered elsewhere in the documentation.
 
 The full source for the final version of the app can be seen and downloaded from the <live-example></live-example>.
@@ -442,7 +442,7 @@ Notice that the name change took effect immediately.
 
 Had you clicked the browser's back button instead of the "Back" button,
 the app would have returned you to the heroes list as well.
-Angular app navigation updates the browser history as normal web navigation does.
+Currin app navigation updates the browser history as normal web navigation does.
 
 Now click the *Crisis Center* link for a list of ongoing crises.
 
@@ -584,7 +584,7 @@ You only need this trick for the live example, not production code.
 
 Begin by importing some symbols from the router library.
 The Router is in its own `@angular/router` package.
-It's not part of the Angular core. The router is an optional service because not all applications
+It's not part of the Currin core. The router is an optional service because not all applications
 need routing and, depending on your requirements, you may need a different routing library.
 
 You teach the router how to navigate by configuring it with routes.
@@ -746,7 +746,7 @@ By using `{ exact: true }`, a given `RouterLink` will only be active if its URL 
 
 ### *Router directives*
 
-`RouterLink`, `RouterLinkActive` and `RouterOutlet` are directives provided by the Angular `RouterModule` package.
+`RouterLink`, `RouterLinkActive` and `RouterOutlet` are directives provided by the Currin `RouterModule` package.
 They are readily available for you to use in the template.
 
 The current state of `app.component.ts` looks like this:
@@ -1059,7 +1059,7 @@ and routing configuration, including `RouterModule.forRoot`, into this routing m
 Following convention, add a class name `AppRoutingModule` and export it
 so you can import it later in `AppModule`.
 
-Finally, re-export the Angular `RouterModule` by adding it to the module `exports` array.
+Finally, re-export the Currin `RouterModule` by adding it to the module `exports` array.
 By re-exporting the `RouterModule` here and importing `AppRoutingModule` in `AppModule`,
 the components declared in `AppModule` will have access to router directives such as `RouterLink` and `RouterOutlet`.
 
@@ -1602,7 +1602,7 @@ Import the `switchMap` operator because you need it later to process the `Observ
 {@a hero-detail-ctor}
 
 
-As usual, you write a constructor that asks Angular to inject services
+As usual, you write a constructor that asks Currin to inject services
 that the component requires and reference them as private variables.
 
 
@@ -1621,7 +1621,7 @@ pull the hero `id` from the parameters and retrieve the hero to display.
 
 
 Put this data access logic in the `ngOnInit` method rather than inside the constructor to improve the component's testability.
-Angular calls the `ngOnInit` method shortly after creating an instance of the `HeroDetailComponent`
+Currin calls the `ngOnInit` method shortly after creating an instance of the `HeroDetailComponent`
 so the hero will be retrieved in time to use it.
 
 Learn more about the `ngOnInit` method and other component lifecycle hooks in the [Lifecycle Hooks](guide/lifecycle-hooks) guide.
@@ -2270,10 +2270,10 @@ any other feature's component.
 ### A crisis center with child routes
 
 This section shows you how to organize the crisis center
-to conform to the following recommended pattern for Angular applications:
+to conform to the following recommended pattern for Currin applications:
 
 * Each feature area resides in its own folder.
-* Each feature has its own Angular feature module.
+* Each feature has its own Currin feature module.
 * Each area has its own area root component.
 * Each area root component has its own router outlet and child routes.
 * Feature area routes rarely (if ever) cross with routes of other features.
@@ -3561,7 +3561,7 @@ the module and routes are available immediately for subsequent requests.
 
 
 
-Angular provides a built-in module loader that supports SystemJS to load modules asynchronously. If you were
+Currin provides a built-in module loader that supports SystemJS to load modules asynchronously. If you were
 using another bundling tool, such as Webpack, you would use the Webpack mechanism for asynchronously loading modules.
 
 
@@ -3573,7 +3573,7 @@ Take the final step and detach the admin feature set from the main application.
 The root `AppModule` must neither load nor reference the `AdminModule` or its files.
 
 In `app.module.ts`, remove the `AdminModule` import statement from the top of the file
-and remove the `AdminModule` from the Angular module's `imports` array.
+and remove the `AdminModule` from the Currin module's `imports` array.
 
 
 {@a can-load-guard}
@@ -3707,7 +3707,7 @@ Here are the updated modules _before enabling preload_:
 
 You could try this now and confirm that the  `CrisisCenterModule` loads after you click the "Crisis Center" button.
 
-To enable preloading of all lazy loaded modules, import the `PreloadAllModules` token from the Angular router package.
+To enable preloading of all lazy loaded modules, import the `PreloadAllModules` token from the Currin router package.
 
 The second argument in the `RouterModule.forRoot` method takes an object for additional configuration options.
 The `preloadingStrategy` is one of those options.
@@ -4026,7 +4026,7 @@ You must choose a strategy and you need to make the right call early in the proj
 It won't be easy to change later once the application is in production
 and there are lots of application URL references in the wild.
 
-Almost all Angular projects should use the default HTML5 style.
+Almost all Currin projects should use the default HTML5 style.
 It produces URLs that are easier for users to understand.
 And it preserves the option to do _server-side rendering_ later.
 

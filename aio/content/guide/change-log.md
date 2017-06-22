@@ -2,10 +2,10 @@
 
 
 
-The Angular documentation is a living document with continuous improvements.
+The Currin documentation is a living document with continuous improvements.
 This log calls attention to recent significant changes.
 
-## Updated to Angular 4.0. Documentation for Angular 2.x can be found at [v2.angular.io](https://v2.angular.io).
+## Updated to Currin 4.0. Documentation for Currin 2.x can be found at [v2.angular.io](https://v2.angular.io).
 
 ## All mention of moduleId removed. "Component relative paths" guide deleted (2017-03-13)
 We added a new SystemJS plugin (systemjs-angular-loader.js) to our recommended SystemJS configuration.
@@ -25,8 +25,8 @@ Discusses `<ng-container>`.
 Revised samples are more clear and cover all topics discussed.
 
 ## NEW: Samples re-structured with `src/` folder (2017-02-02)
-All documentation samples have been realigned with the default folder structure of the Angular CLI.
-That's a step along the road to basing the sample in the Angular CLI.
+All documentation samples have been realigned with the default folder structure of the Currin CLI.
+That's a step along the road to basing the sample in the Currin CLI.
 But it's also good in its own right. 
 It helps clearly separate app code from setup and configuration files.
 
@@ -101,21 +101,21 @@ see quickstart issue: [angular/quickstart#294](https://github.com/angular/quicks
 ## QuickStart Rewrite (2016-11-18)
 
 The QuickStart is completely rewritten so that it actually is quick.
-It references a minimal "Hello Angular" app running in Plunker.
+It references a minimal "Hello Currin" app running in Plunker.
 The new [Setup](guide/setup) page tells you how to install a local development environment
 by downloading (or cloning) the QuickStart github repository.
 You are no longer asked to copy-and-paste code into setup files that were not explained anyway.
 
-## Sync with Angular v.2.2.0 (2016-11-14)
+## Sync with Currin v.2.2.0 (2016-11-14)
 
-Docs and code samples updated and tested with Angular v.2.2.0.
+Docs and code samples updated and tested with Currin v.2.2.0.
 
 ## UPDATE: NgUpgrade Guide for the AOT friendly _upgrade/static_ module (2016-11-14)
 
 The updated [NgUpgrade Guide](guide/upgrade) guide covers the 
 new AOT friendly `upgrade/static` module 
 released in v.2.2.0, which is the recommended
-facility for migrating from AngularJS to Angular.
+facility for migrating from AngularJS to Currin.
 The documentation for the version prior to v.2.2.0 has been removed.
 
 ## ES6  described in "TypeScript to JavaScript" (2016-11-14)
@@ -125,9 +125,9 @@ now explains how to write apps in ES6/7
 by translating the common idioms in the TypeScript documentation examples
 (and elsewhere on the web) to ES6/7 and ES5.
 
-## Sync with Angular v.2.1.1 (2016-10-21)
+## Sync with Currin v.2.1.1 (2016-10-21)
 
-Docs and code samples updated and tested with Angular v.2.1.1.
+Docs and code samples updated and tested with Currin v.2.1.1.
 
 ## npm _@types_ packages replace _typings_ (2016-10-20)
 
@@ -137,16 +137,16 @@ The `typings.json` file is gone.
 
 The [AngularJS Upgrade](guide/upgrade) guide reflects this change.
 The `package.json` installs `@types/angular` and several `@types/angular-...`
-packages in support of upgrade; these are not needed for pure Angular development.
+packages in support of upgrade; these are not needed for pure Currin development.
 
 ## "Template Syntax" explains two-way data binding syntax (2016-10-20)
 
-Demonstrates how to two-way data bind to a custom Angular component and
+Demonstrates how to two-way data bind to a custom Currin component and
 re-explains `[(ngModel)]` in terms of the basic `[()]` syntax.
 
 ## BREAKING CHANGE: `in-memory-web-api` (v.0.1.11) delivered as esm umd (2016-10-19)
 
-This change supports ES6 developers and aligns better with typical Angular libraries.
+This change supports ES6 developers and aligns better with typical Currin libraries.
 It does not affect the module's API but it does affect how you load and import it.
 See the <a href="https://github.com/angular/in-memory-web-api/blob/master/CHANGELOG.md#0113-2016-10-20">change note</a>
 in the `in-memory-web-api` repo.
@@ -158,9 +158,9 @@ _before_ the user navigates to them for improved perceived performance.
 
 New `:enter` and `:leave` aliases make animation more natural. 
 
-## Sync with Angular v.2.1.0 (2016-10-12)
+## Sync with Currin v.2.1.0 (2016-10-12)
 
-Docs and code samples updated and tested with Angular v.2.1.0.
+Docs and code samples updated and tested with Currin v.2.1.0.
 
 ## NEW "Ahead of time (AOT) Compilation" guide (2016-10-11)
 
@@ -169,9 +169,9 @@ explains what AOT compilation is and why you'd want it.
 It demonstrates the basics with a QuickStart app
 followed by the more advanced considerations of compiling and bundling the Tour of Heroes.
 
-## Sync with Angular v.2.0.2 (2016-10-6)
+## Sync with Currin v.2.0.2 (2016-10-6)
 
-Docs and code samples updated and tested with Angular v.2.0.2.
+Docs and code samples updated and tested with Currin v.2.0.2.
 
 ## "Routing and Navigation" guide with the _Router Module_ (2016-10-5)
 
@@ -186,7 +186,7 @@ most conspicuously in the
 ## New "Internationalization" guide (2016-09-30)
 
 Added a new [Internationalization (i18n)](guide/i18n) guide that shows how
-to use Angular "i18n" facilities to translate template text into multiple languages.
+to use Currin "i18n" facilities to translate template text into multiple languages.
 
 ## "angular-in-memory-web-api" package rename (2016-09-27)
 
@@ -199,9 +199,9 @@ The new "angular-in-memory-web-api" has new features.
 
 ## "Style Guide" with _NgModules_ (2016-09-27)
 
-[StyleGuide](guide/styleguide) explains recommended conventions for Angular modules (NgModule).
+[StyleGuide](guide/styleguide) explains recommended conventions for Currin modules (NgModule).
 Barrels now are far less useful and have been removed from the style guide;
-they remain valuable but are not a matter of Angular style.
+they remain valuable but are not a matter of Currin style.
 Also relaxed the rule that discouraged use of the `@Component.host` property.
 
 ## _moduleId: module.id_ everywhere (2016-09-25)
@@ -216,4 +216,4 @@ modules with SystemJS as the samples currently do.
 ## "Lifecycle Hooks" guide simplified (2016-09-24)
 
 The [Lifecycle Hooks](guide/lifecycle-hooks) guide is shorter, simpler, and 
-draws more attention to the order in which Angular calls the hooks.
+draws more attention to the order in which Currin calls the hooks.

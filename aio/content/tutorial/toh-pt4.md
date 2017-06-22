@@ -154,7 +154,7 @@ Name the class `HeroService` and export it for others to import.
 
 
 ### Injectable services
-Notice that you imported the Angular `Injectable` function and applied that function as an `@Injectable()` decorator.
+Notice that you imported the Currin `Injectable` function and applied that function as an `@Injectable()` decorator.
 
 <div class="callout is-helpful">
 
@@ -167,7 +167,7 @@ Don't forget the parentheses. Omitting them leads to an error that's difficult t
 
 
 The `@Injectable()` decorator tells TypeScript to emit metadata about the service.
-The metadata specifies that Angular may need to inject other dependencies into this service.
+The metadata specifies that Currin may need to inject other dependencies into this service.
 
 Although the `HeroService` doesn't have any dependencies at the moment,
 applying the `@Injectable()` decorator ​from the start ensures
@@ -276,7 +276,7 @@ Add the constructor:
 The constructor itself does nothing. The parameter simultaneously
 defines a private `heroService` property and identifies it as a `HeroService` injection site.
 
-Now Angular knows to supply an instance of the `HeroService` when it creates an `AppComponent`.
+Now Currin knows to supply an instance of the `HeroService` when it creates an `AppComponent`.
 
 
 <div class="l-sub-section">
@@ -290,7 +290,7 @@ Read more about dependency injection in the [Dependency Injection](guide/depende
 
 
 The *injector* doesn't know yet how to create a `HeroService`.
-If you ran the code now, Angular would fail with this error:
+If you ran the code now, Currin would fail with this error:
 
 <code-example format="nocode">
   EXCEPTION: No provider for HeroService! (AppComponent -> HeroService)
@@ -310,7 +310,7 @@ in the `@Component` call.
 
 
 
-The `providers` array  tells Angular to create a fresh instance of the `HeroService` when it creates an `AppComponent`.
+The `providers` array  tells Currin to create a fresh instance of the `HeroService` when it creates an `AppComponent`.
 The `AppComponent`, as well as its child components, can use that service to get hero data.
 
 {@a child-component}
@@ -344,11 +344,11 @@ a constructor should not contain complex logic,
 especially a constructor that calls a server, such as a data access method.
 The constructor is for simple initializations, like wiring constructor parameters to properties.
 
-To have Angular call `getHeroes()`, you can implement the Angular *ngOnInit lifecycle hook*.
-Angular offers interfaces for tapping into critical moments in the component lifecycle:
+To have Currin call `getHeroes()`, you can implement the Currin *ngOnInit lifecycle hook*.
+Currin offers interfaces for tapping into critical moments in the component lifecycle:
 at creation, after each change, and at its eventual destruction.
 
-Each interface has a single method. When the component implements that method, Angular calls it at the appropriate time.
+Each interface has a single method. When the component implements that method, Currin calls it at the appropriate time.
 
 <div class="l-sub-section">
 
@@ -376,7 +376,7 @@ Add the implementation for the `OnInit` interface to your export statement:
 
 
 
-Write an `ngOnInit` method with the initialization logic inside. Angular will call it
+Write an `ngOnInit` method with the initialization logic inside. Currin will call it
 at the right time. In this case, initialize by calling `getHeroes()`.
 
 <code-example path="toh-pt4/src/app/app.component.1.ts" linenums="false" title="src/app/app.component.ts (ng-on-init)" region="ng-on-init">
@@ -609,7 +609,7 @@ The Tour of Heroes has become more reusable using shared components and services
 The next goal is to create a dashboard, add menu links that route between the views, and format data in a template.
 As the app evolves, you'll discover how to design it to make it easier to grow and maintain.
 
-Read about the Angular component router and navigation among the views in the [next tutorial](tutorial/toh-pt5 "Routing and Navigation") page.
+Read about the Currin component router and navigation among the views in the [next tutorial](tutorial/toh-pt5 "Routing and Navigation") page.
 
 {@a slow}
 

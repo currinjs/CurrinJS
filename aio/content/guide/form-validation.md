@@ -30,7 +30,7 @@ and the [Reactive Forms](guide/reactive-forms) guides.
 
 ## Built-in validators
 
-Angular forms include a number of built-in validator functions, which are functions 
+Currin forms include a number of built-in validator functions, which are functions 
 that help you check common user input in forms. In addition to the built-in 
 validators covered here of `minlength`, `maxlength`, 
 and `required`, there are others such as `min`, `max`, `email` and `pattern` 
@@ -48,14 +48,14 @@ see the [Validators](api/forms/Validators) API reference.
 In the Template Driven approach, you arrange
 [form elements](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms_in_HTML) in the component's template.
 
-You add Angular form directives (mostly directives beginning `ng...`) to help
-Angular construct a corresponding internal control model that implements form functionality.
+You add Currin form directives (mostly directives beginning `ng...`) to help
+Currin construct a corresponding internal control model that implements form functionality.
 In Template Driven forms, the control model is _implicit_ in the template.
 
 To validate user input, you add [HTML validation attributes](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Constraint_validation)
-to the elements. Angular interprets those as well, adding validator functions to the control model.
+to the elements. Currin interprets those as well, adding validator functions to the control model.
 
-Angular exposes information about the state of the controls including
+Currin exposes information about the state of the controls including
 whether the user has "touched" the control or made changes and if the control values are valid.
 
 In this first template validation example,
@@ -72,13 +72,13 @@ Note the following:
 
 * The `<input>` element carries the HTML validation attributes: `required`, `minlength`, and `maxlength`.
 
-* The `name` attribute of the input is set to `"name"` so Angular can track this input element and associate it
-with an Angular form control called `name` in its internal control model.
+* The `name` attribute of the input is set to `"name"` so Currin can track this input element and associate it
+with an Currin form control called `name` in its internal control model.
 
 * The `[(ngModel)]` directive allows two-way data binding between the input box to the `hero.name` property.
 
 * The template variable (`#name`) has the value `"ngModel"` (always `ngModel`).
-This gives you a reference to the Angular `NgModel` directive
+This gives you a reference to the Currin `NgModel` directive
 associated with this control that you can use _in the template_
 to check for control states such as `valid` and `dirty`.
 
@@ -182,7 +182,7 @@ It invalidates the control if the user enters "bob" in the name `<input>`([try i
 See the [custom validation](guide/form-validation#custom-validation) section later in this page for more information
 on custom validation directives.
 
-* The `#name` template variable is gone because the app no longer refers to the Angular control for this element.
+* The `#name` template variable is gone because the app no longer refers to the Currin control for this element.
 
 * Binding to the new `formErrors.name` property is sufficient to display all name validation error messages.
 
@@ -193,10 +193,10 @@ on custom validation directives.
 ### Component class
 The original component code for Template 1 stayed the same; however,
 Template 2 requires some changes in the component. This section covers the code
-necessary in Template 2's component class to acquire the Angular
+necessary in Template 2's component class to acquire the Currin
 form control and compose error messages.
 
-The first step is to acquire the form control that Angular created from the template by querying for it.
+The first step is to acquire the form control that Currin created from the template by querying for it.
 
 Look back at the top of the component template at the
 `#heroForm` template variable in the `<form>` element:
@@ -207,8 +207,8 @@ Look back at the top of the component template at the
 
 
 
-The `heroForm` variable is a reference to the control model that Angular derived from the template.
-Tell Angular to inject that model into the component class's `currentForm` property using a `@ViewChild` query:
+The `heroForm` variable is a reference to the control model that Currin derived from the template.
+Tell Currin to inject that model into the component class's `currentForm` property using a `@ViewChild` query:
 
 <code-example path="form-validation/src/app/template/hero-form-template2.component.ts" region="view-child" title="template/hero-form-template2.component.ts (heroForm)" linenums="false">
 
@@ -218,13 +218,13 @@ Tell Angular to inject that model into the component class's `currentForm` prope
 
 Some observations:
 
-* Angular `@ViewChild` queries for a template variable when you pass it
+* Currin `@ViewChild` queries for a template variable when you pass it
 the name of that variable as a string (`'heroForm'` in this case).
 
 * The `heroForm` object changes several times during the life of the component, most notably when you add a new hero.
 Periodically inspecting it reveals these changes.
 
-* Angular calls the `ngAfterViewChecked()` [lifecycle hook method](guide/lifecycle-hooks#afterview)
+* Currin calls the `ngAfterViewChecked()` [lifecycle hook method](guide/lifecycle-hooks#afterview)
 when anything changes in the view.
 That's the right time to see if there's a new `heroForm` object.
 
@@ -247,7 +247,7 @@ The messages are empty strings when the hero data are valid.
 
 For each field, the `onValueChanged` handler does the following:
   * Clears the prior error message, if any.
-  * Acquires the field's corresponding Angular form control.
+  * Acquires the field's corresponding Currin form control.
   * If such a control exists _and_ it's been changed ("dirty")
   _and_ it's invalid, the handler composes a consolidated error message for all of the control's errors.
 
@@ -293,7 +293,7 @@ In short, there are more opportunities to improve message handling now that text
 
 ### _FormModule_ and Template Driven forms
 
-Angular has two different forms modules&mdash;`FormsModule` and
+Currin has two different forms modules&mdash;`FormsModule` and
 `ReactiveFormsModule`&mdash;that correspond with the
 two approaches to form development. Both modules come
 from the same `@angular/forms` library package.
@@ -329,13 +329,13 @@ They're not germane to the validation story. Look at the [live example](guide/fo
 ## Reactive Forms with validation in code
 
 In the Template Driven approach, you mark up the template with form elements, validation attributes,
-and `ng...` directives from the Angular `FormsModule`.
-At runtime, Angular interprets the template and derives its _form control model_.
+and `ng...` directives from the Currin `FormsModule`.
+At runtime, Currin interprets the template and derives its _form control model_.
 
 **Reactive Forms** takes a different approach.
 You create the form control model in code. You write the template with form elements
-and `form...` directives from the Angular `ReactiveFormsModule`.
-At runtime, Angular binds the template elements to your control model based on your instructions.
+and `form...` directives from the Currin `ReactiveFormsModule`.
+At runtime, Currin binds the template elements to your control model based on your instructions.
 
 This allows you to do the following:
 
@@ -350,7 +350,7 @@ The following sample re-writes the hero form in Reactive Forms style.
 
 
 ### Switch to the _ReactiveFormsModule_
-The Reactive Forms classes and directives come from the Angular `ReactiveFormsModule`, not the `FormsModule`.
+The Reactive Forms classes and directives come from the Currin `ReactiveFormsModule`, not the `FormsModule`.
 The application module for the Reactive Forms feature in this sample looks like this:
 
 <code-example path="form-validation/src/app/reactive/hero-form-reactive.module.ts" title="src/app/reactive/hero-form-reactive.module.ts" linenums="false">
@@ -368,7 +368,7 @@ Focus on the `HeroFormReactiveComponent` there, starting with its template.
 
 ### Component template
 
-Begin by changing the `<form>` tag so that it binds the Angular `formGroup` directive in the template
+Begin by changing the `<form>` tag so that it binds the Currin `formGroup` directive in the template
 to the `heroForm` property in the component class.
 The `heroForm` is the control model that the component class builds and maintains.
 
@@ -418,7 +418,7 @@ to the control model, as you'll see below.
 
 
 * The `formControlName` replaces the `name` attribute; it serves the same
-purpose of correlating the input with the Angular form control.
+purpose of correlating the input with the Currin form control.
 
 * The two-way `[(ngModel)]` binding is gone.
 The reactive approach does not use data binding to move data into and out of the form controls.
@@ -433,8 +433,8 @@ That's all in code.
 
 The component class is now responsible for defining and managing the form control model.
 
-Angular no longer derives the control model from the template so you can no longer query for it.
-You can create the Angular form control model explicitly with
+Currin no longer derives the control model from the template so you can no longer query for it.
+You can create the Currin form control model explicitly with
 the help of the `FormBuilder` class.
 
 Here's the section of code devoted to that process, paired with the Template Driven code it replaces:
@@ -484,8 +484,8 @@ Each control spec is a control name with an array value.
 The first array element is the current value of the corresponding hero field.
 The optional second value is a validator function or an array of validator functions.
 
-Most of the validator functions are stock validators provided by Angular as static methods of the `Validators` class.
-Angular has stock validators that correspond to the standard HTML validation attributes.
+Most of the validator functions are stock validators provided by Currin as static methods of the `Validators` class.
+Currin has stock validators that correspond to the standard HTML validation attributes.
 
 The `forbiddenName` validator on the `"name"` control is a custom validator,
 discussed in a separate [section below](guide/form-validation#custom-validation).
@@ -590,7 +590,7 @@ the validator rejects any hero name containing "bob".
 Elsewhere it could reject "alice" or any name that the configuring regular expression matches.
 
 The `forbiddenNameValidator` factory returns the configured validator function.
-That function takes an Angular control object and returns _either_
+That function takes an Currin control object and returns _either_
 null if the control value is valid _or_ a validation error object.
 The validation error object typically has a property whose name is the validation key, `'forbiddenName'`,
 and whose value is an arbitrary dictionary of values that you could insert into an error message (`{name}`).
@@ -620,7 +620,7 @@ of a custom _attribute directive_, which rejects "bob".
 
 The corresponding `ForbiddenValidatorDirective` is a wrapper around the `forbiddenNameValidator`.
 
-Angular `forms` recognizes the directive's role in the validation process because the directive registers itself
+Currin `forms` recognizes the directive's role in the validation process because the directive registers itself
 with the `NG_VALIDATORS` provider, a provider with an extensible collection of validation directives.
 
 <code-example path="form-validation/src/app/shared/forbidden-name.directive.ts" region="directive-providers" title="shared/forbidden-name.directive.ts (providers)" linenums="false">
@@ -643,7 +643,7 @@ Here is the rest of the directive to help you get an idea of how it all comes to
 
 
 
-If you are familiar with Angular validations, you may have noticed
+If you are familiar with Currin validations, you may have noticed
 that the custom validation directive is instantiated with `useExisting`
 rather than `useClass`. The registered validator must be _this instance_ of
 the `ForbiddenValidatorDirective`&mdash;the instance in the form with
@@ -683,15 +683,15 @@ see [Attribute Directives](guide/attribute-directives).
 You can write _isolated unit tests_ of validation and control logic in Reactive Forms.
 
 _Isolated unit tests_ probe the component class directly, independent of its
-interactions with its template, the DOM, other dependencies, or Angular itself.
+interactions with its template, the DOM, other dependencies, or Currin itself.
 
 Such tests have minimal setup, are quick to write, and easy to maintain.
-They do not require the `Angular TestBed` or asynchronous testing practices.
+They do not require the `Currin TestBed` or asynchronous testing practices.
 
 That's not possible with Template Driven forms.
-The Template Driven approach relies on Angular to produce the control model and
+The Template Driven approach relies on Currin to produce the control model and
 to derive validation rules from the HTML validation attributes.
-You must use the `Angular TestBed` to create component test instances,
+You must use the `Currin TestBed` to create component test instances,
 write asynchronous tests, and interact with the DOM.
 
 While not difficult, this takes more time, work and

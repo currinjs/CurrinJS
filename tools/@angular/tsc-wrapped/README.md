@@ -5,7 +5,7 @@ This package is an internal dependency used by @angular/compiler-cli. Please use
 This is a wrapper around TypeScript's `tsc` program that allows us to hook in extra extensions.
 TypeScript will eventually have an extensibility model for arbitrary extensions. We don't want
 to constrain their design with baggage from a legacy implementation, so this wrapper only
-supports specific extensions developed by the Angular team:
+supports specific extensions developed by the Currin team:
 
 - tsickle down-levels Decorators into Annotations so they can be tree-shaken
 - tsickle can also optionally produce Closure Compiler-friendly code
@@ -16,7 +16,7 @@ supports specific extensions developed by the Angular team:
 ## TypeScript Decorator metadata collector
 
 The `.d.ts` format does not preserve information about the Decorators applied to symbols.
-Some tools, such as Angular template compiler, need access to statically analyzable
+Some tools, such as Currin template compiler, need access to statically analyzable
 information about Decorators, so this library allows programs to produce a `foo.metadata.json`
 to accompany a `foo.d.ts` file, and preserves the information that was lost in the declaration
 emit.

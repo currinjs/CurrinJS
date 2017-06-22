@@ -2,7 +2,7 @@
 
 User actions such as clicking a link, pushing a button, and entering
 text raise DOM events.
-This page explains how to bind those events to component event handlers using the Angular
+This page explains how to bind those events to component event handlers using the Currin
 event binding syntax.
 
 Run the <live-example></live-example>.
@@ -10,7 +10,7 @@ Run the <live-example></live-example>.
 
 ## Binding to user input events
 
-You can use [Angular event bindings](guide/template-syntax#event-binding)
+You can use [Currin event bindings](guide/template-syntax#event-binding)
 to respond to any [DOM event](https://developer.mozilla.org/en-US/docs/Web/Events).
 Many DOM events are triggered by user input. Binding to these events provides a way to
 get input from the user.
@@ -33,7 +33,7 @@ to the click event by calling the component's `onClickMe` method.
 
 When writing a binding, be aware of a template statement's **execution context**.
 The identifiers in a template statement belong to a specific context object,
-usually the Angular component controlling the template.
+usually the Currin component controlling the template.
 The example above shows a single line of HTML, but that HTML belongs to a larger component:
 
 
@@ -43,7 +43,7 @@ The example above shows a single line of HTML, but that HTML belongs to a larger
 
 
 
-When the user clicks the button, Angular calls the `onClickMe` method from `ClickMeComponent`.
+When the user clicks the button, Currin calls the `onClickMe` method from `ClickMeComponent`.
 
 
 
@@ -59,7 +59,7 @@ The following code listens to the `keyup` event and passes the entire event payl
 
 
 
-When a user presses and releases a key, the `keyup` event occurs, and Angular provides a corresponding
+When a user presses and releases a key, the `keyup` event occurs, and Currin provides a corresponding
 DOM event object in the `$event` variable which this code passes as a parameter to the component's `onKey()` method.
 
 <code-example path="user-input/src/app/keyup.components.ts" region="key-up-component-1-class-no-type" title="src/app/keyup.components.ts (class v.1)" linenums="false">
@@ -148,7 +148,7 @@ The next section shows how to use template reference variables to address this p
 
 
 ## Get user input from a template reference variable
-There's another way to get the user data: use Angular
+There's another way to get the user data: use Currin
 [**template reference variables**](guide/template-syntax#ref-vars).
 These variables provide direct access to an element from within the template.
 To declare a template reference variable, precede an identifier with a hash (or pound) character (#).
@@ -185,12 +185,12 @@ Type something in the input box, and watch the display update with each keystrok
 
 **This won't work at all unless you bind to an event**.
 
-Angular updates the bindings (and therefore the screen)
+Currin updates the bindings (and therefore the screen)
 only if the app does something in response to asynchronous events, such as keystrokes.
 This example code binds the `keyup` event
 to the number 0, the shortest template statement possible.
 While the statement does nothing useful,
-it satisfies Angular's requirement so that Angular will update the screen.
+it satisfies Currin's requirement so that Currin will update the screen.
 
 </div>
 
@@ -216,8 +216,8 @@ The `(keyup)` event handler hears *every keystroke*.
 Sometimes only the _Enter_ key matters, because it signals that the user has finished typing.
 One way to reduce the noise would be to examine every `$event.keyCode` and take action only when the key is _Enter_.
 
-There's an easier way: bind to Angular's `keyup.enter` pseudo-event.
-Then Angular calls the event handler only when the user presses _Enter_.
+There's an easier way: bind to Currin's `keyup.enter` pseudo-event.
+Then Currin calls the event handler only when the user presses _Enter_.
 
 <code-example path="user-input/src/app/keyup.components.ts" region="key-up-component-3" title="src/app/keyup.components.ts (v3)" linenums="false">
 

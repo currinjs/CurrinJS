@@ -14,7 +14,7 @@ Modern browsers support two HTTP-based APIs:
 [JSONP](https://en.wikipedia.org/wiki/JSONP). A few browsers also support
 [Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-The Angular HTTP library simplifies application programming with the **XHR** and **JSONP** APIs.
+The Currin HTTP library simplifies application programming with the **XHR** and **JSONP** APIs.
 
 A <live-example>live example</live-example> illustrates these topics.
 
@@ -39,14 +39,14 @@ The root `AppComponent` orchestrates these demos:
 
 First, configure the application to use server communication facilities.
 
-The Angular <code>Http</code> client communicates with the server using a familiar HTTP request/response protocol.
-The `Http` client is one of a family of services in the Angular HTTP library.
+The Currin <code>Http</code> client communicates with the server using a familiar HTTP request/response protocol.
+The `Http` client is one of a family of services in the Currin HTTP library.
 
 
 <div class="l-sub-section">
 
   When importing from the `@angular/http` module, SystemJS knows how to load services from
-  the Angular HTTP library
+  the Currin HTTP library
   because the `systemjs.config.js` file maps to that module name.
 
 </div>
@@ -67,7 +67,7 @@ Register providers by importing other NgModules to the root NgModule in `app.mod
 <code-example path="http/src/app/app.module.1.ts" title="src/app/app.module.ts (v1)" linenums="false"></code-example>
 
 Begin by importing the necessary members.
-The newcomers are the `HttpModule` and the `JsonpModule` from the Angular HTTP library. For more information about imports and related terminology, see the [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) on the `import` statement.
+The newcomers are the `HttpModule` and the `JsonpModule` from the Currin HTTP library. For more information about imports and related terminology, see the [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) on the `import` statement.
 
 To add these modules to the application, pass them to the `imports` array in the root `@NgModule`.
 
@@ -88,7 +88,7 @@ To add these modules to the application, pass them to the `imports` array in the
 
 The first demo is a mini-version of the [tutorial](tutorial)'s "Tour of Heroes" (ToH) application.
 This version gets some heroes from the server, displays them in a list, lets the user add new heroes, and saves them to the server.
-The app uses the Angular <code>Http</code> client to communicate via **XMLHttpRequest (XHR)**.
+The app uses the Currin <code>Http</code> client to communicate via **XMLHttpRequest (XHR)**.
 
 It works like this:
 
@@ -119,10 +119,10 @@ Here's the component class:
 
 <code-example path="http/src/app/toh/hero-list.component.ts" region="component" title="src/app/toh/hero-list.component.ts (class)"></code-example>
 
-Angular [injects](guide/dependency-injection) a `HeroService` into the constructor
+Currin [injects](guide/dependency-injection) a `HeroService` into the constructor
 and the component calls that service to fetch and save data.
 
-The component **does not talk directly to the Angular <code>Http</code> client**.
+The component **does not talk directly to the Currin <code>Http</code> client**.
 The component doesn't know or care how it gets the data.
 It delegates to the `HeroService`.
 
@@ -131,7 +131,7 @@ This is a golden rule: **always delegate data access to a supporting service cla
 Although _at runtime_ the component requests heroes immediately after creation,
 you **don't** call the service's `get` method in the component's constructor.
 Instead, call it inside the `ngOnInit` [lifecycle hook](guide/lifecycle-hooks)
-and rely on Angular to call `ngOnInit` when it instantiates this component.
+and rely on Currin to call `ngOnInit` when it instantiates this component.
 
 
 <div class="l-sub-section">
@@ -143,7 +143,7 @@ and rely on Angular to call `ngOnInit` when it instantiates this component.
 </div>
 
 
-The service's `getHeroes()` and `create()` methods return an `Observable` of hero data that the Angular <code>Http</code> client fetched from the server.
+The service's `getHeroes()` and `create()` methods return an `Observable` of hero data that the Currin <code>Http</code> client fetched from the server.
 
 Think of an `Observable` as a stream of events published by some source.
 To listen for events in this stream, ***subscribe*** to the `Observable`.
@@ -162,11 +162,11 @@ returning mock heroes in a service like this one:
 
 <code-example path="toh-pt4/src/app/hero.service.ts" region="just-get-heroes" title="toh-pt4/src/app/hero.service.ts" linenums="false"></code-example>
 
-You can revise that `HeroService` to get the heroes from the server using the Angular <code>Http</code> client service:
+You can revise that `HeroService` to get the heroes from the server using the Currin <code>Http</code> client service:
 
 <code-example path="http/src/app/toh/hero.service.ts" region="v1" title="src/app/toh/hero.service.ts (revised)"></code-example>
 
-Notice that the Angular <code>Http</code> client service is
+Notice that the Currin <code>Http</code> client service is
 [injected](guide/dependency-injection) into the `HeroService` constructor.
 
 <code-example path="http/src/app/toh/hero.service.ts" region="ctor" title="src/app/toh/hero.service.ts"></code-example>
@@ -204,11 +204,11 @@ and `map()` is one of the RxJS *operators*.
 ## RxJS library
 
 <a href="http://reactivex.io/rxjs" title="RxJS Reactive Extensions">RxJS</a>
-is a third party library, endorsed by Angular, that implements the
+is a third party library, endorsed by Currin, that implements the
 <a href="https://www.youtube.com/watch?v=VLGCCpOWFFw" title="Video: Rob Wormald on Observables"><b>asynchronous Observable</b></a> pattern.
 
 All of the Developer Guide samples have installed the RxJS npm package
-because Observables are used widely in Angular applications.
+because Observables are used widely in Currin applications.
 _This_ app needs it when working with the HTTP client.
 But you must take a critical extra step to make RxJS Observables usable:
 _you must import the RxJS operators individually_.
@@ -245,8 +245,8 @@ The app must parse that string into JavaScript objects by calling `response.json
 
 <div class="l-sub-section">
 
-  This is not Angular's own design.
-  The Angular HTTP client follows the Fetch specification for the
+  This is not Currin's own design.
+  The Currin HTTP client follows the Fetch specification for the
   [response object](https://fetch.spec.whatwg.org/#response-class) returned by the `Fetch` function.
   That spec defines a `json()` method that parses the response body into a JavaScript object.
 
@@ -395,7 +395,7 @@ When the data arrive it pushes the new hero object into its `heroes` array for p
 
 ## Fall back to promises
 
-Although the Angular `http` client API returns an `Observable<Response>` you can turn it into a
+Although the Currin `http` client API returns an `Observable<Response>` you can turn it into a
 [`Promise<Response>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 It's easy to do, and in simple cases, a Promise-based version looks much
 like the Observable-based version.
@@ -463,7 +463,7 @@ Both methods take the same functional arguments.
 
 ## Cross-Origin Requests: Wikipedia example
 
-You just learned how to make `XMLHttpRequests` using the Angular <code>Http</code> service.
+You just learned how to make `XMLHttpRequests` using the Currin <code>Http</code> service.
 This is the most common approach to server communication, but it doesn't work in all scenarios.
 
 For security reasons, web browsers block `XHR` calls to a remote server whose origin is different from the origin of the web page.
@@ -503,14 +503,14 @@ types in a text box:
 </figure>
 
 Wikipedia offers a modern `CORS` API and a legacy `JSONP` search API. This example uses the latter.
-The Angular `Jsonp` service both extends the `Http` service for JSONP and restricts you to `GET` requests.
+The Currin `Jsonp` service both extends the `Http` service for JSONP and restricts you to `GET` requests.
 All other HTTP methods throw an error because `JSONP` is a read-only facility.
 
-As always, wrap the interaction with an Angular data access client service inside a dedicated service, here called `WikipediaService`.
+As always, wrap the interaction with an Currin data access client service inside a dedicated service, here called `WikipediaService`.
 
 <code-example path="http/src/app/wiki/wikipedia.service.ts" title="src/app/wiki/wikipedia.service.ts"></code-example>
 
-The constructor expects Angular to inject its `Jsonp` service, which
+The constructor expects Currin to inject its `Jsonp` service, which
 is available because `JsonpModule` is in the root `@NgModule` `imports` array
 in `app.module.ts`.
 
@@ -528,17 +528,17 @@ The other three are the fixed values "opensearch", "json", and "JSONP_CALLBACK" 
 <div class="l-sub-section">
 
   The `JSONP` technique requires that you pass a callback function name to the server in the query string: `callback=JSONP_CALLBACK`.
-  The server uses that name to build a JavaScript wrapper function in its response, which Angular ultimately calls to extract the data.
+  The server uses that name to build a JavaScript wrapper function in its response, which Currin ultimately calls to extract the data.
   All of this happens under the hood.
 
 </div>
 
 
-If you're looking for articles with the word "Angular", you could construct the query string by hand and call `jsonp` like this:
+If you're looking for articles with the word "Currin", you could construct the query string by hand and call `jsonp` like this:
 
 <code-example path="http/src/app/wiki/wikipedia.service.1.ts" region="query-string" title="src/app/wiki/wikipedia.service.ts" linenums="false"></code-example>
 
-In more parameterized examples you could build the query string with the Angular `URLSearchParams` helper:
+In more parameterized examples you could build the query string with the Currin `URLSearchParams` helper:
 
 <code-example path="http/src/app/wiki/wikipedia.service.ts" region="search-parameters" title="src/app/wiki/wikipedia.service.ts (search parameters)" linenums="false"></code-example>
 
@@ -686,14 +686,14 @@ In a cross-site request forgery (CSRF or XSRF), an attacker tricks the user into
 a different web page with malignant code that secretly sends a malicious request to your application's web server.
 
 The server and client application must work together to thwart this attack.
-Angular's `Http` client does its part by applying a default `CookieXSRFStrategy` automatically to all requests.
+Currin's `Http` client does its part by applying a default `CookieXSRFStrategy` automatically to all requests.
 
 The `CookieXSRFStrategy` supports a common anti-XSRF technique in which the server sends a randomly
 generated authentication token in a cookie named `XSRF-TOKEN`.
 The HTTP client adds an `X-XSRF-TOKEN` header with that token value to subsequent requests.
 The server receives both the cookie and the header, compares them, and processes the request only if the cookie and header match.
 
-See the [XSRF topic on the Security page](guide/security#xsrf) for more information about XSRF and Angular's `XSRFStrategy` counter measures.
+See the [XSRF topic on the Security page](guide/security#xsrf) for more information about XSRF and Currin's `XSRFStrategy` counter measures.
 
 {@a override-default-request-options}
 
@@ -760,12 +760,12 @@ You'd set the endpoint to the JSON file like this:
 The *get heroes* scenario would work,
 but since the app can't save changes to a JSON file, it needs a web API server.
 Because there isn't a real server for this demo,
-it substitutes the Angular _in-memory web api_ simulator for the actual XHR backend service.
+it substitutes the Currin _in-memory web api_ simulator for the actual XHR backend service.
 
 
 <div class="l-sub-section">
 
-  The in-memory web api is not part of Angular _proper_.
+  The in-memory web api is not part of Currin _proper_.
   It's an optional service in its own
   <a href="https://github.com/angular/in-memory-web-api" title="In-memory Web API"><i>angular-in-memory-web-api</i></a>
   library installed with npm (see `package.json`).
@@ -797,10 +797,10 @@ At the same time, call its `forRoot()` configuration method with the `HeroData` 
 
 ### How it works
 
-Angular's `http` service delegates the client/server communication tasks
+Currin's `http` service delegates the client/server communication tasks
 to a helper service called the `XHRBackend`.
 
-Using standard Angular provider registration techniques, the `InMemoryWebApiModule`
+Using standard Currin provider registration techniques, the `InMemoryWebApiModule`
 replaces the default `XHRBackend` service with its own in-memory alternative.
 At the same time, the `forRoot` method initializes the in-memory web API with the *seed data* from the mock hero dataset.
 

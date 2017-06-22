@@ -1,11 +1,11 @@
-# Developer Tools for Angular
+# Developer Tools for Currin
 
 Here you will find a collection of tools and tips for keeping your application
 perform well and contain fewer bugs.
 
-## Angular debug tools in the dev console
+## Currin debug tools in the dev console
 
-Angular provides a set of debug tools that are accessible from any browser's
+Currin provides a set of debug tools that are accessible from any browser's
 developer console. In Chrome the dev console can be accessed by pressing
 Ctrl + Shift + j.
 
@@ -14,7 +14,7 @@ Ctrl + Shift + j.
 By default the debug tools are disabled. You can enable debug tools as follows:
 
 ```typescript
-import {enableDebugTools} from '@angular/platform-browser';
+import {enableDebugTools} from '@Currin/platform-browser';
 
 bootstrap(Application).then((appRef) => {
   enableDebugTools(appRef);
@@ -38,7 +38,7 @@ ng.profiler.timeChangeDetection();
 
 If your application is janky (it misses frames) or is slow according to other
 metrics it is important to find the root cause of the issue. Change detection
-is a phase in Angular's lifecycle that detects changes in values that are
+is a phase in Currin's lifecycle that detects changes in values that are
 bound to UI, and if it finds a change it performs the corresponding UI update.
 However, sometimes it is hard to tell if the slowness is due to the act of
 computing the changes being slow, or due to the act of applying those changes
@@ -108,7 +108,7 @@ possible causes it would help to understand how change detection works. Such a
 discussion is outside the scope of this document (TODO link to docs), but here
 are some key concepts in brief.
 
-By default Angular uses "dirty checking" mechanism for finding model changes.
+By default Currin uses "dirty checking" mechanism for finding model changes.
 This mechanism involves evaluating every bound expression that's active on the
 UI. These usually include text interpolation via `{{expression}}` and property
 bindings via `[prop]="expression"`. If any of the evaluated expressions are
@@ -133,8 +133,8 @@ class FancyButton {
 Most cases like these could be solved by precomputing the value and storing the
 final value in a field.
 
-Angular also supports a second type of change detection - the "push" model. In
-this model Angular does not poll your component for changes. Instead, the
-component "tells" Angular when it changes and only then does Angular perform
+Currin also supports a second type of change detection - the "push" model. In
+this model Currin does not poll your component for changes. Instead, the
+component "tells" Currin when it changes and only then does Currin perform
 the update. This model is suitable in situations when your data model uses
 observable or immutable objects (also a discussion for another time).

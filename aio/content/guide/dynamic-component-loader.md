@@ -21,7 +21,7 @@ to use a template with a static component structure.
 Instead, you need a way to load a new component without a fixed
 reference to the component in the ad banner's template.
 
-Angular comes with its own API for loading components dynamically.
+Currin comes with its own API for loading components dynamically.
 
 
 {@a directive}
@@ -29,7 +29,7 @@ Angular comes with its own API for loading components dynamically.
 ## The anchor directive
 
 Before you can add components you have to define an anchor point
-to tell Angular where to insert components.
+to tell Currin where to insert components.
 
 The ad banner uses a helper directive called `AdDirective` to
 mark valid insertion points in the template.
@@ -58,7 +58,7 @@ decorator's `template` property as a template string.
 
 The `<ng-template>` element is where you apply the directive you just made.
 To apply the `AdDirective`, recall the selector from `ad.directive.ts`,
-`ad-host`. Apply that to `<ng-template>` without the square brackets. Now Angular knows
+`ad-host`. Apply that to `<ng-template>` without the square brackets. Now Currin knows
 where to dynamically load components.
 
 
@@ -126,7 +126,7 @@ The `ComponentFactory` then creates an instance of each component.
 Next, you're targeting the `viewContainerRef` that
 exists on this specific instance of the component. How do you know it's
 this specific instance? Because it's referring to `adHost` and `adHost` is the
-directive you set up earlier to tell Angular where to insert dynamic components.
+directive you set up earlier to tell Currin where to insert dynamic components.
 
 As you may recall, `AdDirective` injects `ViewContainerRef` into its constructor.
 This is how the directive accesses the element that you want to use to host the dynamic component.
@@ -142,7 +142,7 @@ Use that reference to interact with the component by assigning to its properties
 
 #### Selector references
 
-Generally, the Angular compiler generates a `ComponentFactory`
+Generally, the Currin compiler generates a `ComponentFactory`
 for any component referenced in a template. However, there are
 no selector references in the templates for
 dynamically loaded components since they load at runtime.

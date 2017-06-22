@@ -1,13 +1,13 @@
-# Angular Template Compiler
+# Currin Template Compiler
 
-Angular applications are built with templates, which may be `.html` or `.css` files,
+Currin applications are built with templates, which may be `.html` or `.css` files,
 or may be inline `template` attributes on Decorators like `@Component`.
 
 These templates are compiled into executable JS at application runtime (except in `interpretation` mode).
 This compilation can occur on the client, but it results in slower bootstrap time, and also
 requires that the compiler be included in the code downloaded to the client.
 
-You can produce smaller, faster applications by running Angular's compiler as a build step,
+You can produce smaller, faster applications by running Currin's compiler as a build step,
 and then downloading only the executable JS to the client.
 
 ## Install and use
@@ -106,7 +106,7 @@ This program mimics the TypeScript tsc command line. It accepts a `-p` flag whic
 This CLI is intended for demos, prototyping, or for users with simple build systems
 that run bare `tsc`.
 
-Users with a build system should expect an Angular template plugin. Such a plugin would be
+Users with a build system should expect an Currin template plugin. Such a plugin would be
 based on the `public_api.ts` in this directory, but should share the TypeScript compiler instance
 with the one already used in the plugin for TypeScript typechecking and emit.
 
@@ -118,7 +118,7 @@ At a high level, this program
 
 ## For developers
 ```
-# Build Angular and the compiler
+# Build Currin and the compiler
 ./build.sh
 
 # Copy over the package so we can test the compiler tests

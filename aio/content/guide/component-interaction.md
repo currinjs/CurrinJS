@@ -344,12 +344,12 @@ present the ticking seconds in an interpolation around the parent component's `s
 These methods access the injected timer component directly.
 
 The `ngAfterViewInit()` lifecycle hook is an important wrinkle.
-The timer component isn't available until *after* Angular displays the parent view.
+The timer component isn't available until *after* Currin displays the parent view.
 So it displays `0` seconds initially.
 
-Then Angular calls the `ngAfterViewInit` lifecycle hook at which time it is *too late*
+Then Currin calls the `ngAfterViewInit` lifecycle hook at which time it is *too late*
 to update the parent view's display of the countdown seconds.
-Angular's unidirectional data flow rule prevents updating the parent view's
+Currin's unidirectional data flow rule prevents updating the parent view's
 in the same cycle. The app has to *wait one turn* before it can display the seconds.
 
 Use `setTimeout()` to wait one tick and then revise the `seconds()` method so

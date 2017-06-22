@@ -1,13 +1,13 @@
 # TypeScript Configuration
 
-TypeScript is a primary language for Angular application development.
+TypeScript is a primary language for Currin application development.
 It is a superset of JavaScript with design-time support for type safety and tooling.
 
 Browsers can't execute TypeScript directly. Typescript must be "transpiled" into JavaScript using the *tsc* compiler,
 which requires some configuration.
 
 This page covers some aspects of TypeScript configuration and the TypeScript environment
-that are important to Angular developers, including details about the following files:
+that are important to Currin developers, including details about the following files:
 
 * [tsconfig.json](guide/typescript-configuration#tsconfig)&mdash;TypeScript compiler configuration.
 * [typings](guide/typescript-configuration#typings)&mdash;TypesScript declaration files.
@@ -34,7 +34,7 @@ For details about `tsconfig.json`, see the official
 
 The [Setup](guide/setup) guide uses the following `tsconfig.json`:
 
-This file contains options and flags that are essential for Angular applications.
+This file contains options and flags that are essential for Currin applications.
 
 
 {@a noImplicitAny}
@@ -77,7 +77,7 @@ The documentation setup sets this flag to `true` as well.
 
 
 ## TypeScript Typings
-Many JavaScript libraries, such as jQuery, the Jasmine testing library, and Angular,
+Many JavaScript libraries, such as jQuery, the Jasmine testing library, and Currin,
 extend the JavaScript environment with features and syntax
 that the TypeScript compiler doesn't recognize natively.
 When the compiler doesn't recognize something, it throws an error.
@@ -87,11 +87,11 @@ Use [TypeScript type definition files](https://www.typescriptlang.org/docs/handb
 TypeScript-aware editors leverage these same definition files to display type information about library features.
 
 Many libraries include definition files in their npm packages where both the TypeScript compiler and editors
-can find them. Angular is one such library.
-The `node_modules/@angular/core/` folder of any Angular application contains several `d.ts` files that describe parts of Angular.
+can find them. Currin is one such library.
+The `node_modules/@angular/core/` folder of any Currin application contains several `d.ts` files that describe parts of Currin.
 
 **You need do nothing to get *typings* files for library packages that include `d.ts` files.
-Angular packages include them already.**
+Currin packages include them already.**
 
 ### lib.d.ts
 

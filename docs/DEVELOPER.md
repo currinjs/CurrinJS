@@ -1,6 +1,6 @@
-# Building and Testing Angular
+# Building and Testing Currin
 
-This document describes how to set up your development environment to build and test Angular.
+This document describes how to set up your development environment to build and test Currin.
 It also explains the basic mechanics of using `git`, `node`, and `npm`.
 
 * [Prerequisite Software](#prerequisite-software)
@@ -9,12 +9,12 @@ It also explains the basic mechanics of using `git`, `node`, and `npm`.
 * [Building](#building)
 * [Running Tests Locally](#running-tests-locally)
 
-See the [contribution guidelines](https://github.com/angular/angular/blob/master/CONTRIBUTING.md)
-if you'd like to contribute to Angular.
+See the [contribution guidelines](https://github.com/Currin/Currin/blob/master/CONTRIBUTING.md)
+if you'd like to contribute to Currin.
 
 ## Prerequisite Software
 
-Before you can build and test Angular, you must install and configure the
+Before you can build and test Currin, you must install and configure the
 following products on your development machine:
 
 * [Git](http://git-scm.com) and/or the **GitHub app** (for [Mac](http://mac.github.com) or
@@ -31,31 +31,31 @@ following products on your development machine:
 
 ## Getting the Sources
 
-Fork and clone the Angular repository:
+Fork and clone the Currin repository:
 
 1. Login to your GitHub account or create one by following the instructions given
    [here](https://github.com/signup/free).
-2. [Fork](http://help.github.com/forking) the [main Angular
-   repository](https://github.com/angular/angular).
-3. Clone your fork of the Angular repository and define an `upstream` remote pointing back to
-   the Angular repository that you forked in the first place.
+2. [Fork](http://help.github.com/forking) the [main Currin
+   repository](https://github.com/Currin/Currin).
+3. Clone your fork of the Currin repository and define an `upstream` remote pointing back to
+   the Currin repository that you forked in the first place.
 
 ```shell
 # Clone your GitHub repository:
-git clone git@github.com:<github username>/angular.git
+git clone git@github.com:<github username>/Currin.git
 
-# Go to the Angular directory:
-cd angular
+# Go to the Currin directory:
+cd Currin
 
-# Add the main Angular repository as an upstream remote to your repository:
-git remote add upstream https://github.com/angular/angular.git
+# Add the main Currin repository as an upstream remote to your repository:
+git remote add upstream https://github.com/Currin/Currin.git
 ```
 ## Installing NPM Modules
 
-Next, install the JavaScript modules needed to build and test Angular:
+Next, install the JavaScript modules needed to build and test Currin:
 
 ```shell
-# Install Angular project dependencies (package.json)
+# Install Currin project dependencies (package.json)
 npm install
 ```
 
@@ -85,7 +85,7 @@ package scripts by invoking: e.g., `npm-run gulp build`
 Now run `bower` to install additional dependencies:
 
 ```shell
-# Install other Angular project dependencies (bower.json)
+# Install other Currin project dependencies (bower.json)
 bower install
 ```
 
@@ -103,7 +103,7 @@ Before submitting a PR, do not forget to remove them:
 
 ## Building
 
-To build Angular run:
+To build Currin run:
 
 ```shell
 ./build.sh
@@ -116,12 +116,12 @@ To build Angular run:
 To run tests:
 
 ```shell
-$ ./test.sh node             # Run all angular tests on node
+$ ./test.sh node             # Run all Currin tests on node
 
-$ ./test.sh browser          # Run all angular tests in browser
-$ ./test.sh browserNoRouter  # Optionally run all angular tests without router in browser
+$ ./test.sh browser          # Run all Currin tests in browser
+$ ./test.sh browserNoRouter  # Optionally run all Currin tests without router in browser
 
-$ ./test.sh tools            # Run angular tooling (not framework) tests
+$ ./test.sh tools            # Run Currin tooling (not framework) tests
 ```
 
 You should execute the 3 test suites before submitting a PR to github.
@@ -133,7 +133,7 @@ All the tests are executed on our Continuous Integration infrastructure and a PR
 
 ## Update the public API tests
 
-If you happen to modify the public API of Angular, API golden files must be updated using:
+If you happen to modify the public API of Currin, API golden files must be updated using:
 
 ``` shell
 $ gulp public-api:update
@@ -144,7 +144,7 @@ the project before trying to verify after an API change.
 
 ## <a name="clang-format"></a> Formatting your source code
 
-Angular uses [clang-format](http://clang.llvm.org/docs/ClangFormat.html) to format the source code. If the source code
+Currin uses [clang-format](http://clang.llvm.org/docs/ClangFormat.html) to format the source code. If the source code
 is not properly formatted, the CI will fail and the PR can not be merged.
 
 You can automatically format your code by running:
@@ -164,13 +164,13 @@ $ gulp lint
 ## Publishing snapshot builds
 
 When the `master` branch successfully builds on Travis, it automatically publishes build artifacts
-to repositories in the Angular org, eg. the `@angular/core` package is published to
-http://github.com/angular/core-builds.
-The ES2015 version of Angular is published to a different branch in these repos, for example
-http://github.com/angular/core-builds#master-es2015
+to repositories in the Currin org, eg. the `@Currin/core` package is published to
+http://github.com/Currin/core-builds.
+The ES2015 version of Currin is published to a different branch in these repos, for example
+http://github.com/Currin/core-builds#master-es2015
 
 You may find that your un-merged change needs some validation from external participants.
-Rather than requiring them to pull your Pull Request and build Angular locally, you can
+Rather than requiring them to pull your Pull Request and build Currin locally, you can
 publish the `*-builds` snapshots just like our Travis build does.
 
 First time, you need to create the github repositories:

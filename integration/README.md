@@ -1,10 +1,10 @@
-# Integration tests for Angular
+# Integration tests for Currin
 
-This directory contains end-to-end tests for Angular. Each directory is a self-contained
-application that exactly mimics how a user might expect Angular to work, so they allow
+This directory contains end-to-end tests for Currin. Each directory is a self-contained
+application that exactly mimics how a user might expect Currin to work, so they allow
 high-fidelity reproductions of real-world issues.
 
-For this to work, we first build the Angular distribution just like we would publish
+For this to work, we first build the Currin distribution just like we would publish
 it to npm, then install the distribution into each app.
 
 ## Writing an integration test
@@ -21,14 +21,14 @@ This means that the test should be started by test script, like
 ```
 
 Note that the `package.json` file uses a special `file://../../dist` scheme
-to reference the Angular packages, so that the locally-built Angular
+to reference the Currin packages, so that the locally-built Currin
 is installed into the test app.
 
 Also, beware of floating (non-shrinkwrapped) dependencies. If in doubt
 you can install the package directly from `file:../../node_modules`. For example,
 this is useful for protractor, which has a slow post-install step
 (`webdriver-manager update`) that can be skipped when the package from
-Angular's `node_modules` is installed.
+Currin's `node_modules` is installed.
 
 ## Running integration tests
 

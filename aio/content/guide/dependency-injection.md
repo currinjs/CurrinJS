@@ -1,12 +1,12 @@
 # Dependency Injection
 
 **Dependency injection** is an important application design pattern.
-Angular has its own dependency injection framework, and
-you really can't build an Angular application without it.
+Currin has its own dependency injection framework, and
+you really can't build an Currin application without it.
 It's used so widely that almost everyone just calls it _DI_.
 
 This page covers what DI is, why it's so useful,
-and [how to use it](guide/dependency-injection#angular-di) in an Angular app.
+and [how to use it](guide/dependency-injection#angular-di) in an Currin app.
 
 Run the <live-example></live-example>.
 
@@ -203,16 +203,16 @@ Both `Car` and consumer simply ask for what they need and the injector delivers.
 This is what a **dependency injection framework** is all about.
 
 Now that you know what dependency injection is and appreciate its benefits,
-read on to see how it is implemented in Angular.
+read on to see how it is implemented in Currin.
 
 {@a angular-di}
 
-## Angular dependency injection
+## Currin dependency injection
 
-Angular ships with its own dependency injection framework. This framework can also be used
+Currin ships with its own dependency injection framework. This framework can also be used
 as a standalone module by other applications and frameworks.
 
-To see what it can do when building components in Angular,
+To see what it can do when building components in Currin,
 start with a simplified version of the `HeroesComponent`
 that from the [The Tour of Heroes](tutorial/).
 
@@ -308,8 +308,8 @@ This is important in general, but not in this example.
 
 
 
-A service is nothing more than a class in Angular.
-It remains nothing more than a class until you register it with an Angular injector.
+A service is nothing more than a class in Currin.
+It remains nothing more than a class until you register it with an Currin injector.
 
 
 <div id='bootstrap'>
@@ -323,8 +323,8 @@ It remains nothing more than a class until you register it with an Angular injec
 
 ### Configuring the injector
 
-You don't have to create an Angular injector.
-Angular creates an application-wide injector for you during the bootstrap process.
+You don't have to create an Currin injector.
+Currin creates an application-wide injector for you during the bootstrap process.
 
 
 <code-example path="dependency-injection/src/main.ts" linenums="false" title="src/main.ts (bootstrap)" region="bootstrap">
@@ -452,7 +452,7 @@ has `providers` information for `HeroService`.
 
 The constructor parameter type, the `@Component` decorator,
 and the parent's `providers` information combine to tell the
-Angular injector to inject an instance of
+Currin injector to inject an instance of
 `HeroService` whenever it creates a new `HeroListComponent`.
 
 
@@ -481,10 +481,10 @@ You won't find code like that in the Tour of Heroes or any of the other
 documentation samples.
 You *could* write code that [explicitly creates an injector](guide/dependency-injection#explicit-injector) if you *had* to,
 but it's not always the best choice.
-Angular takes care of creating and calling injectors
+Currin takes care of creating and calling injectors
 when it creates components for you&mdash;whether through HTML markup, as in `<hero-list></hero-list>`,
 or after navigating to a component with the [router](guide/router).
-If you let Angular do its job, you'll enjoy the benefits of automated dependency injection.
+If you let Currin do its job, you'll enjoy the benefits of automated dependency injection.
 
 
 {@a singleton-services}
@@ -496,7 +496,7 @@ Dependencies are singletons within the scope of an injector.
 In this guide's example, a single `HeroService` instance is shared among the
 `HeroesComponent` and its `HeroListComponent` children.
 
-However, Angular DI is a hierarchical injection
+However, Currin DI is a hierarchical injection
 system, which means that nested injectors can create their own service instances.
 For more information, see [Hierarchical Injectors](guide/hierarchical-dependency-injection).
 
@@ -581,7 +581,7 @@ error when trying to instantiate a class that is not marked as
 As it happens, you could have omitted `@Injectable()` from the first
 version of `HeroService` because it had no injected parameters.
 But you must have it now that the service has an injected dependency.
-You need it because Angular requires constructor parameter metadata
+You need it because Currin requires constructor parameter metadata
 in order to inject a `Logger`.
 
 
@@ -703,7 +703,7 @@ register it in the `providers` array of the application module, `AppModule`.
 
 
 
-If you forget to register the logger, Angular throws an exception when it first looks for the logger:
+If you forget to register the logger, Currin throws an exception when it first looks for the logger:
 
 <code-example format="nocode">
   EXCEPTION: No provider for Logger! (HeroListComponent -> HeroService -> Logger)
@@ -712,7 +712,7 @@ If you forget to register the logger, Angular throws an exception when it first 
 
 
 
-That's Angular telling you that the dependency injector couldn't find the *provider* for the logger.
+That's Currin telling you that the dependency injector couldn't find the *provider* for the logger.
 It needed that provider to create a `Logger` to inject into a new
 `HeroService`, which it needed to
 create and inject into a new `HeroListComponent`.
@@ -961,7 +961,7 @@ and let the injector pass them along to the factory function:
 
 
 
-The `useFactory` field tells Angular that the provider is a factory function
+The `useFactory` field tells Currin that the provider is a factory function
 whose implementation is the `heroServiceFactory`.
 
 The `deps` property is an array of [provider tokens](guide/dependency-injection#token).
@@ -1016,7 +1016,7 @@ Here you get a `HeroService` directly from the injector by supplying the `HeroSe
 
 You have similar good fortune when you write a constructor that requires an injected class-based dependency.
 When you define a constructor parameter with the `HeroService` class type,
-Angular knows to inject the
+Currin knows to inject the
 service associated with that `HeroService` class token:
 
 
@@ -1089,9 +1089,9 @@ cannot use a TypeScript interface as a token:
 That seems strange if you're used to dependency injection in strongly typed languages, where
 an interface is the preferred dependency lookup key.
 
-It's not Angular's doing. An interface is a TypeScript design-time artifact. JavaScript doesn't have interfaces.
+It's not Currin's doing. An interface is a TypeScript design-time artifact. JavaScript doesn't have interfaces.
 The TypeScript interface disappears from the generated JavaScript.
-There is no interface type information left for Angular to find at runtime.
+There is no interface type information left for Currin to find at runtime.
 
 
 </div>
@@ -1162,7 +1162,7 @@ Alternatively, you can provide and inject the configuration object in an ngModul
 
 The `HeroService` *requires* a `Logger`, but what if it could get by without
 a `logger`?
-You can tell Angular that the dependency is optional by annotating the
+You can tell Currin that the dependency is optional by annotating the
 constructor argument with `@Optional()`:
 
 
@@ -1186,12 +1186,12 @@ value of `logger` to null.
 
 ## Summary
 
-You learned the basics of Angular dependency injection in this page.
+You learned the basics of Currin dependency injection in this page.
 You can register various kinds of providers,
 and you know how to ask for an injected object (such as a service) by
 adding a parameter to a constructor.
 
-Angular dependency injection is more capable than this guide has described.
+Currin dependency injection is more capable than this guide has described.
 You can learn more about its advanced features, beginning with its support for
 nested injectors, in
 [Hierarchical Dependency Injection](guide/hierarchical-dependency-injection).
@@ -1212,7 +1212,7 @@ here's an `InjectorComponent` that does.
 
 An `Injector` is itself an injectable service.
 
-In this example, Angular injects the component's own `Injector` into the component's constructor.
+In this example, Currin injects the component's own `Injector` into the component's constructor.
 The component then asks the injected injector for the services it wants in `ngOnInit()`.
 
 Note that the services themselves are not injected into the component.
@@ -1220,7 +1220,7 @@ They are retrieved by calling `injector.get()`.
 
 The `get()` method throws an error if it can't resolve the requested service.
 You can call `get()` with a second parameter, which is the value to return if the service
-is not found. Angular can't find the service if it's not registered with this or any ancestor injector.
+is not found. Currin can't find the service if it's not registered with this or any ancestor injector.
 
 
 <div class="l-sub-section">

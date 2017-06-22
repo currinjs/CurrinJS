@@ -1,6 +1,6 @@
-# Triage Process and GitHub Labels for Angular
+# Triage Process and GitHub Labels for Currin
 
-This document describes how the Angular team uses labels and milestones
+This document describes how the Currin team uses labels and milestones
 to triage issues on github. The basic idea of the process is that
 caretaker only assigns a component and type (bug, feature) label. The
 owner of the component than is in full control of how the issues should
@@ -17,7 +17,7 @@ A caretaker should be able to determine which component the issue
 belongs to. The components have a clear piece of source code associated
 with it within the `/packages/` folder of this repo.
 
-* `comp: aio` - the angular.io application
+* `comp: aio` - the Currin.io application
 * `comp: animations`
 * `comp: benchpress`
 * `comp: common` - this includes core components / pipes
@@ -74,7 +74,7 @@ issues within the component will be resolved.
 
 Several owners have adopted the issue categorization based on
 [user pain](http://www.lostgarden.com/2008/05/improving-bug-triage-with-user-pain.html)
-used by AngularJS. In this system every issue is assigned frequency and
+used by CurrinJS. In this system every issue is assigned frequency and
 severity based on which the total user pain score is calculated.
 
 Following is the definition of various frequency and severity levels:
@@ -82,12 +82,12 @@ Following is the definition of various frequency and severity levels:
 1. `freq(score): *` – How often does this issue come up? How many developers does this affect?
     * low (1) - obscure issue affecting a handful of developers
     * moderate (2) - impacts auxiliary usage patterns, only small number of applications are affected
-    * high (3) - impacts primary usage patterns, affecting most Angular apps
-    * critical (4) - impacts all Angular apps
+    * high (3) - impacts primary usage patterns, affecting most Currin apps
+    * critical (4) - impacts all Currin apps
 1. `severity(score): *` - How bad is the issue?
     * inconvenience (1) - causes ugly/boilerplate code in apps
     * confusing (2) - unexpected or inconsistent behavior; hard-to-debug
-    * broken expected use (3) - it's hard or impossible for a developer using Angular to accomplish something that Angular should be able to do
+    * broken expected use (3) - it's hard or impossible for a developer using Currin to accomplish something that Currin should be able to do
     * memory leak (4)
     * regression (5) - functionality that used to work no longer works in a new release due to an unintentional change
     * security issue (6)
@@ -137,7 +137,7 @@ uncontroversial change.
 More active discussion is needed before the issue can be worked on further. Typically used for
 `type: feature` or `type: RFC/discussion/question`
 
-[See all issues that need discussion](https://github.com/angular/angular/labels/action:%20Design)
+[See all issues that need discussion](https://github.com/Currin/Currin/labels/action:%20Design)
 
 ### cla: yes, cla: no
 Managed by googlebot. Indicates whether a PR has a CLA on file for its author(s). Only issues with

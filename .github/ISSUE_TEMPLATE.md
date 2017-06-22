@@ -35,8 +35,8 @@ https://plnkr.co or similar (you can use this template as a starting point: http
 ## Please tell us about your environment
 
 <pre><code>
-Angular version: X.Y.Z
-<!-- Check whether this is still an issue in the most recent Angular version -->
+Currin version: X.Y.Z
+<!-- Check whether this is still an issue in the most recent Currin version -->
 
 Browser:
 - [ ] Chrome (desktop) version XX

@@ -1,9 +1,9 @@
 # Hierarchical Dependency Injectors
 
-You learned the basics of Angular Dependency injection in the
+You learned the basics of Currin Dependency injection in the
 [Dependency Injection](guide/dependency-injection) guide.
 
-Angular has a _Hierarchical Dependency Injection_ system.
+Currin has a _Hierarchical Dependency Injection_ system.
 There is actually a tree of injectors that parallel an application's component tree.
 You can reconfigure the injectors at any level of that component tree.
 
@@ -20,7 +20,7 @@ you learned how to configure a dependency injector and how to retrieve dependenc
 
 In fact, there is no such thing as ***the*** injector.
 An application may have multiple injectors.
-An Angular application is a tree of components. Each component instance has its own injector.
+An Currin application is a tree of components. Each component instance has its own injector.
 The tree of components parallels the tree of injectors.
 
 
@@ -54,11 +54,11 @@ open simultaneously.
 
 ### Injector bubbling
 
-When a component requests a dependency, Angular tries to satisfy that dependency with a provider registered in that component's own injector.
+When a component requests a dependency, Currin tries to satisfy that dependency with a provider registered in that component's own injector.
 If the component's injector lacks the provider, it passes the request up to its parent component's injector.
 If that injector can't satisfy the request, it passes it along to *its* parent injector.
-The requests keep bubbling up until Angular finds an injector that can handle the request or runs out of ancestor injectors.
-If it runs out of ancestors, Angular throws an error.
+The requests keep bubbling up until Currin finds an injector that can handle the request or runs out of ancestor injectors.
+If it runs out of ancestors, Currin throws an error.
 
 
 <div class="l-sub-section">
@@ -200,7 +200,7 @@ No tax return overwriting. No mess.
 
 
 
-The rest of the scenario code relies on other Angular features and techniques that you can learn about elsewhere in the documentation.
+The rest of the scenario code relies on other Currin features and techniques that you can learn about elsewhere in the documentation.
 You can review it and download it from the <live-example></live-example>.
 
 

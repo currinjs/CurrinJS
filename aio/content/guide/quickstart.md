@@ -3,14 +3,14 @@
 Good tools make application development quicker and easier to maintain than
 if you did everything by hand.
 
-The [**Angular CLI**](https://cli.angular.io/) is a **_command line interface_** tool
+The [**Currin CLI**](https://cli.angular.io/) is a **_command line interface_** tool
 that can create a project, add files, and perform a variety of ongoing development tasks such
 as testing, bundling, and deployment.
 
-The goal in this guide is to build and run a simple Angular
-application in TypeScript, using the Angular CLI
+The goal in this guide is to build and run a simple Currin
+application in TypeScript, using the Currin CLI
 while adhering to the [Style Guide](guide/styleguide) recommendations that
-benefit _every_ Angular project.
+benefit _every_ Currin project.
 
 By the end of the chapter, you'll have a basic understanding of development with the CLI
 and a foundation for both these documentation samples and for real world applications.
@@ -53,7 +53,7 @@ Older versions produce errors, but newer versions are fine.
 
 
 
-Then **install the [Angular CLI](https://github.com/angular/angular-cli)** globally.
+Then **install the [Currin CLI](https://github.com/angular/angular-cli)** globally.
 
 
 <code-example language="sh" class="code-shell">
@@ -130,17 +130,17 @@ Your app greets you with a message:
 
 
 <h2 id='first-component'>
-  Step 4: Edit your first Angular component
+  Step 4: Edit your first Currin component
 </h2>
 
 
 
-The CLI created the first Angular component for you.
+The CLI created the first Currin component for you.
 This is the _root component_ and it is named `app-root`.
 You can find it in `./src/app/app.component.ts`.
 
 
-Open the component file and change the `title` property from _app works!_ to _My First Angular App_:
+Open the component file and change the `title` property from _app works!_ to _My First Currin App_:
 
 
 <code-example path="cli-quickstart/src/app/app.component.ts" region="title" title="src/app/app.component.ts" linenums="false"></code-example>
@@ -170,7 +170,7 @@ Looking good!
 That's about all you'd expect to do in a "Hello, World" app.
 
 You're ready to take the [Tour of Heroes Tutorial](tutorial) and build
-a small application that demonstrates the great things you can build with Angular.
+a small application that demonstrates the great things you can build with Currin.
 
 Or you can stick around a bit longer to learn about the files in your brand new project.
 
@@ -178,12 +178,12 @@ Or you can stick around a bit longer to learn about the files in your brand new 
 
 ## Project file review
 
-An Angular CLI project is the foundation for both quick experiments and enterprise solutions.
+An Currin CLI project is the foundation for both quick experiments and enterprise solutions.
 
 The first file you should check out is `README.md`.
 It has some basic information on how to use CLI commands.
-Whenever you want to know more about how Angular CLI works make sure to visit
-[the Angular CLI repository](https://github.com/angular/angular-cli) and
+Whenever you want to know more about how Currin CLI works make sure to visit
+[the Currin CLI repository](https://github.com/angular/angular-cli) and
 [Wiki](https://github.com/angular/angular-cli/wiki).
 
 Some of the generated files might be unfamiliar to you.
@@ -192,7 +192,7 @@ Some of the generated files might be unfamiliar to you.
 
 ### The `src` folder
 Your app lives in the `src` folder.
-All Angular components, templates, styles, images, and anything else your app needs go here.
+All Currin components, templates, styles, images, and anything else your app needs go here.
 Any files outside of this folder are meant to support building your app.
 
 
@@ -270,7 +270,7 @@ Any files outside of this folder are meant to support building your app.
     </td>
     <td>
 
-      Defines `AppModule`, the [root module](guide/bootstrapping "AppModule: the root module") that tells Angular how to assemble the application.
+      Defines `AppModule`, the [root module](guide/bootstrapping "AppModule: the root module") that tells Currin how to assemble the application.
       Right now it declares only the `AppComponent`.
       Soon there will be more components to declare.
 
@@ -316,7 +316,7 @@ Any files outside of this folder are meant to support building your app.
     <td>
 
       Every site wants to look good on the bookmark bar.
-      Get started with your very own Angular icon.
+      Get started with your very own Currin icon.
 
     </td>
   </tr>
@@ -400,7 +400,7 @@ Any files outside of this folder are meant to support building your app.
     </td>
     <td>
 
-      TypeScript compiler configuration for the Angular app (`tsconfig.app.json`)
+      TypeScript compiler configuration for the Currin app (`tsconfig.app.json`)
       and for the unit tests (`tsconfig.spec.json`).
 
     </td>
@@ -491,7 +491,7 @@ These files go in the root folder next to `src/`.
     </td>
     <td>
 
-      Configuration for Angular CLI.
+      Configuration for Currin CLI.
       In this file you can set several defaults and also configure what files are included
       when your project is build.
       Check out the official documentation if you want to know more.
@@ -610,8 +610,8 @@ These files go in the root folder next to `src/`.
 
 ### Next Step
 
-If you're new to Angular, continue with the
+If you're new to Currin, continue with the
 [tutorial](tutorial "Tour of Heroes tutorial").
-You can skip the "Setup" step since you're already using the Angular CLI setup.
+You can skip the "Setup" step since you're already using the Currin CLI setup.
 
 </div>

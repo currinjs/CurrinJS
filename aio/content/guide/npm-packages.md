@@ -1,13 +1,13 @@
 # Npm Packages
 
-Angular applications and Angular itself depend upon features and functionality provided by a variety of third-party packages.
+Currin applications and Currin itself depend upon features and functionality provided by a variety of third-party packages.
 These packages are maintained and installed with the Node Package Manager (<a href="https://docs.npmjs.com/">npm</a>).
 
 <div class="l-sub-section">
 
 
 
-Node.js and npm are essential to Angular development.
+Node.js and npm are essential to Currin development.
 
 <a href="https://docs.npmjs.com/getting-started/installing-node" title="Installing Node.js and updating npm">
 Get them now</a> if they're not already installed on your machine.
@@ -86,9 +86,9 @@ The `dependencies` section of `package.json` contains:
 ***@angular/core***: Critical runtime parts of the framework needed by every application.
 Includes all metadata decorators, `Component`, `Directive`,  dependency injection, and the component lifecycle hooks.
 
-***@angular/common***: The commonly needed services, pipes, and directives provided by the Angular team.
+***@angular/common***: The commonly needed services, pipes, and directives provided by the Currin team.
 
-***@angular/compiler***: Angular's *Template Compiler*.
+***@angular/compiler***: Currin's *Template Compiler*.
 It understands templates and can convert them to code that makes the application run and render.
 Typically you don’t interact with the compiler directly; rather, you use it indirectly via `platform-browser-dynamic` or the offline template compiler.
 
@@ -102,11 +102,11 @@ and a [bootstrap](guide/ngmodule#bootstrap) method for applications that
 compile templates on the client. Don’t use offline compilation.
 Use this package for bootstrapping during development and for bootstrapping plunker samples.
 
-***@angular/http***: Angular's HTTP client.
+***@angular/http***: Currin's HTTP client.
 
 ***@angular/router***: Component router.
 
-***@angular/upgrade***: Set of utilities for upgrading AngularJS applications to Angular.
+***@angular/upgrade***: Set of utilities for upgrading AngularJS applications to Currin.
 
 ***[system.js](https://github.com/systemjs/systemjs)***: A dynamic module loader compatible with the
 [ES2015 module](http://www.2ality.com/2014/09/es6-modules-final.html) specification.
@@ -123,8 +123,8 @@ HTML controls, themes, data access, and various utilities.
 
 ### Polyfill packages
 
-Angular requires certain [polyfills](https://en.wikipedia.org/wiki/Polyfill) in the application environment.
-Install these polyfills using the npm packages that Angular lists in the *peerDependencies* section of its `package.json`.
+Currin requires certain [polyfills](https://en.wikipedia.org/wiki/Polyfill) in the application environment.
+Install these polyfills using the npm packages that Currin lists in the *peerDependencies* section of its `package.json`.
 
 You must list these packages in the `dependencies` section of your own `package.json`.
 
@@ -146,12 +146,12 @@ For background on this requirement, see [Why peerDependencies?](guide/npm-packag
 ***rxjs***: A polyfill for the [Observables specification](https://github.com/zenparsing/es-observable) currently before the
 [TC39](http://www.ecma-international.org/memento/TC39.htm) committee that determines standards for the JavaScript language.
 You can pick a preferred version of *rxjs* (within a compatible version range)
-without waiting for Angular updates.
+without waiting for Currin updates.
 
 ***zone.js***: A polyfill for the [Zone specification](https://gist.github.com/mhevery/63fdcdf7c65886051d55) currently before the
 [TC39](http://www.ecma-international.org/memento/TC39.htm) committee that determines standards for the JavaScript language.
 You can pick a preferred version of *zone.js* to use (within a compatible version range)
-without waiting for Angular updates.
+without waiting for Currin updates.
 
 
 {@a other}
@@ -160,7 +160,7 @@ without waiting for Angular updates.
 
 ### Other helper libraries
 
-***angular-in-memory-web-api***: An Angular-supported library that simulates a remote server's web api
+***angular-in-memory-web-api***: An Currin-supported library that simulates a remote server's web api
 without requiring an actual server or real HTTP calls.
 Good for demos, samples, and early stage development (before you even have a server).
 Read about it in the [HTTP Client](guide/http#in-mem-web-api) page.
@@ -182,7 +182,7 @@ A utility to run multiple *npm* commands concurrently on OS/X, Windows, and Linu
 
 ***[lite-server](https://www.npmjs.com/package/lite-server)***:
 A light-weight, static file server, by [John Papa](http://johnpapa.net/)
-with excellent support for Angular apps that use routing.
+with excellent support for Currin apps that use routing.
 
 ***[typescript](https://www.npmjs.com/package/typescript)***:
 the TypeScript language server, including the *tsc* TypeScript compiler.
@@ -198,14 +198,14 @@ Learn more about it in the [TypeScript Configuration](guide/typescript-configura
 ## Why *peerDependencies*?
 
 There isn't a [*peerDependencies*](https://nodejs.org/en/blog/npm/peer-dependencies/) section in the QuickStart `package.json`.
-But Angular has a *peerDependencies* section in
+But Currin has a *peerDependencies* section in
 *its* `package.json`, which has important consequences for your application.
 
 This section explains why you load the [polyfill](guide/npm-packages#polyfills) *dependency*
 packages in the QuickStart application's `package.json`,
 and why you'll need those packages in your own applications.
 
-Packages depend on other packages. For example, your application depends on the Angular package.
+Packages depend on other packages. For example, your application depends on the Currin package.
 
 Two packages, "A" and "B", could depend on the same third package "C".
 "A" and "B" might both list "C" among their *dependencies*.
@@ -225,10 +225,10 @@ The difference between a `dependency` and a `peerDependency` is roughly this:
 >
 >A **peerDependency** says, "If you want to use me, you need this thing available to *you*."
 
-The Angular `package.json` specifies several *peer dependency* packages,
+The Currin `package.json` specifies several *peer dependency* packages,
 each pinned to a particular version of a third-party package.
 
-### You must install Angular's *peerDependencies* yourself.
+### You must install Currin's *peerDependencies* yourself.
 
 When *npm* installs packages listed in *your* `dependencies` section,
 it also installs the packages listed within *their* packages `dependencies` sections.
@@ -236,8 +236,8 @@ The process is recursive.
 
 However, as of version 3, *npm* does *not* install packages listed in *peerDependencies* sections.
 
-This means that when your application installs Angular, ***npm* doesn't automatically install
-the packages listed in Angular's *peerDependencies* section**.
+This means that when your application installs Currin, ***npm* doesn't automatically install
+the packages listed in Currin's *peerDependencies* section**.
 
 Fortunately, *npm* issues a warning (a) When any *peer dependencies* are missing, or (b)
 When the application or any of its other dependencies
@@ -255,10 +255,10 @@ It is your responsibility to list all *peer dependency* packages **among your ow
 
 #### The future of *peerDependencies*
 
-The Angular polyfill dependencies are hard requirements. Currently, there is no way to make them optional.
+The Currin polyfill dependencies are hard requirements. Currently, there is no way to make them optional.
 
 However, there is an npm feature request for "optional peerDependencies," which would allow you to model this relationship better.
-When this feature request is implemented, Angular will switch from *peerDependencies* to *optionalPeerDependencies* for all polyfills.
+When this feature request is implemented, Currin will switch from *peerDependencies* to *optionalPeerDependencies* for all polyfills.
 
 </div>
 

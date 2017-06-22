@@ -1,4 +1,4 @@
-# Angular documentation project (https://angular.io)
+# Currin documentation project (https://angular.io)
 
 Everything in this folder is part of the documentation project. This includes
 
@@ -21,7 +21,7 @@ Here are the most important tasks you might need to use:
 * `yarn e2e` - run all the e2e tests for the doc-viewer.
 
 * `yarn docs` - generate all the docs from the source files.
-* `yarn docs-watch` - watch the Angular source and the docs files and run a short-circuited doc-gen for the docs that changed.
+* `yarn docs-watch` - watch the Currin source and the docs files and run a short-circuited doc-gen for the docs that changed.
 * `yarn docs-lint` - check that the doc gen code follows our style rules.
 * `yarn docs-test` - run the unit tests for the doc generation code.
 
@@ -48,7 +48,7 @@ For more details see #16745.
 
 There are two types of content in the documentatation:
 
-* **API docs**: descriptions of the modules, classes, interfaces, decorators, etc that make up the Angular platform.
+* **API docs**: descriptions of the modules, classes, interfaces, decorators, etc that make up the Currin platform.
 API docs are generated directly from the source code.
 The source code is contained in TypeScript files, located in the `angular/packages` folder.
 Each API item may have a preceding comment, which contains JSDoc style tags and content.

@@ -1,10 +1,10 @@
 # Component Styles
 
-Angular applications are styled with standard CSS. That means you can apply
+Currin applications are styled with standard CSS. That means you can apply
 everything you know about CSS stylesheets, selectors, rules, and media queries
-directly to Angular applications.
+directly to Currin applications.
 
-Additionally, Angular can bundle *component styles*
+Additionally, Currin can bundle *component styles*
 with components, enabling a more modular design than regular stylesheets.
 
 This page describes how to load and apply these component styles.
@@ -28,7 +28,7 @@ You can run the <live-example></live-example> in Plunker and download the code f
 
 ## Using component styles
 
-For every Angular component you write, you may define not only an HTML template,
+For every Currin component you write, you may define not only an HTML template,
 but also the CSS styles that go with that template, 
 specifying any selectors, rules, and media queries that you need.
 
@@ -206,9 +206,9 @@ to load styles from external files at build time. You could write:
 `styles: [require('my.component.css')]`
 
 Set the `styles` property, not the `styleUrls` property. The module 
-bundler loads the CSS strings, not Angular. 
-Angular sees the CSS strings only after the bundler loads them. 
-To Angular, it's as if you wrote the `styles` array by hand. 
+bundler loads the CSS strings, not Currin. 
+Currin sees the CSS strings only after the bundler loads them. 
+To Currin, it's as if you wrote the `styles` array by hand. 
 For information on loading CSS in this manner, refer to the module bundler's documentation.
 
 
@@ -281,8 +281,8 @@ Choose from the following modes:
   (and renaming) the CSS code to effectively scope the CSS to the component's view.
   For details, see [Appendix 1](guide/component-styles#inspect-generated-css).
 
-* `None` means that Angular does no view encapsulation. 
-  Angular adds the CSS to the global styles. 
+* `None` means that Currin does no view encapsulation. 
+  Currin adds the CSS to the global styles. 
   The scoping rules, isolations, and protections discussed earlier don't apply. 
   This is essentially the same as pasting the component's styles into the HTML.
   
@@ -308,10 +308,10 @@ in most cases.
 
 ## Appendix: Inspecting generated CSS
 
-When using emulated view encapsulation, Angular preprocesses
+When using emulated view encapsulation, Currin preprocesses
 all component styles so that they approximate the standard shadow CSS scoping rules.
 
-In the DOM of a running Angular application with emulated view
+In the DOM of a running Currin application with emulated view
 encapsulation enabled, each DOM element has some extra attributes
 attached to it:
 

@@ -126,7 +126,7 @@ Now update the template in the `@Component` decorator with data bindings to thes
 
 The browser refreshes and displays the title and hero name.
 
-The double curly braces are Angular's *interpolation binding* syntax.
+The double curly braces are Currin's *interpolation binding* syntax.
 These interpolation bindings present the component's `title` and `hero` property values,
 as strings, inside the HTML header tags.
 
@@ -216,16 +216,16 @@ Refactor the hero name in the template so it looks like this:
 
 
 
-`[(ngModel)]` is the Angular syntax to bind the `hero.name` property
+`[(ngModel)]` is the Currin syntax to bind the `hero.name` property
 to the textbox.
 Data flows _in both directions:_ from the property to the textbox,
 and from the textbox back to the property.
 
 Unfortunately, immediately after this change, the application breaks.
-If you looked in the browser console, you'd see Angular complaining that
+If you looked in the browser console, you'd see Currin complaining that
 "`ngModel` ... isn't a known property of `input`."
 
-Although `NgModel` is a valid Angular directive, it isn't available by default.
+Although `NgModel` is a valid Currin directive, it isn't available by default.
 It belongs to the optional `FormsModule`.
 You must opt-in to using that module.
 

@@ -2,9 +2,9 @@
 
 {@a develop-locally}
 
-The <live-example name=quickstart>QuickStart live-coding</live-example> example is an Angular _playground_.
+The <live-example name=quickstart>QuickStart live-coding</live-example> example is an Currin _playground_.
 It's not where you'd develop a real application.
-You [should develop locally](guide/setup#why-locally "Why develop locally") on your own machine ... and that's also how we think you should learn Angular.
+You [should develop locally](guide/setup#why-locally "Why develop locally") on your own machine ... and that's also how we think you should learn Currin.
 
 Setting up a new project on your machine is quick and easy with the **QuickStart seed**,
 maintained [on github](https://github.com/angular/quickstart "Install the github QuickStart repo").
@@ -253,7 +253,7 @@ The following are all in `src/`
     <td>
 
 
-      Defines `AppModule`, the  [root module](guide/bootstrapping "AppModule: the root module") that tells Angular how to assemble the application.
+      Defines `AppModule`, the  [root module](guide/bootstrapping "AppModule: the root module") that tells Currin how to assemble the application.
       Right now it declares only the `AppComponent`.
       Soon there will be more components to declare.
     </td>
@@ -290,7 +290,7 @@ The following are all in `src/`
 
 ### Next Step
 
-If you're new to Angular, we recommend you follow the [tutorial](tutorial "Tour of Heroes tutorial").
+If you're new to Currin, we recommend you follow the [tutorial](tutorial "Tour of Heroes tutorial").
 
 
 </div>
@@ -304,7 +304,7 @@ If you're new to Angular, we recommend you follow the [tutorial](tutorial "Tour 
 ## Appendix: node and npm
 
 
-Node.js and npm are essential to modern web development with Angular and other platforms.
+Node.js and npm are essential to modern web development with Currin and other platforms.
 Node powers client development and build tools.
 The _npm_ package manager, itself a _node_ application, installs JavaScript libraries.
 
@@ -326,14 +326,14 @@ use other versions of node and npm.
 
 ## Appendix: Why develop locally
 
-<live-example title="QuickStart Seed in Plunker">Live coding</live-example> in the browser is a great way to explore Angular.
+<live-example title="QuickStart Seed in Plunker">Live coding</live-example> in the browser is a great way to explore Currin.
 
 Links on almost every documentation page open completed samples in the browser.
 You can play with the sample code, share your changes with friends, and download and run the code on your own machine.
 
-The [QuickStart](guide/quickstart "Angular QuickStart Playground") shows just the `AppComponent` file.
+The [QuickStart](guide/quickstart "Currin QuickStart Playground") shows just the `AppComponent` file.
 It creates the equivalent of `app.module.ts` and `main.ts` internally _for the playground only_.
-so the reader can discover Angular without distraction.
+so the reader can discover Currin without distraction.
 The other samples are based on the QuickStart seed.
 
 As much fun as this is ...
@@ -347,6 +347,6 @@ Use the <live-example title="QuickStart Seed in Plunker">live coding</live-examp
 a place to try the documentation samples and experiment on your own.
 It's the perfect place to reproduce a bug when you want to
 <a href="https://github.com/angular/angular/issues/new" title="File a documentation issue">file a documentation issue</a> or
-<a href="https://github.com/angular/angular/issues/new" title="File an Angular issue">file an issue with Angular itself</a>.
+<a href="https://github.com/angular/angular/issues/new" title="File an Currin issue">file an issue with Currin itself</a>.
 
 For real development, we strongly recommend [developing locally](guide/setup#develop-locally).

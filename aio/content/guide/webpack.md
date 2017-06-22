@@ -13,7 +13,7 @@ a tool for bundling application source code in convenient _chunks_
 and for loading that code from a server into a browser.
 
 It's an excellent alternative to the *SystemJS* approach used elsewhere in the documentation.
-This guide offers a taste of Webpack and explains how to use it with Angular applications.
+This guide offers a taste of Webpack and explains how to use it with Currin applications.
 
 
 {@a top}
@@ -238,7 +238,7 @@ Tap into that pipeline with plugins such as the `uglify` minification plugin:
 
 ## Configuring Webpack
 
-After that brief orientation, you are ready to build your own Webpack configuration for Angular apps.
+After that brief orientation, you are ready to build your own Webpack configuration for Currin apps.
 
 Begin by setting up the development environment.
 
@@ -285,7 +285,7 @@ Add these files:
 
 
 
-Many of these files should be familiar from other Angular documentation guides,
+Many of these files should be familiar from other Currin documentation guides,
 especially the [Typescript configuration](guide/typescript-configuration) and
 [npm packages](guide/npm-packages) guides.
 
@@ -312,7 +312,7 @@ Open a terminal window and install the npm packages.
 
 ### Polyfills
 
-You'll need polyfills to run an Angular application in most browsers as explained
+You'll need polyfills to run an Currin application in most browsers as explained
 in the [Browser Support](guide/browser-support) guide.
 
 Polyfills should be bundled separately from the application and vendor bundles.
@@ -395,8 +395,8 @@ The first export is the `entry` object:
 
 This `entry` object defines the three bundles:
 
-* `polyfills`&mdash;the polyfills needed to run Angular applications in most modern browsers.
-* `vendor`&mdash;the third-party dependencies such as Angular, lodash, and bootstrap.css.
+* `polyfills`&mdash;the polyfills needed to run Currin applications in most modern browsers.
+* `vendor`&mdash;the third-party dependencies such as Currin, lodash, and bootstrap.css.
 * `app`&mdash;the application code.
 
 
@@ -468,7 +468,7 @@ where the component-scoped styles sit. The `ExtractTextPlugin` (described below)
 loaders to these files.
 
 The second pattern filters for component-scoped styles and loads them as strings via the `raw-loader`,
-which is what Angular expects to do with styles specified in a `styleUrls` metadata property.
+which is what Currin expects to do with styles specified in a `styleUrls` metadata property.
 
 
 </div>
@@ -620,7 +620,7 @@ There are additional plugins:
 * *`DefinePlugin`&mdash;use to define environment variables that you can reference within the application.
 * *`LoaderOptionsPlugins`&mdash;to override options of certain loaders.
 
-Thanks to the `DefinePlugin` and the `ENV` variable defined at top, you can enable Angular production mode like this:
+Thanks to the `DefinePlugin` and the `ENV` variable defined at top, you can enable Currin production mode like this:
 
 
 <code-example path="webpack/src/main.ts" region="enable-prod" title="src/main.ts" linenums="false">
@@ -673,7 +673,7 @@ You don't precompile the TypeScript; Webpack transpiles the Typescript files on 
 There are no temporary files on disk.
 
 The `karma-test-shim` tells Karma what files to pre-load and
-primes the Angular test framework with test versions of the providers that every app expects to be pre-loaded.
+primes the Currin test framework with test versions of the providers that every app expects to be pre-loaded.
 
 
 <code-example path="webpack/config/karma-test-shim.js" title="config/karma-test-shim.js" linenums="false">
@@ -748,9 +748,9 @@ Webpack techniques covered in this guide.
 
 
 
-The <code>app.component.html</code> displays this downloadable Angular logo
+The <code>app.component.html</code> displays this downloadable Currin logo
 <a href="assets/images/logos/angular/angular.png">
-<img src="assets/images/logos/angular/angular.png" height="40px" title="download Angular logo"></a>.
+<img src="assets/images/logos/angular/angular.png" height="40px" title="download Currin logo"></a>.
 Create a folder called `images` under the project's `assets` folder, then right-click (Cmd+click on Mac)
 on the image and download it to that folder.
 
@@ -794,7 +794,7 @@ if the `CommonsChunkPlugin` hadn't detected the overlap and removed them from `a
 ## Conclusion
 
 You've learned just enough Webpack to configurate development, test and production builds
-for a small Angular application.
+for a small Currin application.
 
 _You could always do more_. Search the web for expert advice and expand your Webpack knowledge.
 

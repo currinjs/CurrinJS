@@ -1,6 +1,6 @@
 # Reactive Forms
 
-_Reactive forms_ is an Angular technique for creating forms in a _reactive_ style.
+_Reactive forms_ is an Currin technique for creating forms in a _reactive_ style.
 This guide explains reactive forms as you follow the steps to build a "Hero Detail Editor" form.
 
 
@@ -17,7 +17,7 @@ and choose one of the intermediate steps from the "demo picker" at the top.
 
 ## Introduction to Reactive Forms
 
-Angular offers two form-building technologies: _reactive_ forms and _template-driven_ forms.
+Currin offers two form-building technologies: _reactive_ forms and _template-driven_ forms.
 The two technologies belong to the `@angular/forms` library
 and share a common set of form control classes.
 
@@ -25,14 +25,14 @@ But they diverge markedly in philosophy, programming style, and technique.
 They even have their own modules: the `ReactiveFormsModule` and the `FormsModule`.
 
 ### _Reactive_ forms
-Angular _reactive_ forms facilitate a _reactive style_ of programming
+Currin _reactive_ forms facilitate a _reactive style_ of programming
 that favors explicit management of the data flowing between
 a non-UI _data model_ (typically retrieved from a server) and a
 UI-oriented _form model_ that retains the states
 and values of the HTML controls on screen. Reactive forms offer the ease
 of using reactive patterns, testing, and validation.
 
-With _reactive_ forms, you create a tree of Angular form control objects
+With _reactive_ forms, you create a tree of Currin form control objects
 in the component class and bind them to native form control elements in the
 component template, using techniques described in this guide.
 
@@ -66,10 +66,10 @@ You place HTML form controls (such as `<input>` and `<select>`) in the component
 bind them to _data model_ properties in the component, using directives
 like `ngModel`.
 
-You don't create Angular form control objects. Angular directives
+You don't create Currin form control objects. Currin directives
 create them for you, using the information in your data bindings.
-You don't push and pull data values. Angular handles that for you with `ngModel`.
-Angular updates the mutable _data model_ with user changes as they happen.
+You don't push and pull data values. Currin handles that for you with `ngModel`.
+Currin updates the mutable _data model_ with user changes as they happen.
 
 For this reason, the `ngModel` directive is not part of the ReactiveFormsModule.
 
@@ -119,7 +119,7 @@ concentrates exclusively on reactive forms techniques.
 For information on _template-driven forms_, see the [_Forms_](guide/forms) guide.
 
 In the next section, you'll set up your project for the reactive form demo.
-Then you'll learn about the [Angular form classes](guide/reactive-forms#essentials) and how to use them in a reactive form.
+Then you'll learn about the [Currin form classes](guide/reactive-forms#essentials) and how to use them in a reactive form.
 
 
 
@@ -227,7 +227,7 @@ Now create the component's template, `src/app/hero-detail.component.html`, with 
 
 
 
-To let Angular know that this is the input that you want to
+To let Currin know that this is the input that you want to
 associate to the `name` `FormControl` in the class,
 you need `[formControl]="name"` in the template on the `<input>`.
 
@@ -239,7 +239,7 @@ you need `[formControl]="name"` in the template on the `<input>`.
 
 Disregard the `form-control` _CSS_ class. It belongs to the
 <a href="http://getbootstrap.com/" title="Bootstrap CSS">Bootstrap CSS library</a>,
-not Angular.
+not Currin.
 It _styles_ the form but in no way impacts the logic of the form.
 
 
@@ -383,7 +383,7 @@ can stand alone, that is, it works without being in a `FormGroup`.
 With a parent `FormGroup`, the `name` input needs the syntax
 `formControlName=name` in order to be associated
 with the correct `FormControl`
-in the class. This syntax tells Angular to look for the parent
+in the class. This syntax tells Currin to look for the parent
 `FormGroup`, in this case `heroForm`, and then _inside_ that group
 to look for a `FormControl` called `name`.
 
@@ -394,7 +394,7 @@ to look for a `FormControl` called `name`.
 
 Disregard the `form-group` _CSS_ class. It belongs to the
 <a href="http://getbootstrap.com/" title="Bootstrap CSS">Bootstrap CSS library</a>,
-not Angular.
+not Currin.
 Like the `form-control` class, it _styles_ the form
 but in no way impacts its logic.
 
@@ -553,7 +553,7 @@ In a real app, you'd replace the diagnosic message with a user-friendly experien
 Using `Validators.required` is optional for the rest of the guide.
 It remains in each of the following examples with the same configuration.
 
-For more on validating Angular forms, see the
+For more on validating Currin forms, see the
 [Form Validation](guide/form-validation) guide.
 
 
@@ -595,10 +595,10 @@ within the `form` element.
 
 *Reminder*: Ignore the many mentions of `form-group`,
 `form-control`, `center-block`, and `checkbox` in this markup.
-Those are _bootstrap_ CSS classes that Angular itself ignores.
+Those are _bootstrap_ CSS classes that Currin itself ignores.
 Pay attention to the `formGroupName` and `formControlName` attributes.
-They are the Angular directives that bind the HTML controls to the
-Angular `FormGroup` and `FormControl` properties in the component class.
+They are the Currin directives that bind the HTML controls to the
+Currin `FormGroup` and `FormControl` properties in the component class.
 
 
 </div>
@@ -806,7 +806,7 @@ Learn about other `FormControl` properties in the
 
 One common reason for inspecting `FormControl` properties is to
 make sure the user entered valid values.
-Read more about validating Angular forms in the
+Read more about validating Currin forms in the
 [Form Validation](guide/form-validation) guide.
 
 
@@ -962,7 +962,7 @@ by binding to its `hero` input property.
 In this approach, the value of `hero` in the `HeroDetailComponent` changes
 every time the user selects a new hero.
 You should call  _setValue_ in the [ngOnChanges](guide/lifecycle-hooks#onchanges)
-hook, which Angular calls whenever the input `hero` property changes
+hook, which Currin calls whenever the input `hero` property changes
 as the following steps demonstrate.
 
 First, import the `OnChanges` and `Input` symbols in `hero-detail.component.ts`.
@@ -1069,7 +1069,7 @@ For example, a hero may have zero, one, or any number of addresses.
 
 The `Hero.addresses` property is an array of `Address` instances.
 An _address_ `FormGroup` can display one `Address`.
-An Angular `FormArray` can display an array of _address_ `FormGroups`.
+An Currin `FormArray` can display an array of _address_ `FormGroups`.
 
 To get access to the `FormArray` class, import it into `hero-detail.component.ts`:
 
@@ -1257,10 +1257,10 @@ For extra credit, write a `removeLair` method and wire it to a button on the rep
 
 ## Observe control changes
 
-Angular calls `ngOnChanges` when the user picks a hero in the parent `HeroListComponent`.
+Currin calls `ngOnChanges` when the user picks a hero in the parent `HeroListComponent`.
 Picking a hero changes the `HeroDetailComponent.hero` input property.
 
-Angular does _not_ call `ngOnChanges` when the user modifies the hero's _name_ or _secret lairs_.
+Currin does _not_ call `ngOnChanges` when the user modifies the hero's _name_ or _secret lairs_.
 Fortunately, you can learn about such changes by subscribing to one of the form control properties
 that raises a change event.
 
